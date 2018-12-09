@@ -1,0 +1,17 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "Shopping site",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Temo Kiknadze, Dea Samniashvili, Mariam Shamatava, Salome Babukhadze",
+  "license": "ISC"
+}
