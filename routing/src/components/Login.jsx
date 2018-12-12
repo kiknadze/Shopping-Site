@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export default class Login extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export default class Login extends Component {
         this.state = {
             isLoggedIn: false,
             message: ''
-}
+    }
 
         this.OnSubmitHandler = this.OnSubmitHandler.bind(this);
         this.email = React.createRef();
@@ -41,8 +41,8 @@ export default class Login extends Component {
     }
     render() {
         const { isLoggedIn } = this.state;
-        if (isLoggedIn) {
-            return <Redirect to={`/profile`} />
+        if (isLoggedIn && localStorage.getItem('User')) {
+            return <Redirect to={`/admin`} />
         }
         return (
             <form className="form--login" onSubmit={this.OnSubmitHandler}>

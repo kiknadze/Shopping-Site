@@ -2,18 +2,25 @@ const express = require('express');
 const crypto = require('crypto');
 const cors = require('cors');
 const fs = require('fs');
-const LocalStorage = require('node-localstorage').LocalStorage,
-    localStorage = new LocalStorage('./scratch');
 
-const secret = 'demo__system';
+//Controlers
+const adminControllers = require('./controllers/adminControllers');
+const adminUsers = require('./controllers/adminUsers');
+const adminMessages = require('./controllers/adminMessages');
+
+//Product DB 
+const Products = require('../routing/src/db/products.json')
+
+const secret = 'demo__system'; //encrypt
+const PORT = 5000; //PORT
+
+const usersfileDB = '../routing/src/db/users.json';
+let userID = 3;
 
 const app = express();
 app.use(cors('*'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-let userID = 3;
-const usersfile = '../routing/src/db/users.json';
 
 const encrypt = data => {
     const hash = crypto.createHmac('sha256', secret)
@@ -24,6 +31,10 @@ const encrypt = data => {
 
 app.get('/', (req, res) => {
     res.send("Hello")
+});
+
+app.get('/db/products', (req, res) => {
+    res.send(Products);
 });
 
 app.post('/register', (req, res) => {
@@ -40,12 +51,12 @@ app.post('/register', (req, res) => {
         level: "1"
     };
 
-    fs.readFile(usersfile, function (err, data) {
+    fs.readFile(usersfileDB, function (err, data) {
         let json = JSON.parse(data)
         json.push(user)
-        fs.writeFile(usersfile, JSON.stringify(json), function (err) {
-            if (err) res.redirect('http://localhost:3000/registrationErr')
-            res.redirect('http://localhost:3000/registrationSucces')
+        fs.writeFile(usersfileDB, JSON.stringify(json), function (err) {
+            if (err) res.json(json)
+            res.json(json);
         })
     })
 
@@ -60,23 +71,27 @@ app.post('/login', (req, res) => {
         level: -1,
         auth: false
     };
-    fs.readFile(usersfile, (err, data) => {
+    fs.readFile(usersfileDB, (err, data) => {
         let users = JSON.parse(data);
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == email && users[i].password == encrypt(password)) {
-                console.log(users[i].id)
                 matchUser = {
                     id: users[i].id,
                     level: users[i].level,
                     auth: true
                 };
+                break;
             };
         };
         res.json(matchUser);
     });
 
-})
+});
 
-app.listen(5000, () => {
-    console.log(`Port - 5000`);
+adminControllers(app);
+adminUsers(app);
+adminMessages(app);
+
+app.listen(PORT, () => {
+    console.log(`Port - ${PORT}`);
 });

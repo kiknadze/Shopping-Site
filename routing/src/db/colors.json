@@ -1,7 +1,22 @@
-{
-    "1": "red",
-    "2": "white",
-    "3": "brown",
-    "4": "black",
-    "5": "seagreen"
-}
+[
+    {
+        "id": "1",
+        "name": "Red"
+    },
+    {
+        "id": "2",
+        "name": "White"
+    },
+    {
+        "id": "3",
+        "name": "Brown"
+    },
+    {
+        "id": "4",
+        "name": "Black"
+    },
+    {
+        "id": "5",
+        "name": "Seagreen"
+    }
+]

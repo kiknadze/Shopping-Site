@@ -1,6 +1,18 @@
-{
-    "1": "Tables",
-    "2": "Chairs",
-    "3": "Decors",
-    "4": "Beds"
-}
+[
+    { 
+        "id": "1",
+        "name":"Tables"
+    },
+    { 
+        "id": "2",
+        "name":"Chairs"
+    },
+    { 
+        "id": "3",
+        "name":"Decors"
+    },
+    { 
+        "id": "4",
+        "name":"Beds"
+    }
+]
