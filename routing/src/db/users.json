@@ -8,6 +8,8 @@
         "email": "admin@admin.ge",
         "birthdate": "2018-12-11",
         "balance": "0",
+        "cart": [],
+        "orders": [],
         "level": "0"
     },
     {
@@ -19,6 +21,8 @@
         "email": "user@user.ge",
         "birthdate": "2018-12-17",
         "balance": "150",
+        "cart": [],
+        "orders": [],
         "level": "1"
     }
 ]

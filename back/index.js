@@ -48,6 +48,8 @@ app.post('/register', (req, res) => {
         email,
         birthdate,
         balance,
+        cart: [],
+        orders: [],
         level: "1"
     };
 
