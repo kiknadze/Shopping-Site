@@ -1,0 +1,18 @@
+[
+    { 
+        "id": "1",
+        "name":"Tables"
+    },
+    { 
+        "id": "2",
+        "name":"Chairs"
+    },
+    { 
+        "id": "3",
+        "name":"Decors"
+    },
+    { 
+        "id": "4",
+        "name":"Beds"
+    }
+]

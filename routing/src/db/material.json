@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "name": "Wood"
+    },
+    {
+        "id": "2",
+        "name": "Metal"
+    },
+    {
+        "id": "3",
+        "name": "Plastic"
+    },
+    {
+        "id": "4",
+        "name": "Glass"
+    }
+]

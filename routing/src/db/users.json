@@ -1,0 +1,28 @@
+[
+    {
+        "id": "1",
+        "name": "Admin",
+        "lastname": "Adminidze",
+        "username": "admin",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "admin@admin.ge",
+        "birthdate": "2018-12-11",
+        "balance": "0",
+        "cart": [],
+        "orders": [],
+        "level": "0"
+    },
+    {
+        "id": "2",
+        "name": "User",
+        "lastname": "Useradze",
+        "username": "user",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "user@user.ge",
+        "birthdate": "2018-12-17",
+        "balance": "150",
+        "cart": [],
+        "orders": [],
+        "level": "1"
+    }
+]
