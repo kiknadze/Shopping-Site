@@ -7,6 +7,7 @@ const fs = require('fs');
 const adminControllers = require('./controllers/adminControllers');
 const adminUsers = require('./controllers/adminUsers');
 const adminMessages = require('./controllers/adminMessages');
+const productControllers = require('./controllers/productControllers');
 
 const secret = 'demo__system'; //encrypt
 const PORT = 5000; //PORT
@@ -86,6 +87,7 @@ app.post('/login', (req, res) => {
 adminControllers(app);
 adminUsers(app);
 adminMessages(app);
+productControllers(app);
 
 app.listen(PORT, () => {
     console.log(`Port - ${PORT}`);
