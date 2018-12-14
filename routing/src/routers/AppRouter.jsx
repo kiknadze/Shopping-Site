@@ -8,6 +8,7 @@ import AdminHeader from '../components/admin/AdminHeader';
 import AdminAddProduct from '../components/admin/AdminAddProduct';
 import AdminFooter from '../components/admin/AdminFooter';
 import AdminShowUSers from '../components/admin/AdminShowUsers';
+import Review from '../components/Review';
 
 const Admin = () => (
     <div>
@@ -40,6 +41,7 @@ const adminShowUSers = () => (
 const index = () => (
     <div>
         <Login />
+        <Review userID={2} productID={2}/>
     </div>
 );
 
