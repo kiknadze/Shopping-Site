@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from './Table';
+import Search from './Search';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css' 
 
@@ -25,14 +26,44 @@ export default class AdminAddProduct extends Component {
             //product table items
             productTableItems: ['#', 'Image', 'Name', 'Category', 'Description', 'Material', 'Color', 'Price', 'Edit', 'Delete'],
             product: [], //product array before fetch
-            editProduct: null,
+            id: '',
+            name: '',
+            url: '',
+            desc: '',
+            category: '0',
+            material: '0',
+            color: '0',
+            price: ''
         }
     }
 
     componentDidMount() {
         this.GetProduct();
-        console.log("temo")
     }
+
+    //Search Product
+    onSearch = (e) => {
+        let matchProduct = [];
+        let search = new RegExp(e.target.value, 'gi');
+        this.state.product.forEach((item, index) => {
+            if(item.name.match(search) && (!matchProduct.includes(item))) {
+                matchProduct.push(item)
+            } else if(matchProduct.includes(item)){
+                matchProduct.splice(index, 1);
+            }
+        })
+
+        if(!matchProduct.length || e.target.value === '') {
+            this.GetProduct() 
+        } else { 
+            this.setState({ product: matchProduct })
+        }
+    }
+
+    //set products inputs
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+    };
 
     //Get products from DB
     GetProduct = () => {
@@ -44,10 +75,26 @@ export default class AdminAddProduct extends Component {
             .catch(err => console.log(err))
     };
 
+    //reset input values
+    onReset = (e) => {
+        e.preventDefault();
+        this.setState({ 
+            id: '',
+            name: '', 
+            url: '', 
+            desc: '',
+            color: '0',
+            category: '0',
+            material: '0',
+            price: ''
+        });
+    }
+
     //Add products value
     onSubmit = (e) => {
         e.preventDefault();
         this.AddProducts(
+            this.state.id,
             this.url.current.value,
             this.name.current.value,
             this.category.current.value,
@@ -56,17 +103,27 @@ export default class AdminAddProduct extends Component {
             this.color.current.value,
             this.material.current.value
         )
+        this.setState({
+            id: '', 
+            name: '', 
+            url: '', 
+            desc: '',
+            color: '0',
+            category: '0',
+            material: '0',
+            price: ''
+        });
     };
 
     //Adding products
-    AddProducts = (url, name, category, desc, price, color, material) => {
+    AddProducts = (id, url, name, category, desc, price, color, material) => {
         fetch('http://localhost:5000/admin/product/add', {
             method: "POST",
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ url, name, category, desc, price, color, material })
+            body: JSON.stringify({ id, url, name, category, desc, price, color, material })
         })
             .then(res => res.json())
             .then(product => {
@@ -115,14 +172,24 @@ export default class AdminAddProduct extends Component {
         window.scrollTo(0, 0);
         let findProduct;
         findProduct = this.state.product[this.state.product.findIndex(index => index.id === id)];
-        this.setState(()=>({ editProduct: findProduct }))
+
+        this.setState({ 
+            id: findProduct.id,
+            name: findProduct.name, 
+            url: findProduct.url, 
+            desc: findProduct.desc,
+            color: findProduct.color,
+            category: findProduct.category,
+            material: findProduct.material,
+            price: findProduct.price 
+        });
     }
 
     ProductCategory = () => {
         let option = [];
         for (let i = 0; i < Category.length; i++) {
             option.push(
-                !!this.state.editProduct ? (this.state.editProduct.category === Category[i].id ? 
+                this.state.category ? (this.state.category === Category[i].id ? 
                 <option key={i} selected value={Category[i].id}>{Category[i].name}</option> : 
                 <option key={i} value={Category[i].id}>{Category[i].name}</option>) : 
                 <option key={i} value={Category[i].id}>{Category[i].name}</option>
@@ -135,7 +202,7 @@ export default class AdminAddProduct extends Component {
         let color = [];
         for (let i = 0; i < Color.length; i++) {
             color.push(
-                !!this.state.editProduct ? (this.state.editProduct.color === Color[i].id ? 
+                this.state.color ? (this.state.color === Color[i].id ? 
                 <option key={i} selected value={Color[i].id}>{Color[i].name}</option> : 
                 <option key={i} value={Color[i].id}>{Color[i].name}</option>) : 
                 <option key={i} value={Color[i].id}>{Color[i].name}</option>
@@ -148,7 +215,7 @@ export default class AdminAddProduct extends Component {
         let material = [];
         for (let i = 0; i < Material.length; i++) {
             material.push(
-                !!this.state.editProduct ? (this.state.editProduct.material === Material[i].id ? 
+                this.state.material ? (this.state.material === Material[i].id ? 
                 <option key={i} selected value={Material[i].id}>{Material[i].name}</option> : 
                 <option key={i} value={Material[i].id}>{Material[i].name}</option>) : 
                 <option key={i} value={Material[i].id}>{Material[i].name}</option>
@@ -172,11 +239,11 @@ export default class AdminAddProduct extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form>
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label for="name">Name</label>
-                            <input type="text" className="form-control" id="name" ref={this.name} value={!!this.state.editProduct ? this.state.editProduct.name : ''} placeholder="Product Name" required />
+                            <input type="text" className="form-control" id="name" name="name" ref={this.name} value={this.state.name} onChange={this.onChange} placeholder="Product Name" required />
                         </div>
                         <div className="form-group col-md-6">
                             <label for="category">Category</label>
@@ -187,11 +254,11 @@ export default class AdminAddProduct extends Component {
                     </div>
                     <div className="form-group">
                         <label for="url">Image</label>
-                        <input type="text" className="form-control" id="url" ref={this.url} value={!!this.state.editProduct ? this.state.editProduct.url : ''} placeholder="Image URL" required />
+                        <input type="text" className="form-control" id="url" name="url" ref={this.url} value={this.state.url} onChange={this.onChange} placeholder="Image URL" required />
                     </div>
                     <div className="form-group">
                         <label for="desc">Description</label>
-                        <textarea className="form-control" id="desc" rows="3" ref={this.desc} value={!!this.state.editProduct ? this.state.editProduct.desc : ''} ></textarea>
+                        <textarea className="form-control" id="desc" name="desc" rows="3" ref={this.desc} value={this.state.desc} onChange={this.onChange} ></textarea>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
@@ -208,12 +275,13 @@ export default class AdminAddProduct extends Component {
                         </div>
                         <div className="form-group col-md-4">
                             <label for="price">Price</label>
-                            <input type="number" className="form-control" id="price" ref={this.price} value={!!this.state.editProduct ? this.state.editProduct.price : ''} required />
+                            <input type="number" className="form-control" id="price" name="price" ref={this.price} value={this.state.price} onChange={this.onChange} required />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-success">Add Product</button>
+                    <button type="submit" className="btn btn-success" onClick={this.onSubmit} >{!!this.state.id ? 'Update Product' : 'Add Product'}</button>
+                    <button type="reset" id="btn--reset" className="btn btn-danger" onClick={this.onReset} >Cancel</button>
                 </form>
-
+                <Search onSearch={this.onSearch} />
                 <Table
                     productTableItems={this.state.productTableItems}
                     product={this.state.product}
@@ -222,6 +290,7 @@ export default class AdminAddProduct extends Component {
                     PrintColor={this.PrintColor}
                     DeleteProductHandler={this.DeleteProductHandler}
                     EditProductHandler={this.EditProductHandler}
+                    isSearch={this.state.isSearch}
                 />
             </div>
         )

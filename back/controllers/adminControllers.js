@@ -3,12 +3,20 @@ module.exports = function (app) {
     let productID = 4;
     let productDB = "../routing/src/db/products.json";
 
+    app.get('/db/products', (req, res) => {
+        fs.readFile(productDB, function (err, data) {
+            let json = JSON.parse(data);
+            res.json(json);
+        })
+    });
+
     //add products
     app.post('/admin/product/add', (req, res) => {
-        let { name, category, url, desc, color, material, price } = req.body;
+        let { id, name, category, url, desc, color, material, price } = req.body;
+        let prodID = id || "" + productID; //set product id
 
         const product = {
-            id: "" + productID,
+            id: "" + prodID,
             url,
             name,
             category,
@@ -22,7 +30,14 @@ module.exports = function (app) {
 
         fs.readFile(productDB, function (err, data) {
             let json = JSON.parse(data);
-            json.push(product);
+            let index = json.findIndex(product => product.id == id);
+
+            //check edit or add product
+            if (index == -1) {
+                json.push(product);
+            } else {
+                json.splice(index, 1, product);
+            }
             fs.writeFile(productDB, JSON.stringify(json), function (err) {
                 if (err) res.json(json)
                 res.json(json);

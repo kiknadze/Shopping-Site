@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 const Table = (props) => (
     <table className="table table-hover table-dark">
@@ -18,9 +17,9 @@ const Table = (props) => (
                     <td>{Product.desc}</td>
                     <td>{props.PrintMaterial(Product.material)}</td>
                     <td>{props.PrintColor(Product.color)}</td>
-                    <td>{Product.price}</td>
-                    <td><button type="button" className="btn btn-warning" onClick={() => props.EditProductHandler(Product.id)}>Edit</button></td>
-                    <td><button type="button" className="btn btn-danger" onClick={() => props.DeleteProductHandler(Product.id)}>Delete</button></td>
+                    <td>{Product.price} GEL</td>
+                    <td><i class="fas fa-edit" onClick={() => props.EditProductHandler(Product.id)} ></i></td>
+                    <td><i class="far fa-trash-alt" onClick={() => props.DeleteProductHandler(Product.id)}></i></td>
                 </tr>
             ))}
 
