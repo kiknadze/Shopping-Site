@@ -1,14 +1,15 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { ProtectedRoute } from "../routes/ProtectedRoute";
-import NotFoundPage from "../components/NotFoundPage";
-import Registration from "../components/Registration";
-import Login from "../components/Login";
-import AdminHeader from "../components/admin/AdminHeader";
-import AdminAddProduct from "../components/admin/AdminAddProduct";
-import AdminFooter from "../components/admin/AdminFooter";
-import AdminShowUSers from "../components/admin/AdminShowUsers";
-
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ProtectedRoute } from '../routes/ProtectedRoute';
+import NotFoundPage from '../components/NotFoundPage';
+import Registration from '../components/Registration';
+import Login from '../components/Login';
+import AdminHeader from '../components/admin/AdminHeader';
+import AdminAddProduct from '../components/admin/AdminAddProduct';
+import AdminFooter from '../components/admin/AdminFooter';
+import AdminShowUSers from '../components/admin/AdminShowUsers';
+import Review from '../components/Review';
+        
 // All messages in the admin part
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
 
@@ -44,15 +45,18 @@ const contactus = () => (
 );
 
 const adminShowUSers = () => (
-  <div>
-    <AdminShowUSers />
-  </div>
-);
+    <div>
+        <AdminHeader/>
+        <AdminShowUSers />
+        <AdminFooter/>
+    </div>
+)
 
 const index = () => (
-  <div>
-    <Login />
-  </div>
+    <div>
+        <Login />
+        <Review userID={2} productID={2}/>
+    </div>
 );
 
 const AppRouter = () => (

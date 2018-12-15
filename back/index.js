@@ -7,6 +7,7 @@ const fs = require("fs");
 const adminControllers = require("./controllers/adminControllers");
 const adminUsers = require("./controllers/adminUsers");
 const adminMessages = require("./controllers/adminMessages");
+const productControllers = require('./controllers/productControllers');
 
 //Product DB
 const Products = require("../routing/src/db/products.json");
@@ -71,6 +72,56 @@ app.post("/register", (req, res) => {
     fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
       if (err) res.json(json);
       res.json(json);
+
+app.post('/register', (req, res) => {
+    let { name, lastname, username, password, email, birthdate, balance } = req.body;
+    const user = {
+        id: "" + userID,
+        name,
+        lastname,
+        username,
+        password: encrypt(password),
+        email,
+        birthdate,
+        balance,
+        cart: [],
+        orders: [],
+        level: "1"
+    };
+
+    fs.readFile(usersfileDB, function (err, data) {
+        let json = JSON.parse(data)
+        json.push(user)
+        fs.writeFile(usersfileDB, JSON.stringify(json), function (err) {
+            if (err) res.json(json)
+            res.json(json);
+        })
+    })
+
+    userID++;
+
+})
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    let matchUser = {
+        id: -1,
+        level: -1,
+        auth: false
+    };
+    fs.readFile(usersfileDB, (err, data) => {
+        let users = JSON.parse(data);
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email == email && users[i].password == encrypt(password)) {
+                matchUser = {
+                    id: users[i].id,
+                    level: users[i].level,
+                    auth: true
+                };
+                break;
+            };
+        };
+        res.json(matchUser);
     });
   });
 
@@ -125,6 +176,7 @@ app.post("/login", (req, res) => {
 adminControllers(app);
 adminUsers(app);
 adminMessages(app);
+productControllers(app);
 
 app.listen(PORT, () => {
   console.log(`Port - ${PORT}`);
