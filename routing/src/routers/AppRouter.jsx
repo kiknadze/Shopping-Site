@@ -86,7 +86,6 @@ const AppRouter = () => (
         <Route path="/contactus" component={contactus} />
         <Route path="/registration" component={registration} />
         <ProtectedRoute path="/checkout" component={checkout} />
-        <ProtectedRoute path="/admin" component={Admin} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />
         <ProtectedRoute path="/admin/users" component={adminShowUSers} />
