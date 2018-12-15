@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/categories.css';
-import 'antd/dist/antd.css';
 
 class ProductList  extends Component {
   render() {

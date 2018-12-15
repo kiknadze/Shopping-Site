@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/sidebar.css';
-import 'antd/dist/antd.css';
 
 class Sidebar extends Component {
   render() {
@@ -29,17 +27,17 @@ class Sidebar extends Component {
           </ul>
         </nav>
         <div className="amado-btn-group mt-30 mb-100">
-          <a href="#" className="btn ">
+          <Link to="#" className="btn">
             button 1
-          </a>
-          <a href="#" className="btn ">
+          </Link>
+          <Link to="#" className="btn">
             button 2
-          </a>
+          </Link>
         </div>
         <div className="cart-fav-search mb-100">
-          <a href="#" className="search-nav">
+          <Link to="#" className="search-nav">
             Search
-          </a>
+          </Link>
         </div>
       </div>
     );

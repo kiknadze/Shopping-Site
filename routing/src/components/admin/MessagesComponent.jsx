@@ -45,7 +45,7 @@ export default class MessagesComponent extends Component {
                     className="btn btn-primary"
                     onClick={() => this.showMessage(message)}
                   >
-                    show
+                    Show the message
                   </button>
                 </td>
                 <td>
