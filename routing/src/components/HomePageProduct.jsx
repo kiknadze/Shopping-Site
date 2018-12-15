@@ -9,8 +9,6 @@ class HomePageProduct extends Component {
     this.state = {
       data
     };
-  }
-
   render() {
     return (
       <div className="gallery-container">
