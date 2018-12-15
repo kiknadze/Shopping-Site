@@ -17,7 +17,6 @@ export default class MessagesComponent extends Component {
       show: !this.state.show,
       requiredItem: message.message
     });
-    console.log(this.state.requiredItem);
   };
 
   render() {
@@ -46,7 +45,7 @@ export default class MessagesComponent extends Component {
                     className="btn btn-primary"
                     onClick={() => this.showMessage(message)}
                   >
-                    show
+                    Show the message
                   </button>
                 </td>
                 <td>

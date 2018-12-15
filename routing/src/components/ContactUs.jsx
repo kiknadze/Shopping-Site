@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
 
 export default class ContactUs extends Component {
   constructor(props) {
@@ -18,20 +18,24 @@ export default class ContactUs extends Component {
       name: "",
       email: "",
       subject: "",
-      text: ""
+      text: "",
+
+      confirmAlert: "Please fill All the Inputs"
     };
   }
 
-  // toggle between the show/hide of modal on conditions,
-  // if every required value is filled
+  // toggle between the show/hide of modal
   toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
     if (
       this.state.name !== "" &&
       this.state.email !== "" &&
       this.state.text !== ""
     ) {
       this.setState({
-        modal: !this.state.modal
+        confirmAlert: "Your message has been sent Successfully!"
       });
     }
   };
@@ -142,14 +146,12 @@ export default class ContactUs extends Component {
           <button onClick={this.toggle}>Send!</button>
 
           <Modal isOpen={this.state.modal}>
-            <form onSubmit={this.handleSubmit}>
-              <ModalHeader>Your message has been sent!</ModalHeader>
-              <ModalFooter>
-                <Button color="danger" onClick={this.toggle}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </form>
+            <ModalHeader>{this.state.confirmAlert}</ModalHeader>
+            <ModalFooter>
+              <Button color="danger" onClick={this.toggle}>
+                Close
+              </Button>
+            </ModalFooter>
           </Modal>
         </form>
       </div>
