@@ -4,6 +4,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 
 const userURL = "http://localhost:5000/db/users";
 
+
+
 export default class User extends Component {
     constructor(props) {
         super(props)
@@ -19,7 +21,6 @@ export default class User extends Component {
     }
 
     OnChangeState = () => {
-        console.log(this.state.userData)
         this.setState(() => ({ userData: [] }))
     }
 
@@ -29,27 +30,24 @@ export default class User extends Component {
             .then(userData => userData.json())
             .then(userData => {
                 this.setState({ userData })
-                // console.log(userData);
             })
             .catch(err => console.log(err));
     }
     handleClickEdit = (id) => {
         let newUsername = this.state.input;
-        console.log(id)
-        console.log(newUsername)
         fetch(`http://localhost:5000/admin/user/edit`, {
             method: "POST",
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ id , newUsername}),
-            
+            body: JSON.stringify({ id, newUsername }),
+
         })
             .then(res => res.json())
             .then(userData => {
                 this.setState({ userData })
-            }) 
+            })
             .catch(err => console.log(err))
 
 
@@ -90,38 +88,26 @@ export default class User extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.userData.map((user, index) => {
-                        if (user.level !== 0) {
-                            return (
-                                <tr key={index}>
-                                    <th scope="row">{user.id}</th>
-                                    <th scope="row">{user.name}</th>
-                                    <th scope="row">{user.lastname}</th>
-                                    <th scope="row">{user.username}</th>
-                                    <th scope="row">{user.email}</th>
-                                    <th scope="row">{user.birthdate}</th>
-                                    <th scope="row">{user.balance}</th>
-                                    <td><i class="fas fa-shopping-cart fa-2x" ></i></td>
-                                    <td><i class="fas fa-truck fa-2x" ></i></td>
-
-
-
-                                    <td><button type="button" className="btn btn-warning" onClick={() => this.EditUserHandler(user.id, user.username)}>Edit</button></td>
-
-
-
-                                </tr>
-                            )
-
-
-
-
-                        }
-                    })}
+                    {
+                        this.state.userData
+                            .filter(user => user.level > 0 )
+                            .map((user, index) => 
+                                    <tr key={index}>
+                                        <th scope="row">{user.id}</th>
+                                        <th scope="row">{user.name}</th>
+                                        <th scope="row">{user.lastname}</th>
+                                        <th scope="row">{user.username}</th>
+                                        <th scope="row">{user.email}</th>
+                                        <th scope="row">{user.birthdate}</th>
+                                        <th scope="row">{user.balance}</th>
+                                        <td><i className="fas fa-shopping-cart fa-2x" ></i></td>
+                                        <td><i className="fas fa-truck fa-2x" ></i></td>
+                                        <td><button type="button" className="btn btn-warning" onClick={() => this.EditUserHandler(user.id, user.username)}>Edit</button></td>
+                                    </tr>
+                                )
+                    }
                 </tbody>
-
             </table>
-
         )
     }
 }

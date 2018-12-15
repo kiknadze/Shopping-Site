@@ -17,7 +17,6 @@ export default class MessagesComponent extends Component {
       show: !this.state.show,
       requiredItem: message.message
     });
-    console.log(this.state.requiredItem);
   };
 
   render() {
