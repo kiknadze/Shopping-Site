@@ -34,7 +34,9 @@ const registration = () => (
 
 const adminShowUSers = () => (
     <div>
+        <AdminHeader/>
         <AdminShowUSers />
+        <AdminFooter/>
     </div>
 )
 
