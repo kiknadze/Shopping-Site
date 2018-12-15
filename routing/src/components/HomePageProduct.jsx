@@ -19,7 +19,7 @@ class HomePageProduct extends Component {
             {this.state.data.map(value => (
               <div className="single-item">
                 <div className="image">
-                  <img src={value.url} />
+                  <img alt="No" src={value.url} />
                 </div>
                 <div className="info">
                   <p>{value.name}</p>
@@ -34,7 +34,7 @@ class HomePageProduct extends Component {
             {this.state.data.map(value => (
               <div className="single-item">
                 <div className="image">
-                  <img src={value.url} />
+                  <img alt="No" src={value.url} />
                 </div>
                 <div className="info">
                   <p>{value.name}</p>
@@ -49,7 +49,7 @@ class HomePageProduct extends Component {
             {this.state.data.map(value => (
               <div className="single-item">
                 <div className="image">
-                  <img src={value.url} />
+                  <img alt="No" src={value.url} />
                 </div>
                 <div className="info">
                   <p>{value.name}</p>

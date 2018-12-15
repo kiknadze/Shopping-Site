@@ -63,6 +63,15 @@ app.post('/register', (req, res) => {
 
 })
 
+//get userData to checkout page
+app.get('/checkout', (req, res) => {
+    fs.readFile(usersfileDB, (err, data) => {
+        let user = JSON.parse(data);
+        console.log(user)
+        res.json(user);
+    })
+})
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     let matchUser = {

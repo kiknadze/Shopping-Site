@@ -9,12 +9,15 @@ import AdminAddProduct from '../components/admin/AdminAddProduct';
 import AdminFooter from '../components/admin/AdminFooter';
 import AdminShowUSers from '../components/admin/AdminShowUsers';
 import Review from '../components/Review';
-        
-// All messages in the admin part
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
-
-//Messages component to send
-import ContactUs from "../components/ContactUs";
+import ContactUs from '../components/ContactUs';
+import ExtraFooter from '../components/ExtraFooter';
+import Footer from '../components/Footer';
+import Gallery from '../components/Gallery';
+import HomePageProduct from '../components/HomePageProduct';
+import Sidebar from '../components/Sidebar';
+import Slider from '../components/Slider';
+import Checkout from '../components/Checkout';
 
 const Admin = () => (
   <div>
@@ -38,9 +41,21 @@ const registration = () => (
   </div>
 );
 
+const checkout = () => (
+  <div>
+    <Sidebar />
+    <Checkout />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
 const contactus = () => (
   <div>
+    <Sidebar />
     <ContactUs />
+    <ExtraFooter />
+    <Footer />
   </div>
 );
 
@@ -54,8 +69,11 @@ const adminShowUSers = () => (
 
 const index = () => (
     <div>
-        <Login />
-        <Review userID={2} productID={2}/>
+      <Sidebar />
+      <HomePageProduct />
+      <Gallery />
+      <ExtraFooter />
+      <Footer />
     </div>
 );
 
@@ -67,7 +85,8 @@ const AppRouter = () => (
         <Route path="/product" />
         <Route path="/contactus" component={contactus} />
         <Route path="/registration" component={registration} />
-        <ProtectedRoute path="/profile" />
+        <ProtectedRoute path="/checkout" component={checkout} />
+        <ProtectedRoute path="/admin" component={Admin} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />
         <ProtectedRoute path="/admin/users" component={adminShowUSers} />

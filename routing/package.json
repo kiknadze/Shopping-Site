@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.11.2",
     "axios": "^0.18.0",
     "jsonfile": "^5.0.0",
     "mdbreact": "^4.8.5-patch.1",
