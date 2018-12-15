@@ -23,8 +23,4 @@ const Table = (props) => (
                 </tr>
             ))}
 
-        </tbody>
-    </table>
-)
-
 export default Table;

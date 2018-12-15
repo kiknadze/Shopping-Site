@@ -1,0 +1,27 @@
+.modal-body,
+.modal-content {
+  color: #000;
+  word-break: break-all;
+}
+p.to-wrap {
+  word-break: break-all;
+}
+
+.modal-body p {
+  word-wrap: break-word;
+}
+
+.modal {
+  background: none;
+  padding: 0;
+  max-width: 100rem;
+}
+
+#exampleModalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

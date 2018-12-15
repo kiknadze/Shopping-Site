@@ -4,8 +4,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 
 const userURL = "http://localhost:5000/db/users";
 
-
-
 export default class User extends Component {
     constructor(props) {
         super(props)

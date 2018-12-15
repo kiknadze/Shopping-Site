@@ -1,0 +1,53 @@
+.form--contactUs {
+  width: 800px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.form--contactUs h1 {
+  font-size: 20pt;
+  color: #808080;
+}
+
+.form--contactUs > label {
+  display: flex;
+  width: 100%;
+}
+
+.form--contactUs > label > p {
+  padding-right: 20px;
+}
+
+.form--contactUs > label > input,
+.form--contactUs > label > textarea {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 80%;
+}
+
+.form--contactUs > label > i {
+  font-size: 25pt;
+  padding: 0 20px;
+  color: #808080;
+}
+
+.form--contactUs > button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 20px;
+}
+
+.show-confirm-message {
+  width: 200px;
+  margin: 0 auto;
+  background-color: green;
+}
