@@ -1,0 +1,150 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.extra-footer {
+  position: relative;
+  z-index: 1;
+  background-color: #3c3c3c;
+  width: 100%;
+  color: #fff;
+  padding: 60px 0;
+  float: left;
+}
+
+.right-side {
+  float: left;
+  width: 80%;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 360px;
+  line-height: 360px;
+  background: #d4d4d4;
+  overflow: hidden;
+}
+
+.single-slide .image {
+  float: left;
+  width: 66.66666%;
+  overflow: hidden;
+}
+
+.single-slide .image img {
+  width: 100%;
+  height: 400px;
+}
+
+.single-slide .info {
+  float: left;
+  width: 33.33333%;
+}
+
+/* GALLERY */
+.gallery-container {
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+  background: #364d79;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+}
+
+  .gallery-container
+  .frist-grid
+  .gallery-container
+  .second-grid
+  .gallery-container
+  .third-grid {
+  width: 33%;
+}
+
+.gallery-container .single-item {
+  overflow: hidden;
+  width: 100%;
+  /* height: 300px; */
+  position: relative;
+}
+
+.gallery-container .single-item .image {
+  overflow: hidden;
+}
+
+.gallery-container .single-item .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-container .single-item .info {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  left: 30px;
+}
+
+.gallery-container .single-item .info::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background-color: #fbb710;
+  top: 0;
+  left: 0;
+}
+
+.gallery-container .single-item .info h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-container .single-item .info p {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.gallery-container .frist-grid .single-item:nth-child(1) {
+  height: 33%;
+  background: green;
+}
+.gallery-container .frist-grid .single-item:nth-child(2) {
+  height: 33%;
+  background: green;
+}
+.gallery-container .frist-grid .single-item:nth-child(3) {
+  height: 33%;
+  background: green;
+}
+
+.gallery-container .second-grid .single-item:nth-child(1) {
+  height: 25%;
+}
+.gallery-container .second-grid .single-item:nth-child(2) {
+  height: 40%;
+}
+.gallery-container .second-grid .single-item:nth-child(3) {
+  height: 35%;
+}
+
+.gallery-container .third-grid .single-item:nth-child(1) {
+  height: 45%;
+}
+.gallery-container .third-grid .single-item:nth-child(2) {
+  height: 30%;
+}
+.gallery-container .third-grid .single-item:nth-child(3) {
+  height: 25%;
+}

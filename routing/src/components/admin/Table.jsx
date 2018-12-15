@@ -18,9 +18,12 @@ const Table = (props) => (
                     <td>{props.PrintMaterial(Product.material)}</td>
                     <td>{props.PrintColor(Product.color)}</td>
                     <td>{Product.price} GEL</td>
-                    <td><i class="fas fa-edit" onClick={() => props.EditProductHandler(Product.id)} ></i></td>
-                    <td><i class="far fa-trash-alt" onClick={() => props.DeleteProductHandler(Product.id)}></i></td>
+                    <td><i className="fas fa-edit" onClick={() => props.EditProductHandler(Product.id)} ></i></td>
+                    <td><i className="far fa-trash-alt" onClick={() => props.DeleteProductHandler(Product.id)}></i></td>
                 </tr>
             ))}
 
+        </tbody>
+    </table>
+)
 export default Table;
