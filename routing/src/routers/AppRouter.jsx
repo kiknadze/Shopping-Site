@@ -9,58 +9,91 @@ import AdminAddProduct from '../components/admin/AdminAddProduct';
 import AdminFooter from '../components/admin/AdminFooter';
 import AdminShowUSers from '../components/admin/AdminShowUsers';
 import Review from '../components/Review';
+import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
+import ContactUs from '../components/ContactUs';
+import ExtraFooter from '../components/ExtraFooter';
+import Footer from '../components/Footer';
+import Gallery from '../components/Gallery';
+import HomePageProduct from '../components/HomePageProduct';
+import Sidebar from '../components/Sidebar';
+import Slider from '../components/Slider';
+import Checkout from '../components/Checkout';
 
 const Admin = () => (
-    <div>
-        <AdminHeader />
-        <AdminAddProduct />
-        <AdminFooter />
-    </div>
+  <div>
+    <AdminHeader />
+    <AdminAddProduct />
+    <AdminFooter />
+  </div>
 );
 
 const Messages = () => (
-    <div>
-        <AdminHeader />
-        
-        <AdminFooter />
-    </div> 
-)
+  <div>
+    <AdminHeader />
+    <AdminShowMessagesList />
+    <AdminFooter />
+  </div>
+);
 
 const registration = () => (
-    <div>
-        <Registration />
-    </div>
+  <div>
+    <Registration />
+  </div>
+);
+
+const checkout = () => (
+  <div>
+    <Sidebar />
+    <Checkout />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
+const contactus = () => (
+  <div>
+    <Sidebar />
+    <ContactUs />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const adminShowUSers = () => (
     <div>
+        <AdminHeader/>
         <AdminShowUSers />
+        <AdminFooter/>
     </div>
 )
 
 const index = () => (
     <div>
-        <Login />
-        <Review userID={2} productID={2}/>
+      <Sidebar />
+      <HomePageProduct />
+      <Gallery />
+      <ExtraFooter />
+      <Footer />
     </div>
 );
 
 const AppRouter = () => (
-    <BrowserRouter>
-        <div>
-            <Switch>
-                <Route path="/" component={index} exact={true}/>
-                <Route path="/product" />
-                <Route path="/registration" component={registration} />
-                <ProtectedRoute path="/profile" />
-                <ProtectedRoute path="/admin" component={Admin} exact={true}/>
-                <ProtectedRoute path="/admin/messages" component={Messages}/>
-                <ProtectedRoute path="/admin/users" component={adminShowUSers}/>
-                <Route path="/contact" />
-                <Route component={NotFoundPage}/>
-            </Switch>
-        </div>
-    </BrowserRouter>
+  <BrowserRouter>
+    <div>
+      <Switch>
+        <Route path="/" component={index} exact={true} />
+        <Route path="/product" />
+        <Route path="/contactus" component={contactus} />
+        <Route path="/registration" component={registration} />
+        <ProtectedRoute path="/checkout" component={checkout} />
+        <ProtectedRoute path="/admin" component={Admin} exact={true} />
+        <ProtectedRoute path="/admin/messages" component={Messages} />
+        <ProtectedRoute path="/admin/users" component={adminShowUSers} />
+        <Route path="/contact" />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
+  </BrowserRouter>
 );
 
 export default AppRouter;

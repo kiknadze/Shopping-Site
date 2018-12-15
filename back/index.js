@@ -15,6 +15,9 @@ const PORT = 5000; //PORT
 const usersfileDB = '../routing/src/db/users.json';
 let userID = 3;
 
+const messagesFileDB = "../routing/src/db/messages.json";
+let messageID = 3;
+
 const app = express();
 app.use(cors('*'));
 app.use(express.urlencoded({ extended: true }));
@@ -60,6 +63,15 @@ app.post('/register', (req, res) => {
 
 })
 
+//get userData to checkout page
+app.get('/checkout', (req, res) => {
+    fs.readFile(usersfileDB, (err, data) => {
+        let user = JSON.parse(data);
+        console.log(user)
+        res.json(user);
+    })
+})
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     let matchUser = {
@@ -82,6 +94,28 @@ app.post('/login', (req, res) => {
         res.json(matchUser);
     });
 
+});
+
+app.post("/addmessage", (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  const newMessage = {
+    id: "" + messageID,
+    name,
+    email,
+    subject,
+    message
+  };
+
+  fs.readFile(messagesFileDB, function(err, data) {
+    let json = JSON.parse(data);
+    json.push(newMessage);
+    fs.writeFile(messagesFileDB, JSON.stringify(json), function(err) {
+      if (err) res.json(json);
+      res.json(json);
+    });
+  });
+  messageID++;
 });
 
 adminControllers(app);
