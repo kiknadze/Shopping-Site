@@ -93,7 +93,7 @@ export default class User extends Component {
                 </thead>
                 <tbody>
                     {this.state.userData.map((user, index) => {
-                        if (user.level !== 0) {
+                        if (Number(user.level) !== 0) {
                             return (
                                 <tr key={index}>
                                     <th scope="row">{user.id}</th>

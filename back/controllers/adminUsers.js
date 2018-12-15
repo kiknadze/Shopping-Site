@@ -18,25 +18,7 @@ module.exports = function (app) {
         fs.readFile(Users, function (err, data) {
             let json = JSON.parse(data);
             let editUser =json.findIndex(user => user.id == id);
-            console.log(editUser)
-            // const user = {
-            //     id: "" + json[editUser].id,
-            //     name : editUser.name,
-            //     lastname: editUser.lastname,
-            //     username: "",
-            //     password: editUser.password,
-            //     email: editUser.email,
-            //     birthdate: editUser.birthdate,
-            //     balance: editUser.balance,
-            //     cart: editUser.cart,
-            //     orders: editUser.orders,
-            //     level: "1"
-               
-            // };
             json[editUser].username=newUsername;
-
-            // json.push(user);
-            
             fs.writeFile(Users, JSON.stringify(json), function (err) {
                 if (err) res.json(json)
                 res.json(json);
