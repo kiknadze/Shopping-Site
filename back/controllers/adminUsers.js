@@ -19,6 +19,7 @@ module.exports = function (app) {
             let json = JSON.parse(data);
             let editUser =json.findIndex(user => user.id == id);
             json[editUser].username=newUsername;
+            
             fs.writeFile(Users, JSON.stringify(json), function (err) {
                 if (err) res.json(json)
                 res.json(json);

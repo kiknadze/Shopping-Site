@@ -1,1 +1,72 @@
-[{"id":"1","name":"Admin","lastname":"Adminidze","username":"admin","password":"596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a","email":"admin@admin.ge","birthdate":"2018-12-11","balance":"0","cart":[],"orders":[],"level":"0"},{"id":"3","name":"marimi","lastname":"shamo","username":"aaa","password":"2d045fabfb43aea534bfe999b4057748475c4c39f420d2c1509e5edf8e54a118","email":"shamatavamari@mail.ru","birthdate":"2018-12-12","balance":"150","cart":[],"orders":[],"level":"1"},{"id":"4","name":"marimi","lastname":"shamo","username":"sssssssssssss","password":"2d045fabfb43aea534bfe999b4057748475c4c39f420d2c1509e5edf8e54a118","email":"shamatavamari@mail.ru","birthdate":"2018-12-12","balance":"150","cart":[],"orders":[],"level":"1"}]
+[
+    {
+        "id": "1",
+        "name": "Admin",
+        "lastname": "Adminidze",
+        "username": "admin",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "admin@admin.ge",
+        "birthdate": "2018-12-11",
+        "balance": "0",
+        "cart": [{
+            "id": "1",
+            "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+            "name": "Jurnal Table",
+            "category": "1",
+            "desc": "Small Table for Journals, usually used in living rooms",
+            "price": "180",
+            "color": "3",
+            "material": "1",
+            "quantity": "2"
+        },
+        {
+            "id": "1",
+            "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+            "name": "Jurnal Table",
+            "category": "1",
+            "desc": "Small Table for Journals, usually used in living rooms",
+            "price": "180",
+            "color": "3",
+            "material": "1",
+            "quantity": "2"
+        }],
+        "orders": [{
+            "id": "1",
+            "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+            "name": "Jurnal Table",
+            "category": "1",
+            "desc": "Small Table for Journals, usually used in living rooms",
+            "price": "180",
+            "color": "3",
+            "material": "1",
+            "quantity": "2"
+        }],
+        "level": "0"
+    },
+    {
+        "id": "3",
+        "name": "marimi",
+        "lastname": "shamo",
+        "username": "mari",
+        "password": "2d045fabfb43aea534bfe999b4057748475c4c39f420d2c1509e5edf8e54a118",
+        "email": "shamatavamari@mail.ru",
+        "birthdate": "2018-12-12",
+        "balance": "150",
+        "cart": [],
+        "orders": [],
+        "level": "1"
+    },
+    {
+        "id": "4",
+        "name": "marimi",
+        "lastname": "shamo",
+        "username": "Mari",
+        "password": "2d045fabfb43aea534bfe999b4057748475c4c39f420d2c1509e5edf8e54a118",
+        "email": "shamatavamari@mail.ru",
+        "birthdate": "2018-12-12",
+        "balance": "150",
+        "cart": [],
+        "orders": [],
+        "level": "1"
+    }
+]
