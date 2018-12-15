@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "productID": "1",
+        "userID": "1",
+        "message": "Very comfortable. Good price"
+    },
+    {
+        "id": "2",
+        "productID": "2",
+        "userID": "2",
+        "message": "test"
+    },
+    {
+        "id": "3",
+        "productID": "2",
+        "userID": "4",
+        "message": "testrest"
+    }
+]

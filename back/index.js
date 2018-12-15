@@ -7,9 +7,7 @@ const fs = require('fs');
 const adminControllers = require('./controllers/adminControllers');
 const adminUsers = require('./controllers/adminUsers');
 const adminMessages = require('./controllers/adminMessages');
-
-//Product DB 
-const Products = require('../routing/src/db/products.json')
+const productControllers = require('./controllers/productControllers');
 
 const secret = 'demo__system'; //encrypt
 const PORT = 5000; //PORT
@@ -31,10 +29,6 @@ const encrypt = data => {
 
 app.get('/', (req, res) => {
     res.send("Hello")
-});
-
-app.get('/db/products', (req, res) => {
-    res.send(Products);
 });
 
 app.post('/register', (req, res) => {
@@ -93,6 +87,7 @@ app.post('/login', (req, res) => {
 adminControllers(app);
 adminUsers(app);
 adminMessages(app);
+productControllers(app);
 
 app.listen(PORT, () => {
     console.log(`Port - ${PORT}`);
