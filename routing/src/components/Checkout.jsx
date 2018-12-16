@@ -34,6 +34,20 @@ export default class Checkout extends Component {
             .catch(err => console.log(err))
     };
 
+    MinusProduct = (e) => {
+        let user = this.state.user;
+        user[0].cart[e.target.id].quantity = user[0].cart[e.target.id].quantity - 1;
+        user[0].cart[e.target.id].price = Number(user[0].cart[e.target.id].price) - Number(user[0].cart[e.target.id].quantity);
+        this.setState({user});
+    }
+
+    PliusProduct = (e) => {
+        let user = this.state.user;
+        user[0].cart[e.target.id].quantity = Number(user[0].cart[e.target.id].quantity) + 1;
+        user[0].cart[e.target.id].price = Number(user[0].cart[e.target.id].price) + Number(user[0].cart[e.target.id].quantity);
+        this.setState({user});
+    }
+
     render() {
         return (
             <div className="checkout">
@@ -47,7 +61,13 @@ export default class Checkout extends Component {
                             }
                         </div>
                         <div className="ShoppingCart--products__body">
-                        { this.state.user.length && <CheckoutItems cart={this.state.user[0].cart} /> }
+                        { 
+                            this.state.user.length && 
+                            <CheckoutItems 
+                                MinusProduct={this.MinusProduct}
+                                PliusProduct={this.PliusProduct} 
+                                cart={this.state.user[0].cart} /> 
+                        }
                         </div>
                     </div>
                     <div className="chekout--ShoppingCart__buy">
