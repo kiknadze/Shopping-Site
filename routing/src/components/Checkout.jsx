@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import CheckoutItems from './CheckoutItems';
 
@@ -9,13 +10,19 @@ export default class Checkout extends Component {
     constructor(props) {
         super(props);
 
+        this.balance = React.createRef();
+        this.address = React.createRef();
+
         this.state = {
             tableTitles: ['', 'Name', 'Price', 'Quantity'],
             user: {},
             totalPrice: 0,
             IsAddCart: false,
             IsBuying: false,
-            modal: false
+            modalOrderComplite: false,
+            balanceModal: false,
+            addressModal: false,
+            redirect: false
         }
     }
 
@@ -23,15 +30,54 @@ export default class Checkout extends Component {
         this.GetUser();
     };
 
-    Toggle = () => {
+    OnComplete = () => {
+        let user = this.state.user;
+        user.balance -= this.state.totalPrice;
+        this.OrderCompleted(user);
         this.setState({
-          modal: !this.state.modal
+            totalPrice: 0,
+            modalOrderComplite: !this.state.modalOrderComplite,
+            redirect: true
         });
     }
 
+    OrderCompleted = (user) => {
+        fetch('http://localhost:5000/ordercompleted', {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ user })
+        })
+            .then(res => res.json())
+            .then(user => {
+                this.setState({ user })
+            })
+            .catch(err => console.log(err))
+    }
+
+    ToggleBalance = () => {
+        this.setState({
+            balanceModal: !this.state.balanceModal
+        });
+    }
+
+    ToggleAddress = () => {
+        this.setState({
+            addressModal: !this.state.addressModal
+        });
+    }
+
+    onChange = (e) => {
+        let user = this.state.user;
+        user.address = e.target.value;
+        this.setState({ user })
+    };
+
     OnCheckout = () => {
         this.setState({ IsBuying: true })
-        setTimeout(() => this.setState({ IsBuying: false, modal: true }), 2000);
+        setTimeout(() => this.setState({ IsBuying: false, modalOrderComplite: true }), 2000);
     }
 
     GetUser = () => {
@@ -79,7 +125,32 @@ export default class Checkout extends Component {
         this.TotalPrice();
     }
 
+    OnAddBalance = () => {
+        this.setState({ balanceModal: true });
+    }
+
+    OnEditAddress = () => {
+        this.setState({ addressModal: true });
+    }
+
+    AddBalance = () => {
+        let user = this.state.user;
+        user.balance = Number(user.balance) + Number(this.balance.current.value);
+        this.setState( { user, balanceModal: false } )
+    }
+
+    EditAddress = () => {
+        let user = this.state.user;
+        user.address = this.address.current.value;
+        this.setState( { user, addressModal: false } )
+    }
+
     render() {
+        { 
+            if (this.state.redirect === true) {
+                return <Redirect to="/" />
+            } 
+        }
         return (
             <div className="checkout">
                 <div className="checkout__head">
@@ -120,7 +191,7 @@ export default class Checkout extends Component {
                         </div>
                         <div className="buy__details">
                             <h3><i class="fas fa-map-marked-alt"></i> Address:</h3>
-                            <h3>{this.state.user.address}</h3>
+                            <h3><i class="fas fa-pen-square" onClick={this.OnEditAddress} style={{"color": "red"}}></i> {this.state.user.address}</h3>
                         </div>
                         <div className="buy__details">
                             <h3><i class="fas fa-truck"></i> Delivery:</h3>
@@ -131,8 +202,8 @@ export default class Checkout extends Component {
                             <h3>
                                 {
                                     this.state.user.balance < this.state.totalPrice ?
-                                        <i class="fas fa-credit-card" style={{"animation": "pulse 1s infinite", "color": "red"}}></i> :
-                                        <i class="fas fa-credit-card" ></i>
+                                        <i class="fas fa-credit-card" onClick={this.OnAddBalance} style={{"animation": "pulse 1s infinite", "color": "red"}}></i> :
+                                        <i class="fas fa-credit-card" onClick={this.OnAddBalance}></i>
                                  } {this.state.user.balance} ₾</h3>
                         </div>
                         <div className="buy__details">
@@ -143,12 +214,42 @@ export default class Checkout extends Component {
                             {this.state.IsBuying && <img src="./loading.gif" alt="NO LOADING" />}
                         </div>
                         <button className="btn-checkout" disabled={this.state.user.balance < this.state.totalPrice} onClick={this.OnCheckout}>Buy</button>
-                        <Modal isOpen={this.state.modal}>
-                            <ModalHeader>Order Status</ModalHeader>
+                        <Modal isOpen={this.state.modalOrderComplite}>
+                            <ModalHeader className="modalheader">Order Status</ModalHeader>
                             <ModalBody>Your Order Has Completed!</ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" onClick={this.Toggle}>
+                            <ModalFooter className="modalfooter">
+                                <Button color="danger" onClick={this.OnComplete}>
                                     Close
+                                </Button>
+                            </ModalFooter>
+                        </Modal>
+
+                        <Modal isOpen={this.state.balanceModal}>
+                            <ModalHeader className="modalheader">Add Balance</ModalHeader>
+                            <ModalBody>
+                                <input class="form-control" type="number" name="balance" placeholder="Enter Money" ref={this.balance} />
+                            </ModalBody>
+                            <ModalFooter className="modalfooter">
+                                <Button color="success" onClick={this.AddBalance}>
+                                    Add Balance
+                                </Button>
+                                <Button color="danger" onClick={this.ToggleBalance}>
+                                    Cancel
+                                </Button>
+                            </ModalFooter>
+                        </Modal>
+
+                        <Modal isOpen={this.state.addressModal}>
+                            <ModalHeader className="modalheader">Edit Address</ModalHeader>
+                            <ModalBody>
+                                <input class="form-control" type="text" onChange={this.onChange} value={this.state.user.address} name="address" ref={this.address} />
+                            </ModalBody>
+                            <ModalFooter className="modalfooter">
+                                <Button color="success" onClick={this.EditAddress}>
+                                    Save Address
+                                </Button>
+                                <Button color="danger" onClick={this.ToggleAddress}>
+                                    Cancel
                                 </Button>
                             </ModalFooter>
                         </Modal>
