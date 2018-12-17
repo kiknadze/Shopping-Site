@@ -41,6 +41,12 @@ const registration = () => (
   </div>
 );
 
+const login = () => (
+  <div>
+    <Login />
+  </div>
+);
+
 const checkout = () => (
   <div>
     <Sidebar />
@@ -85,6 +91,7 @@ const AppRouter = () => (
         <Route path="/product" />
         <Route path="/contactus" component={contactus} />
         <Route path="/registration" component={registration} />
+        <Route path="/login" component={login} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />

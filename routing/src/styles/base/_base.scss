@@ -9,4 +9,8 @@ button {
 
 button:disabled {
     cursor: default;
+    background: $darkgray;
+    &:hover {
+        background: $darkgray;
+    }
 }
