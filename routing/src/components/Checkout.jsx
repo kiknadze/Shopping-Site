@@ -155,7 +155,7 @@ export default class Checkout extends Component {
             <div className="checkout">
                 <div className="checkout__head">
                     <h1>Shopping Cart</h1>
-                    <div class="cart__image">
+                    <div className="cart__image">
                         {
                             this.state.IsAddCart ?
                                 <img src="/addCart.gif" alt="No Cart" /> :
@@ -183,32 +183,32 @@ export default class Checkout extends Component {
                         </div>
                     </div>
                     <div className="chekout--ShoppingCart__buy">
-                        <h2><i class="fas fa-cart-arrow-down"></i> Cart Total</h2>
+                        <h2><i className="fas fa-cart-arrow-down"></i> Cart Total</h2>
                         <hr />
                         <div className="buy__details">
-                            <h3><i class="fas fa-money-bill-alt"></i> subtotal:</h3>
-                            <h3><i class="fas fa-coins"></i> {this.state.totalPrice} ₾</h3>
+                            <h3><i className="fas fa-money-bill-alt"></i> subtotal:</h3>
+                            <h3><i className="fas fa-coins"></i> {this.state.totalPrice} ₾</h3>
                         </div>
                         <div className="buy__details">
-                            <h3><i class="fas fa-map-marked-alt"></i> Address:</h3>
-                            <h3><i class="fas fa-pen-square" onClick={this.OnEditAddress} style={{"color": "red"}}></i> {this.state.user.address}</h3>
+                            <h3><i className="fas fa-map-marked-alt"></i> Address:</h3>
+                            <h3><i className="fas fa-pen-square" onClick={this.OnEditAddress} style={{"color": "red"}}></i> {this.state.user.address}</h3>
                         </div>
                         <div className="buy__details">
-                            <h3><i class="fas fa-truck"></i> Delivery:</h3>
-                            <h3><i class="fas fa-coins"></i> 0 ₾</h3>
+                            <h3><i className="fas fa-truck"></i> Delivery:</h3>
+                            <h3><i className="fas fa-coins"></i> 0 ₾</h3>
                         </div>
                         <div className="buy__details">
-                            <h3><i class="fas fa-money-check"></i> Your Balance:</h3>
+                            <h3><i className="fas fa-money-check"></i> Your Balance:</h3>
                             <h3>
                                 {
                                     this.state.user.balance < this.state.totalPrice ?
-                                        <i class="fas fa-credit-card" onClick={this.OnAddBalance} style={{"animation": "pulse 1s infinite", "color": "red"}}></i> :
-                                        <i class="fas fa-credit-card" onClick={this.OnAddBalance}></i>
+                                        <i className="fas fa-credit-card" onClick={this.OnAddBalance} style={{"animation": "pulse 1s infinite", "color": "red"}}></i> :
+                                        <i className="fas fa-credit-card" onClick={this.OnAddBalance}></i>
                                  } {this.state.user.balance} ₾</h3>
                         </div>
                         <div className="buy__details">
-                            <h3><i class="fas fa-money-check"></i> Total: </h3>
-                            <h3><i class="fas fa-coins"></i> {this.state.totalPrice} ₾</h3>
+                            <h3><i className="fas fa-money-check"></i> Total: </h3>
+                            <h3><i className="fas fa-coins"></i> {this.state.totalPrice} ₾</h3>
                         </div>
                         <div className="buying--loading">
                             {this.state.IsBuying && <img src="./loading.gif" alt="NO LOADING" />}
@@ -227,7 +227,7 @@ export default class Checkout extends Component {
                         <Modal isOpen={this.state.balanceModal}>
                             <ModalHeader className="modalheader">Add Balance</ModalHeader>
                             <ModalBody>
-                                <input class="form-control" type="number" name="balance" placeholder="Enter Money" ref={this.balance} />
+                                <input className="form-control" type="number" name="balance" placeholder="Enter Money" ref={this.balance} />
                             </ModalBody>
                             <ModalFooter className="modalfooter">
                                 <Button color="success" onClick={this.AddBalance}>
@@ -242,7 +242,7 @@ export default class Checkout extends Component {
                         <Modal isOpen={this.state.addressModal}>
                             <ModalHeader className="modalheader">Edit Address</ModalHeader>
                             <ModalBody>
-                                <input class="form-control" type="text" onChange={this.onChange} value={this.state.user.address} name="address" ref={this.address} />
+                                <input className="form-control" type="text" onChange={this.onChange} value={this.state.user.address} name="address" ref={this.address} />
                             </ModalBody>
                             <ModalFooter className="modalfooter">
                                 <Button color="success" onClick={this.EditAddress}>
