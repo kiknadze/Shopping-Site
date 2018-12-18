@@ -11,7 +11,7 @@ export default function CheckoutItems(props) {
           <ul>
             <li><i className="fas fa-cart-arrow-down yellow"></i></li>
             <li><i className="fas fa-minus-square black" onClick={props.MinusProduct} id={index}></i></li>
-            <li>{product.quantity}</li>
+            <li className="prod--quantity">{product.quantity}</li>
             <li><i className="fas fa-plus-square green" onClick={props.PliusProduct} id={index}></i></li>
             <li><i className="fas fa-trash-alt red" onClick={props.DeleteProduct} id={index}></i></li>
           </ul>

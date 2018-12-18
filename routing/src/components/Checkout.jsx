@@ -22,7 +22,8 @@ export default class Checkout extends Component {
             modalOrderComplite: false,
             balanceModal: false,
             addressModal: false,
-            redirect: false
+            redirect: false,
+            shipping: 5
         }
     }
 
@@ -36,6 +37,7 @@ export default class Checkout extends Component {
         this.OrderCompleted(user);
         this.setState({
             totalPrice: 0,
+            shipping: 5,
             modalOrderComplite: !this.state.modalOrderComplite,
             redirect: true
         });
@@ -86,20 +88,26 @@ export default class Checkout extends Component {
             .then(users => {
                 let user = users.filter(user => user.id === userID)
                 let totalPrice = 0;
+                let shipping = 5;
                 for (let i = 0; i < user[0].cart.length; i++) {
                     totalPrice += user[0].cart[i].price * user[0].cart[i].quantity;
                 }
-                this.setState({ totalPrice, user: user[0] });
+                if(totalPrice > 500) shipping = 0;
+                totalPrice = totalPrice + shipping;
+                this.setState({ totalPrice, shipping, user: user[0] });
             })
             .catch(err => console.log(err))
     };
 
     TotalPrice = () => {
         let totalPrice = 0;
+        let shipping = 5;
         for (let i = 0; i < this.state.user.cart.length; i++) {
             totalPrice += this.state.user.cart[i].price * this.state.user.cart[i].quantity;
         }
-        this.setState({ totalPrice });
+        if(totalPrice > 500) shipping = 0;
+        totalPrice = totalPrice + shipping;
+        this.setState({ totalPrice, shipping });
     }
 
     MinusProduct = (e) => {
@@ -146,11 +154,11 @@ export default class Checkout extends Component {
     }
 
     render() {
-        { 
-            if (this.state.redirect === true) {
-                return <Redirect to="/" />
-            } 
-        }
+        
+        if (this.state.redirect === true) {
+            return <Redirect to="/" />
+        } 
+        
         return (
             <div className="checkout">
                 <div className="checkout__head">
@@ -186,7 +194,7 @@ export default class Checkout extends Component {
                         <h2><i className="fas fa-cart-arrow-down"></i> Cart Total</h2>
                         <hr />
                         <div className="buy__details">
-                            <h3><i className="fas fa-money-bill-alt"></i> subtotal:</h3>
+                            <h3><i className="fas fa-money-bill-alt"></i> Subtotal:</h3>
                             <h3><i className="fas fa-coins"></i> {this.state.totalPrice} ₾</h3>
                         </div>
                         <div className="buy__details">
@@ -195,7 +203,7 @@ export default class Checkout extends Component {
                         </div>
                         <div className="buy__details">
                             <h3><i className="fas fa-truck"></i> Delivery:</h3>
-                            <h3><i className="fas fa-coins"></i> 0 ₾</h3>
+                            <h3><i className="fas fa-coins"></i> {this.state.shipping} ₾</h3>
                         </div>
                         <div className="buy__details">
                             <h3><i className="fas fa-money-check"></i> Your Balance:</h3>

@@ -2,13 +2,11 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../routes/ProtectedRoute';
 import NotFoundPage from '../components/NotFoundPage';
-import Registration from '../components/Registration';
 import Login from '../components/Login';
 import AdminHeader from '../components/admin/AdminHeader';
 import AdminAddProduct from '../components/admin/AdminAddProduct';
 import AdminFooter from '../components/admin/AdminFooter';
 import AdminShowUSers from '../components/admin/AdminShowUsers';
-import Review from '../components/Review';
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
 import ContactUs from '../components/ContactUs';
 import ExtraFooter from '../components/ExtraFooter';
@@ -16,7 +14,6 @@ import Footer from '../components/Footer';
 import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
-import Slider from '../components/Slider';
 import Checkout from '../components/Checkout';
 
 const Admin = () => (
@@ -37,13 +34,19 @@ const Messages = () => (
 
 const registration = () => (
   <div>
-    <Registration />
+    <Sidebar />
+    <Login />
+    <ExtraFooter />
+    <Footer />
   </div>
 );
 
 const login = () => (
   <div>
+    <Sidebar />
     <Login />
+    <ExtraFooter />
+    <Footer />
   </div>
 );
 
