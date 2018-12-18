@@ -17,7 +17,9 @@ import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
 import Slider from '../components/Slider';
-import Checkout from '../components/Checkout';
+//import Checkout from '../components/Checkout';
+import ProductFilter from '../components/ProductFilter';
+
 
 const Admin = () => (
   <div>
@@ -44,7 +46,7 @@ const registration = () => (
 const checkout = () => (
   <div>
     <Sidebar />
-    <Checkout />
+    {/* <Checkout /> */}
     <ExtraFooter />
     <Footer />
   </div>
@@ -66,6 +68,14 @@ const adminShowUSers = () => (
         <AdminFooter/>
     </div>
 )
+const productFilter = () => (
+  <div>
+    <Sidebar/>
+    <ProductFilter/>
+    <ExtraFooter/>
+    <Footer/>
+  </div>
+)
 
 const index = () => (
     <div>
@@ -84,6 +94,7 @@ const AppRouter = () => (
         <Route path="/" component={index} exact={true} />
         <Route path="/product" />
         <Route path="/contactus" component={contactus} />
+        <Route path="/shop" component={productFilter} />
         <Route path="/registration" component={registration} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
