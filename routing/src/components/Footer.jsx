@@ -13,23 +13,23 @@ class Footer extends Component {
 
           <div className="right">
             <nav className="footer-nav">
-              <ul>
-                <li>
-                  <Link to="#">Home</Link>
-                </li>
-                <li>
-                  <Link to="#">Home</Link>
-                </li>
-                <li>
-                  <Link to="#">Home</Link>
-                </li>
-                <li>
-                  <Link to="#">Home</Link>
-                </li>
-                <li>
-                  <Link to="#">Home</Link>
-                </li>
-              </ul>
+            <ul>
+            <li className="footerHome">
+              <Link to="#" >Home</Link>
+            </li>
+            <li>
+              <Link to="#">Shop</Link>
+            </li>
+            <li>
+              <Link to="#">Product</Link>
+            </li>
+            <li>
+              <Link to="#">About Us</Link>
+            </li>
+            <li>
+              <Link to="#">Contact Us</Link>
+            </li>
+          </ul>
             </nav>
           </div>
         </div>

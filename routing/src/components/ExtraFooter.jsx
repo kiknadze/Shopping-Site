@@ -4,7 +4,7 @@ class ExtraFooter extends Component {
   render() {
     return (
       <div className="extra-footer">
-        <div className="container">extrasdasda footer</div>
+        <div className="container">Extra Footer for New Year disscaunt</div>
       </div>
     );
   }

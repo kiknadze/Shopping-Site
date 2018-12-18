@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+        "url": "https://as2.ftcdn.net/jpg/01/62/73/75/500_F_162737591_eBkqM3aGSQ96HI4LclA8808h1HosQnzu.jpg",
         "name": "Jurnal Table",
         "category": "1",
         "desc": "Small Table for Journals, usually used in living rooms",
@@ -11,7 +11,57 @@
     },
     {
         "id": "2",
-        "url": "https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg",
+        "url": "https://images.pexels.com/photos/1029796/pexels-photo-1029796.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },    
+    {
+        "id": "3",
+        "url": "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "4",
+        "url": "https://images.pexels.com/photos/154161/pexels-photo-154161.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "5",
+        "url": "https://images.pexels.com/photos/1029796/pexels-photo-1029796.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "6",
+        "url": "https://images.pexels.com/photos/892618/pexels-photo-892618.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "7",
+        "url": "https://images.pexels.com/photos/1008692/pexels-photo-1008692.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -19,4 +69,5 @@
         "color": "2",
         "material": "2"
     }
-]
+    
+ ]
