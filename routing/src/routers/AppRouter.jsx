@@ -8,16 +8,18 @@ import AdminHeader from "../components/admin/AdminHeader";
 import AdminAddProduct from "../components/admin/AdminAddProduct";
 import AdminFooter from "../components/admin/AdminFooter";
 import AdminShowUSers from "../components/admin/AdminShowUsers";
-// import Review from "../components/Review";
+import Review from "../components/Review";
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
-import ContactUs from "../components/ContactUs";
-import ExtraFooter from "../components/ExtraFooter";
-import Footer from "../components/Footer";
-import Gallery from "../components/Gallery";
-import HomePageProduct from "../components/HomePageProduct";
-import Sidebar from "../components/Sidebar";
-// import Slider from "../components/Slider";
-import Checkout from "../components/Checkout";
+
+import ContactUs from '../components/ContactUs';
+import ExtraFooter from '../components/ExtraFooter';
+import Footer from '../components/Footer';
+import Gallery from '../components/Gallery';
+import HomePageProduct from '../components/HomePageProduct';
+import Sidebar from '../components/Sidebar';
+import Slider from '../components/Slider';
+import Checkout from '../components/Checkout';
+import ProductFilter from '../components/ProductFilter';
 
 import Product from "../components/Product";
 
@@ -52,7 +54,7 @@ const registration = () => (
 const checkout = () => (
   <div>
     <Sidebar />
-    <Checkout />
+    {/* <Checkout /> */}
     <ExtraFooter />
     <Footer />
   </div>
@@ -76,12 +78,20 @@ const product = () => (
 );
 
 const adminShowUSers = () => (
+    <div>
+        <AdminHeader/>
+        <AdminShowUSers />
+        <AdminFooter/>
+    </div>
+)
+const productFilter = () => (
   <div>
-    <AdminHeader />
-    <AdminShowUSers />
-    <AdminFooter />
+    <Sidebar/>
+    <ProductFilter/>
+    <ExtraFooter/>
+    <Footer/>
   </div>
-);
+)
 
 const index = () => (
   <div>
@@ -102,6 +112,7 @@ const AppRouter = () => (
         <Route path="/product" />
         <Route path="/products/tables/1" component={product} />
         <Route path="/contactus" component={contactus} />
+        <Route path="/shop" component={productFilter} />
         <Route path="/registration" component={registration} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
