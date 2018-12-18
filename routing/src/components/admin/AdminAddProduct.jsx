@@ -242,39 +242,39 @@ export default class AdminAddProduct extends Component {
                 <form>
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label for="name">Name</label>
+                            <label htmlFor="name">Name</label>
                             <input type="text" className="form-control" id="name" name="name" ref={this.name} value={this.state.name} onChange={this.onChange} placeholder="Product Name" required />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="category">Category</label>
+                            <label htmlFor="category">Category</label>
                             <select id="category" ref={this.category} className="form-control">
                                 {this.ProductCategory()}
                             </select>
                         </div>
                     </div>
                     <div className="form-group">
-                        <label for="url">Image</label>
+                        <label htmlFor="url">Image</label>
                         <input type="text" className="form-control" id="url" name="url" ref={this.url} value={this.state.url} onChange={this.onChange} placeholder="Image URL" required />
                     </div>
                     <div className="form-group">
-                        <label for="desc">Description</label>
+                        <label htmlFor="desc">Description</label>
                         <textarea className="form-control" id="desc" name="desc" rows="3" ref={this.desc} value={this.state.desc} onChange={this.onChange} ></textarea>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label for="color">Color</label>
+                            <label htmlFor="color">Color</label>
                             <select id="color" ref={this.color} className="form-control">
                                 {this.ProductColor()}
                             </select>
                         </div>
                         <div className="form-group col-md-4">
-                            <label for="material">Material</label>
+                            <label htmlFor="material">Material</label>
                             <select id="material" ref={this.material} className="form-control">
                                 {this.ProductMaterial()}
                             </select>
                         </div>
                         <div className="form-group col-md-4">
-                            <label for="price">Price</label>
+                            <label htmlFor="price">Price</label>
                             <input type="number" className="form-control" id="price" name="price" ref={this.price} value={this.state.price} onChange={this.onChange} required />
                         </div>
                     </div>

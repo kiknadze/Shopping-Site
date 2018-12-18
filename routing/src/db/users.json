@@ -30,17 +30,6 @@
             "color": "2",
             "material": "2",
             "quantity": "1"
-        },
-        {
-            "id": "1",
-            "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
-            "name": "Jurnal Table",
-            "category": "1",
-            "desc": "Small Table for Journals, usually used in living rooms",
-            "price": "180",
-            "color": "3",
-            "material": "1",
-            "quantity": "1"
         }],
         "orders": [{
             "id": "1",
@@ -86,17 +75,6 @@
             "price": "1180",
             "color": "2",
             "material": "2",
-            "quantity": "1"
-        },
-        {
-            "id": "1",
-            "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
-            "name": "Jurnal Table",
-            "category": "1",
-            "desc": "Small Table for Journals, usually used in living rooms",
-            "price": "180",
-            "color": "3",
-            "material": "1",
             "quantity": "1"
         }],
         "level": "1"

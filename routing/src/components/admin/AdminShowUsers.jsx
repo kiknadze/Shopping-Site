@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { confirmAlert } from 'react-confirm-alert';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import ShowOrders from './ShowOrders';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
@@ -23,14 +22,12 @@ export default class User extends Component {
         this.getUsers();
     }
 
-    ToggleOrders = () => {
-        this.setState({
-            modalOrders: !this.state.modalOrders
-        });
+    OnShowCart = (id) => {
+        let orders = this.state.userData[id].cart;
+        this.setState({ orders })
     }
 
     OnShowOrders = (id) => {
-        this.ToggleOrders()
         let orders = this.state.userData[id].orders;
         this.setState({ orders })
     }
@@ -94,6 +91,8 @@ export default class User extends Component {
 
     render() {
         return (
+            <div>
+
             <table className="table table-hover table-dark">
                 <thead>
                     <tr>
@@ -113,28 +112,55 @@ export default class User extends Component {
                                     <td>{user.email}</td>
                                     <td>{user.birtddate}</td>
                                     <td>{user.balance}</td>
-                                    <td><i className="fas fa-shopping-cart user--cart" ></i></td>
-                                    <td><i className="fas fa-truck user--orders" onClick={() => this.OnShowOrders(index)}></i></td>
-                                    <td><i class="fas fa-edit" onClick={() => this.EditUserHandler(user.id, user.username)}></i></td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-shopping-cart user--cart"
+                                            onClick={() => this.OnShowCart(index+1)} 
+                                            data-toggle="modal" 
+                                            data-target=".bd-example-modal-lg-cart" 
+                                        ></i>
+                                    </td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-truck user--orders" 
+                                            onClick={() => this.OnShowOrders(index+1)} 
+                                            data-toggle="modal" 
+                                            data-target=".bd-example-modal-lg"
+                                        ></i>
+                                    </td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-edit" 
+                                            onClick={() => this.EditUserHandler(user.id, user.username)}
+                                        ></i>
+                                    </td>
                                 </tr>
                             )
                     }
                 </tbody>
-                <Modal isOpen={this.state.modalOrders}>
-                    <ModalHeader className="modalheader">Order Status</ModalHeader>
-                    <ModalBody>
-                        <ShowOrders
-                            orders={this.state.orders}
-                            orderTableItems={this.state.orderTableItems}
-                        />
-                    </ModalBody>
-                    <ModalFooter className="modalfooter">
-                        <Button color="danger" onClick={this.ToggleOrders}>
-                            Close
-                                </Button>
-                    </ModalFooter>
-                </Modal>
             </table>
+            <div className="modal fade bd-example-modal-lg-cart" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg">
+                        <div className="modal-content">
+                            <ShowOrders
+                                orders={this.state.orders}
+                                orderTableItems={this.state.orderTableItems}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="modal fade bd-example-modal-lg" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg">
+                        <div className="modal-content">
+                            <ShowOrders
+                                orders={this.state.orders}
+                                orderTableItems={this.state.orderTableItems}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

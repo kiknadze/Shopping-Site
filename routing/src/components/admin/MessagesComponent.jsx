@@ -41,7 +41,7 @@ export default class MessagesComponent extends Component {
                 <td>{message.subject}</td>
                 <td>
                   <i 
-                    class="fas fa-envelope-open show--message"
+                    className="fas fa-envelope-open show--message"
                     onClick={() => this.showMessage(message)}
                   ></i>
                 </td>

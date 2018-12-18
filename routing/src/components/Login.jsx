@@ -111,83 +111,83 @@ export default class Login extends Component {
             return <Redirect to={`/`} />
         }
         return (
-            <div class="container register">
-                <div class="row">
-                    <div class="col-md-3 register-left">
+            <div className="container register">
+                <div className="row">
+                    <div className="col-md-3 register-left">
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                         <h3>Welcome</h3>
                         <p>Never Give Up!</p>
                     </div>
-                    <div class="col-md-9 register-right">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+                    <div className="col-md-9 register-right">
+                        <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li className="nav-item">
+                                <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+                            <li className="nav-item">
+                                <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <form class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" onSubmit={this.OnSubmitHandler}>
-                                <h3 class="register-heading">Login</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="logemail" placeholder="Email *" ref={this.logemail} />
+                        <div className="tab-content" id="myTabContent">
+                            <form className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" onSubmit={this.OnSubmitHandler}>
+                                <h3 className="register-heading">Login</h3>
+                                <div className="row register-form">
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="email" className="form-control" name="logemail" placeholder="Email *" ref={this.logemail} />
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" name="logpassword" placeholder="Password *" ref={this.logpassword} />
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="password" className="form-control" name="logpassword" placeholder="Password *" ref={this.logpassword} />
                                         </div>
-                                        <input type="submit" class="btnRegister" value="Log In" />
+                                        <input type="submit" className="btnRegister" value="Log In" />
                                     </div>
-                                    <div class="col-md-12 login--message">
+                                    <div className="col-md-12 login--message">
                                         {
                                             this.state.message !== '' &&
-                                            <div class="alert alert-warning" role="alert">
+                                            <div className="alert alert-warning" role="alert">
                                                 {this.state.message}
                                             </div>
                                         }
                                     </div>
                                 </div>
                             </form>
-                            <form class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.RegisterSubmit}>
-                                <h3 class="register-heading">Register</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" ref={this.name} required/>
+                            <form className="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.RegisterSubmit}>
+                                <h3 className="register-heading">Register</h3>
+                                <div className="row register-form">
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="First Name *" ref={this.name} required/>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" ref={this.lastname} required />
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="Last Name *" ref={this.lastname} required />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" ref={this.email} required />
+                                        <div className="form-group">
+                                            <input type="email" className="form-control" placeholder="Email *" ref={this.email} required />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="UserName *" ref={this.username} required />
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="UserName *" ref={this.username} required />
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" ref={this.password} required />
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="password" className="form-control" placeholder="Password *" ref={this.password} required />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Address *" ref={this.address} required />
+                                        <div className="form-group">
+                                            <input type="text" className="form-control" placeholder="Address *" ref={this.address} required />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="Birthday *" ref={this.birthdate} required />
+                                        <div className="form-group">
+                                            <input type="date" className="form-control" placeholder="Birthday *" ref={this.birthdate} required />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Balance *" ref={this.balance} required />
+                                        <div className="form-group">
+                                            <input type="number" className="form-control" placeholder="Balance *" ref={this.balance} required />
                                         </div>
-                                        <input type="submit" class="btnRegister" value="Register" />
+                                        <input type="submit" className="btnRegister" value="Register" />
                                     </div>
-                                    <div class="col-md-12 login--message">
+                                    <div className="col-md-12 login--message">
                                         {
                                             this.state.message !== '' &&
-                                            <div class="alert alert-warning" role="alert">
+                                            <div className="alert alert-warning" role="alert">
                                                 {this.state.message}
                                             </div>
                                         }
