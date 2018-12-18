@@ -1,10 +1,55 @@
-.form--contactUs {
-  width: 800px;
+.form--contactUs--wrapper {
+  width: 70%;
+  margin: 0 auto;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    width: 100%;
+    padding: 20px 0;
+    background-color: $darkgray;
+    color: $gray;
+    text-align: center;
+  }
+}
+
+.form--contactUs--container {
+  margin: 5% 0 10% 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.form--contactUs {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+
+.contactus--contact--info {
+  width: 40%;
+  max-height: 250px;
+  background-color: #3c3c3c;
+  color: $gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  .contact--info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  i {
+    font-size: 20pt;
+    padding: 0 20px;
+    color: $gray;
+  }
 }
 
 .form--contactUs h1 {
@@ -34,16 +79,23 @@
   color: #808080;
 }
 
-.form--contactUs > button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 25px;
-  margin: 20px;
+.form--contactUs {
+  button {
+    background-color: $yellow;
+    border: none;
+    color: white;
+    width: 90%;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 20px;
+    margin: 20px auto 0 20px;
+    &:hover {
+      background-color: #4caf50;
+    }
+  }
 }
 
 .show-confirm-message {
