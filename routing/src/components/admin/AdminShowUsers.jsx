@@ -1,10 +1,9 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css'
+import ShowOrders from './ShowOrders';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const userURL = "http://localhost:5000/db/users";
-
-
 
 export default class User extends Component {
     constructor(props) {
@@ -12,7 +11,10 @@ export default class User extends Component {
         this.state = {
             userData: [],
             userTable: ['#', 'Name', 'Lastname', 'Username', 'Email', 'Birthdate', 'Balance', 'Shopping Cart', 'Orders', "Edit"],
-            input: ""
+            orderTableItems: ['#', 'IMAGE', 'NAME', 'DESCRIPTION', 'PRICE', 'QUANTITY'],
+            input: "",
+            modalOrders: false,
+            orders: []
         }
     }
 
@@ -20,10 +22,19 @@ export default class User extends Component {
         this.getUsers();
     }
 
+    OnShowCart = (id) => {
+        let orders = this.state.userData[id].cart;
+        this.setState({ orders })
+    }
+
+    OnShowOrders = (id) => {
+        let orders = this.state.userData[id].orders;
+        this.setState({ orders })
+    }
+
     OnChangeState = () => {
         this.setState(() => ({ userData: [] }))
     }
-
 
     getUsers = () => {
         fetch(userURL)
@@ -33,6 +44,7 @@ export default class User extends Component {
             })
             .catch(err => console.log(err));
     }
+
     handleClickEdit = (id) => {
         let newUsername = this.state.input;
         fetch(`http://localhost:5000/admin/user/edit`, {
@@ -75,12 +87,12 @@ export default class User extends Component {
                 )
             }
         })
-
-
     }
 
     render() {
         return (
+            <div>
+
             <table className="table table-hover table-dark">
                 <thead>
                     <tr>
@@ -90,24 +102,65 @@ export default class User extends Component {
                 <tbody>
                     {
                         this.state.userData
-                            .filter(user => user.level > 0 )
-                            .map((user, index) => 
-                                    <tr key={index}>
-                                        <th scope="row">{user.id}</th>
-                                        <th scope="row">{user.name}</th>
-                                        <th scope="row">{user.lastname}</th>
-                                        <th scope="row">{user.username}</th>
-                                        <th scope="row">{user.email}</th>
-                                        <th scope="row">{user.birthdate}</th>
-                                        <th scope="row">{user.balance}</th>
-                                        <td><i className="fas fa-shopping-cart fa-2x" ></i></td>
-                                        <td><i className="fas fa-truck fa-2x" ></i></td>
-                                        <td><button type="button" className="btn btn-warning" onClick={() => this.EditUserHandler(user.id, user.username)}>Edit</button></td>
-                                    </tr>
-                                )
+                            .filter(user => user.level > 0)
+                            .map((user, index) =>
+                                <tr key={index}>
+                                    <th scope="row">{user.id}</th>
+                                    <td>{user.name}</td>
+                                    <td>{user.lastname}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.birtddate}</td>
+                                    <td>{user.balance}</td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-shopping-cart user--cart"
+                                            onClick={() => this.OnShowCart(index+1)} 
+                                            data-toggle="modal" 
+                                            data-target=".bd-example-modal-lg-cart" 
+                                        ></i>
+                                    </td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-truck user--orders" 
+                                            onClick={() => this.OnShowOrders(index+1)} 
+                                            data-toggle="modal" 
+                                            data-target=".bd-example-modal-lg"
+                                        ></i>
+                                    </td>
+                                    <td>
+                                        <i 
+                                            className="fas fa-edit" 
+                                            onClick={() => this.EditUserHandler(user.id, user.username)}
+                                        ></i>
+                                    </td>
+                                </tr>
+                            )
                     }
                 </tbody>
             </table>
+            <div className="modal fade bd-example-modal-lg-cart" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg">
+                        <div className="modal-content">
+                            <ShowOrders
+                                orders={this.state.orders}
+                                orderTableItems={this.state.orderTableItems}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="modal fade bd-example-modal-lg" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg">
+                        <div className="modal-content">
+                            <ShowOrders
+                                orders={this.state.orders}
+                                orderTableItems={this.state.orderTableItems}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

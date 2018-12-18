@@ -1,31 +1,22 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { ProtectedRoute } from "../routes/ProtectedRoute";
-import NotFoundPage from "../components/NotFoundPage";
-import Registration from "../components/Registration";
-import Login from "../components/Login";
-import AdminHeader from "../components/admin/AdminHeader";
-import AdminAddProduct from "../components/admin/AdminAddProduct";
-import AdminFooter from "../components/admin/AdminFooter";
-import AdminShowUSers from "../components/admin/AdminShowUsers";
-// import Review from "../components/Review";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ProtectedRoute } from '../routes/ProtectedRoute';
+import NotFoundPage from '../components/NotFoundPage';
+import Login from '../components/Login';
+import AdminHeader from '../components/admin/AdminHeader';
+import AdminAddProduct from '../components/admin/AdminAddProduct';
+import AdminFooter from '../components/admin/AdminFooter';
+import AdminShowUSers from '../components/admin/AdminShowUsers';
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
-import ContactUs from "../components/ContactUs";
-import ExtraFooter from "../components/ExtraFooter";
-import Footer from "../components/Footer";
-import Gallery from "../components/Gallery";
-import HomePageProduct from "../components/HomePageProduct";
-import Sidebar from "../components/Sidebar";
-// import Slider from "../components/Slider";
-import Checkout from "../components/Checkout";
-
-import Product from "../components/Product";
-
-const logg = () => (
-  <div>
-    <Login />
-  </div>
-);
+import ContactUs from '../components/ContactUs';
+import ExtraFooter from '../components/ExtraFooter';
+import Footer from '../components/Footer';
+import Gallery from '../components/Gallery';
+import HomePageProduct from '../components/HomePageProduct';
+import Sidebar from '../components/Sidebar';
+import Checkout from '../components/Checkout';
+import ProductFilter from '../components/ProductFilter';
+import Product from '../components/Product';
 
 const Admin = () => (
   <div>
@@ -45,7 +36,19 @@ const Messages = () => (
 
 const registration = () => (
   <div>
-    <Registration />
+    <Sidebar />
+    <Login />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
+const login = () => (
+  <div>
+    <Sidebar />
+    <Login />
+    <ExtraFooter />
+    <Footer />
   </div>
 );
 
@@ -59,7 +62,7 @@ const checkout = () => (
 );
 
 const contactus = () => (
-  <div className="wrapper--all">
+  <div>
     <Sidebar />
     <ContactUs />
     <ExtraFooter />
@@ -67,30 +70,40 @@ const contactus = () => (
   </div>
 );
 
-const product = () => (
-  <div className="wrapper--all">
-    <Sidebar />
-    <Product />
-    <Footer />
-  </div>
-);
-
 const adminShowUSers = () => (
-  <div>
-    <AdminHeader />
-    <AdminShowUSers />
-    <AdminFooter />
-  </div>
-);
+    <div>
+        <AdminHeader/>
+        <AdminShowUSers />
+        <AdminFooter/>
+    </div>
+)
 
 const index = () => (
-  <div>
-    <Sidebar />
-    <HomePageProduct />
-    <Gallery />
-    <ExtraFooter />
-    <Footer />
-  </div>
+    <div>
+      <Sidebar />
+      <HomePageProduct />
+      <Gallery />
+      <ExtraFooter />
+      <Footer />
+    </div>
+);
+
+const filter = () => (
+    <div>
+      <Sidebar />
+      <ProductFilter />
+      <ExtraFooter />
+      <Footer />
+    </div>
+);
+
+const product = () => (
+    <div className="wrapper--all">
+      <Sidebar />
+      <Product />
+      <ExtraFooter />
+      <Footer />
+    </div>
 );
 
 const AppRouter = () => (
@@ -98,11 +111,12 @@ const AppRouter = () => (
     <div>
       <Switch>
         <Route path="/" component={index} exact={true} />
-        <Route path="/login" component={logg} />
         <Route path="/product" />
-        <Route path="/products/tables/1" component={product} />
         <Route path="/contactus" component={contactus} />
         <Route path="/registration" component={registration} />
+        <Route path="/login" component={login} />
+        <Route path="/shop" component={filter} />
+        <Route path="/products/tables/1" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />
