@@ -11,12 +11,13 @@ import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
 import ContactUs from '../components/ContactUs';
 import ExtraFooter from '../components/ExtraFooter';
 import Footer from '../components/Footer';
-import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
 import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 import Product from '../components/Product';
+
+import "antd/dist/antd.css";
 
 const Admin = () => (
   <div>
@@ -82,7 +83,6 @@ const index = () => (
     <div>
       <Sidebar />
       <HomePageProduct />
-      <Gallery />
       <ExtraFooter />
       <Footer />
     </div>
