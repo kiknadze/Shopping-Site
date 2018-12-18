@@ -4,7 +4,7 @@
     margin-left:5%;
     height: 100vh;
     cursor: pointer;
-    color:$text-color;
+    color:$darkgray;
 }
 h4 {
     color:black;
@@ -33,7 +33,7 @@ h4 {
     
     margin-top:10%;
     &:hover{
-        color:$hover-color
+        color:$yellow;
     }
 
 }
@@ -46,7 +46,7 @@ h4 {
         font-weight: 400;
         cursor: pointer;
         &:hover {
-            color: $hover-color;
+            color: $yellow;
         }
     }
 }
