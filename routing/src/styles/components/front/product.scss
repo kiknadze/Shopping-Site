@@ -141,21 +141,20 @@
     border: none;
     background-color: $yellow;
     cursor: pointer;
+    font-size: $m-size;
   }
   button:disabled,
   button[disabled] {
     background-color: $yellow;
     opacity: 0.5;
+    cursor: auto;
   }
   span {
-    font-size: $m-size;
     color: #fff;
     -webkit-transition: font-size 0.5s;
-
-    &button:enabled:hover,
-    button[enabled]:hover {
-      font-size: $mm-size;
-    }
+  }
+  button:hover:enabled {
+    font-size: $mm-size;
   }
 }
 
