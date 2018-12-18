@@ -18,35 +18,5 @@
         "price": "1180",
         "color": "2",
         "material": "2"
-    },
-    {
-        "id": "3",
-        "url": "https://cdn.shopify.com/s/files/1/2100/8967/products/enz_TripProtFurnCover_cream_chr_1024x1024@2x.jpg?v=1541780525",
-        "name": "Double Bed",
-        "category": "2",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "1",
-        "material": "3"
-    },
-    {
-        "id": "4",
-        "url": "http://interfusta.com/wp-content/uploads/2016/02/empapelar-pared-3.jpg",
-        "name": "Double Bed",
-        "category": "3",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "2",
-        "material": "3"
-    },
-    {
-        "id": "5",
-        "url": "http://www.dreamingcroatia.com/upload/2018/10/06/beautiful-living-room-design-hdf-tjihome-modern-living-room-beautiful-living-room-l-20aacc328697a46e.jpg",
-        "name": "Double Bed",
-        "category": "3",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "1",
-        "material": "4"
     }
 ]
