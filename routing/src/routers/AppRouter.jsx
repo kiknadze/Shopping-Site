@@ -9,6 +9,7 @@ import AdminAddProduct from "../components/admin/AdminAddProduct";
 import AdminFooter from "../components/admin/AdminFooter";
 import AdminShowUSers from "../components/admin/AdminShowUsers";
 import Review from "../components/Review";
+
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
 
 import ContactUs from '../components/ContactUs';
@@ -17,7 +18,6 @@ import Footer from '../components/Footer';
 import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
-import Slider from '../components/Slider';
 import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 
@@ -47,7 +47,19 @@ const Messages = () => (
 
 const registration = () => (
   <div>
-    <Registration />
+    <Sidebar />
+    <Login />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
+const login = () => (
+  <div>
+    <Sidebar />
+    <Login />
+    <ExtraFooter />
+    <Footer />
   </div>
 );
 
@@ -114,6 +126,7 @@ const AppRouter = () => (
         <Route path="/contactus" component={contactus} />
         <Route path="/shop" component={productFilter} />
         <Route path="/registration" component={registration} />
+        <Route path="/login" component={login} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />

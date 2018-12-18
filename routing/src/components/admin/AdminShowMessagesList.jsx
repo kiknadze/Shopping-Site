@@ -10,7 +10,7 @@ export default class AdminShowMessagesList extends Component {
 
     this.state = {
       messagesData: [],
-      headings: ["#", "Name", "Email", "subject", "Messages", "- - - - - -"]
+      headings: ["#", "Name", "Email", "Subject", "Messages", "Delete"]
     };
   }
 
