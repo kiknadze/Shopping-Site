@@ -15,6 +15,8 @@ import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
 import Checkout from '../components/Checkout';
+import ProductFilter from '../components/ProductFilter';
+import Product from '../components/Product';
 
 const Admin = () => (
   <div>
@@ -86,6 +88,24 @@ const index = () => (
     </div>
 );
 
+const filter = () => (
+    <div>
+      <Sidebar />
+      <ProductFilter />
+      <ExtraFooter />
+      <Footer />
+    </div>
+);
+
+const product = () => (
+    <div className="wrapper--all">
+      <Sidebar />
+      <Product />
+      <ExtraFooter />
+      <Footer />
+    </div>
+);
+
 const AppRouter = () => (
   <BrowserRouter>
     <div>
@@ -95,6 +115,8 @@ const AppRouter = () => (
         <Route path="/contactus" component={contactus} />
         <Route path="/registration" component={registration} />
         <Route path="/login" component={login} />
+        <Route path="/shop" component={filter} />
+        <Route path="/products/tables/1" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedRoute path="/admin" component={Admin} exact={true} />
         <ProtectedRoute path="/admin/messages" component={Messages} />
