@@ -108,6 +108,9 @@ class ProductFilter extends Component {
                                 <div className="color4" id="4" onClick={this.colorClick}></div>
                                 <div className="color5" id="5" onClick={this.colorClick}></div>
                                 <div className="color6" id="6" onClick={this.colorClick}></div>
+
+
+                                
                             </div>
                         </div>
                         {/* <div className="proFilter-price">
