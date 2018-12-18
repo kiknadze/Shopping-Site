@@ -136,13 +136,6 @@ app.get("/db/category", (req, res) => {
   });
 });
 
-app.get("/db/users", (req, res) => {
-  fs.readFile(Users, function(err, data) {
-    let json = JSON.parse(data);
-    res.json(json);
-  });
-});
-
 adminControllers(app);
 adminUsers(app);
 adminMessages(app);

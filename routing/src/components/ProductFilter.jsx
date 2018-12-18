@@ -44,7 +44,7 @@ class ProductFilter extends Component {
             this.setState({ material: materialArray })
             this.setState({ materialChoose: true })
         }
-        if (materialArray.length == 0) {
+        if (materialArray.length === 0) {
             this.setState({ materialChoose: false })
         }
     }
@@ -120,7 +120,7 @@ class ProductFilter extends Component {
                     <div className="proFilter--img">
                         {
                             this.state.products
-                                .filter(product => product.category == this.state.category && !this.state.colorChoose && !this.state.materialChoose)
+                                .filter(product => product.category === this.state.category && !this.state.colorChoose && !this.state.materialChoose)
                                 .map((product) =>
                                     <div><img alt="NO" src={product.url} width="70%"></img>1</div>
 
@@ -128,21 +128,21 @@ class ProductFilter extends Component {
                         }
                         {
                             this.state.products
-                                .filter(product => product.color == this.state.color && product.category == this.state.category && !this.state.materialChoose)
+                                .filter(product => product.color === this.state.color && product.category === this.state.category && !this.state.materialChoose)
                                 .map((product) =>
                                     <div><img alt="NO" src={product.url} width="70%"></img>2</div>
                                 )
                         }
                         {
                             this.state.products
-                                .filter(product => product.color == this.state.color && !this.state.categoryChoose && this.state.colorChoose && !this.state.materialChoose)
+                                .filter(product => product.color === this.state.color && !this.state.categoryChoose && this.state.colorChoose && !this.state.materialChoose)
                                 .map((product) =>
                                     <div><img alt="NO" src={product.url} width="70%"></img>3</div>
                                 )
                         }
                         {
                             this.state.products
-                                .filter(product => this.state.material.includes(product.material) && product.category == this.state.category && this.state.categoryChoose && !this.state.colorChoose)
+                                .filter(product => this.state.material.includes(product.material) && product.category === this.state.category && this.state.categoryChoose && !this.state.colorChoose)
                                 .map((product) =>
                                     <div><img alt="NO" src={product.url} width="70%"></img>4</div>
                                 )
@@ -156,8 +156,8 @@ class ProductFilter extends Component {
                         }
                         {
                             this.state.products
-                                .filter(product => this.state.material.includes(product.material) && product.category == this.state.category && this.state.categoryChoose && this.state.materialChoose
-                                    && product.color == this.state.color && this.state.colorChoose)
+                                .filter(product => this.state.material.includes(product.material) && product.category === this.state.category && this.state.categoryChoose && this.state.materialChoose
+                                    && product.color === this.state.color && this.state.colorChoose)
                                 .map((product) =>
                                     <div><img alt="NO" src={product.url} width="70%"></img>6</div>
                                 )

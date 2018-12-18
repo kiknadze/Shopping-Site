@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   h1 {
     width: 100%;
     padding: 20px 0;
@@ -13,7 +12,6 @@
     text-align: center;
   }
 }
-
 .form--contactUs--container {
   margin: 5% 0 10% 0;
   width: 100%;
@@ -29,7 +27,6 @@
   align-items: center;
   margin: 0 auto;
 }
-
 .contactus--contact--info {
   width: 40%;
   max-height: 250px;
@@ -39,46 +36,38 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-
   .contact--info {
     display: flex;
     justify-content: space-between;
   }
-
   i {
     font-size: 20pt;
     padding: 0 20px;
     color: $gray;
   }
 }
-
 .form--contactUs h1 {
   font-size: 20pt;
   color: #808080;
 }
-
 .form--contactUs > label {
   display: flex;
   width: 100%;
 }
-
 .form--contactUs > label > p {
   padding-right: 20px;
 }
-
 .form--contactUs > label > input,
 .form--contactUs > label > textarea {
   border: none;
   border-bottom: 1px solid gray;
   width: 80%;
 }
-
 .form--contactUs > label > i {
   font-size: 25pt;
   padding: 0 20px;
   color: #808080;
 }
-
 .form--contactUs {
   button {
     background-color: $yellow;
@@ -97,7 +86,6 @@
     }
   }
 }
-
 .show-confirm-message {
   width: 200px;
   margin: 0 auto;
