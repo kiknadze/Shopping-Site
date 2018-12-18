@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Icon } from "antd";
+
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
+});
 
 class Sidebar extends Component {
   render() {
@@ -13,31 +18,32 @@ class Sidebar extends Component {
               <Link to="#">Home</Link>
             </li>
             <li>
-              <Link to="#">Home</Link>
+              <Link to="#">Shop</Link>
             </li>
             <li>
               <Link to="#">Product</Link>
             </li>
             <li>
-              <Link to="#">Home</Link>
+              <Link to="#">About Us</Link>
             </li>
             <li>
-              <Link to="#">Home</Link>
+              <Link to="#">Contact Us</Link>
             </li>
           </ul>
         </nav>
-        <div className="amado-btn-group mt-30 mb-100">
+        <div className="sidebar-btn-group ">
           <Link to="#" className="btn">
-            button 1
+            Sign In
           </Link>
           <Link to="#" className="btn">
-            button 2
+            Join
           </Link>
         </div>
-        <div className="cart-fav-search mb-100">
-          <Link to="#" className="search-nav">
-            Search
-          </Link>
+        <div className="icons-list">
+          <Icon className="social" type="instagram" />
+          <Icon className="social" type="linkedin" />
+          <IconFont className="social" type="icon-facebook" />
+          <IconFont className="social" type="icon-twitter" />
         </div>
       </div>
     );
