@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../routes/ProtectedRoute';
+import { ProtectedAdmin } from '../routes/ProtectedAdmin';
 import NotFoundPage from '../components/NotFoundPage';
 import Login from '../components/Login';
 import AdminHeader from '../components/admin/AdminHeader';
@@ -71,6 +72,15 @@ const contactus = () => (
   </div>
 );
 
+const notFoundPage = () => (
+  <div>
+    <Sidebar />
+    <NotFoundPage />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
 const adminShowUSers = () => (
     <div>
         <AdminHeader/>
@@ -118,11 +128,11 @@ const AppRouter = () => (
         <Route path="/shop" component={filter} />
         <Route path="/products/tables/1" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
-        <ProtectedRoute path="/admin" component={Admin} exact={true} />
-        <ProtectedRoute path="/admin/messages" component={Messages} />
-        <ProtectedRoute path="/admin/users" component={adminShowUSers} />
+        <ProtectedAdmin path="/admin" component={Admin} exact={true} />
+        <ProtectedAdmin path="/admin/messages" component={Messages} />
+        <ProtectedAdmin path="/admin/users" component={adminShowUSers} />
         <Route path="/contact" />
-        <Route component={NotFoundPage} />
+        <Route component={notFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>

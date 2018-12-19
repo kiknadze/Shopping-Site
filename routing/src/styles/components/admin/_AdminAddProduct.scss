@@ -52,6 +52,17 @@ form {
 }
 
 .table--order {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
+    th {
+        color: $black;
+    }
+    td {
+        color: $darkgray;
+    }
+}
+
+.editUser__input {
+    margin-top: 10px;
+    margin-left: 10px;
 }
