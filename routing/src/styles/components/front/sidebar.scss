@@ -40,12 +40,15 @@
     padding: 20px;
     margin-bottom: 10px;
     margin-left: 70px;
+    sup {
+      color: #fff;
+      background-color: $red;
+      padding: 5px 10px;
+      border-radius: 50%;
+    }
     &:hover {
       background: $black;
       transition: 1s;
-      sup {
-        color: #fff;
-      }
     }
   }
 }
@@ -112,4 +115,9 @@
 
 .profile--modal {
   background: $yellow;
+}
+
+.edit__profile--form {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

@@ -113,7 +113,7 @@ class Sidebar extends Component {
               >
                 PROFILE
               </button>
-              <Link to="/checkout"><button className="menu__cart">CART<sup> ( {this.state.cart} )</sup></button></Link>
+              <Link to="/checkout"><button className="menu__cart">CART<sup>{this.state.cart}</sup></button></Link>
               <button
                 className="menu__orders"
                 data-toggle="modal"
@@ -151,44 +151,44 @@ class Sidebar extends Component {
           </div>
         </div>
 
-        <form className="modal fade bd-example-modal-lg-profile" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" onSubmit={this.EditSubmit}>
+        <div className="modal fade bd-example-modal-lg-profile" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
-              <div class="modal-header profile--modal">
-                <h5 class="modal-title" id="exampleModalLabel">PROFILE</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <div className="modal-header profile--modal">
+                <h5 className="modal-title" id="exampleModalLabel">PROFILE</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <form className="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.EditProfile}>
+              <div className="modal-body">
+                <form className="tab-pane fade show edit__profile--form" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.EditProfile}>
                   <div className="row register-form">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <input type="text" className="form-control" placeholder="First Name *" name="name" onChange={this.onChange} ref={this.name} value={this.state.name} required />
+                        Name: <input type="text" className="form-control" name="name" onChange={this.onChange} ref={this.name} value={this.state.name} required />
                       </div>
                       <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Last Name *" name="lastname" onChange={this.onChange} ref={this.lastname} value={this.state.lastname} required />
+                        LastName: <input type="text" className="form-control" name="lastname" onChange={this.onChange} ref={this.lastname} value={this.state.lastname} required />
                       </div>
                       <div className="form-group">
-                        <input type="email" className="form-control" placeholder="Email *" value={this.state.email} disabled />
+                        E-mail: <input type="email" className="form-control" value={this.state.email} disabled />
                       </div>
                       <div className="form-group">
-                        <input type="text" className="form-control" placeholder="UserName *" value={this.state.username} disabled />
+                        Username: <input type="text" className="form-control" value={this.state.username} disabled />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <input type="password" className="form-control" placeholder="Password *" name="password" onChange={this.onChange} ref={this.password} required />
+                        Password: <input type="password" className="form-control" placeholder="Password" name="password" onChange={this.onChange} ref={this.password} required />
                       </div>
                       <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Address *" name="address" onChange={this.onChange} ref={this.address} value={this.state.address} required />
+                        Address: <input type="text" className="form-control" name="address" onChange={this.onChange} ref={this.address} value={this.state.address} required />
                       </div>
                       <div className="form-group">
-                        <input type="date" className="form-control" placeholder="Birthday *" name="birthday" onChange={this.onChange} ref={this.birthdate} value={this.state.birthdate} required />
+                        Birthday: <input type="date" className="form-control" name="birthday" onChange={this.onChange} ref={this.birthdate} value={this.state.birthdate} required />
                       </div>
                       <div className="form-group">
-                        <input type="number" className="form-control" placeholder="Balance *" name="balance" onChange={this.onChange} ref={this.balance} value={this.state.balance} required />
+                        Balance: <input type="number" className="form-control" name="balance" onChange={this.onChange} ref={this.balance} value={this.state.balance} required />
                       </div>
                     </div>
                     <div className="col-md-12 login--message">
@@ -202,13 +202,13 @@ class Sidebar extends Component {
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save changes</button>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-success">Save changes</button>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
