@@ -15,10 +15,12 @@ import ExtraFooter from "../components/ExtraFooter";
 import Footer from "../components/Footer";
 // import Gallery from '../components/Gallery';
 import HomePageProduct from "../components/HomePageProduct";
+// import HomePageProduct from "../components/Test";
 import Sidebar from "../components/Sidebar";
 import Slider from "../components/Slider";
 import Checkout from "../components/Checkout";
-import AboutUs from "../components/AboutUs";
+// import AboutUs  from"../components/AboutUs";
+import AboutUsSlider  from"../components/AboutUs";
 
 import "antd/dist/antd.css";
 
@@ -82,7 +84,8 @@ const index = () => (
 const aboutUs = () => (
   <div>
     <Sidebar />
-    <AboutUs />
+    {/* <AboutUs /> */}
+    <AboutUsSlider />
     <ExtraFooter />
     <Footer />
   </div>
