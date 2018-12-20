@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../routes/ProtectedRoute';
+import { ProtectedAdmin } from '../routes/ProtectedAdmin';
 import NotFoundPage from '../components/NotFoundPage';
 import Login from '../components/Login';
 import AdminHeader from '../components/admin/AdminHeader';
@@ -11,12 +12,14 @@ import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
 import ContactUs from '../components/ContactUs';
 import ExtraFooter from '../components/ExtraFooter';
 import Footer from '../components/Footer';
-import Gallery from '../components/Gallery';
 import HomePageProduct from '../components/HomePageProduct';
 import Sidebar from '../components/Sidebar';
 import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 import Product from '../components/Product';
+import Slider from "../components/Slider";
+
+import "antd/dist/antd.css";
 
 const Admin = () => (
   <div>
@@ -70,6 +73,15 @@ const contactus = () => (
   </div>
 );
 
+const notFoundPage = () => (
+  <div>
+    <Sidebar />
+    <NotFoundPage />
+    <ExtraFooter />
+    <Footer />
+  </div>
+);
+
 const adminShowUSers = () => (
     <div>
         <AdminHeader/>
@@ -81,8 +93,8 @@ const adminShowUSers = () => (
 const index = () => (
     <div>
       <Sidebar />
+      <Slider/>
       <HomePageProduct />
-      <Gallery />
       <ExtraFooter />
       <Footer />
     </div>
@@ -118,11 +130,11 @@ const AppRouter = () => (
         <Route path="/shop" component={filter} />
         <Route path="/products/tables/1" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
-        <ProtectedRoute path="/admin" component={Admin} exact={true} />
-        <ProtectedRoute path="/admin/messages" component={Messages} />
-        <ProtectedRoute path="/admin/users" component={adminShowUSers} />
+        <ProtectedAdmin path="/admin" component={Admin} exact={true} />
+        <ProtectedAdmin path="/admin/messages" component={Messages} />
+        <ProtectedAdmin path="/admin/users" component={adminShowUSers} />
         <Route path="/contact" />
-        <Route component={NotFoundPage} />
+        <Route component={notFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>

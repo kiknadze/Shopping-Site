@@ -10,6 +10,7 @@
     background-color: $darkgray;
     color: $gray;
     text-align: center;
+    margin-top: 70px;
   }
 }
 .form--contactUs--container {
@@ -39,6 +40,10 @@
   .contact--info {
     display: flex;
     justify-content: space-between;
+    &:hover {
+      color: $yellow;
+      cursor: grab;
+    }
   }
   i {
     font-size: 20pt;
@@ -83,6 +88,7 @@
     margin: 20px auto 0 20px;
     &:hover {
       background-color: #4caf50;
+      transition: 1s;
     }
   }
 }

@@ -23,6 +23,7 @@ export default class Login extends Component {
         this.birthdate = React.createRef();
         this.balance = React.createRef();
     }
+
     OnSubmitHandler(event) {
         event.preventDefault();
         this.login(this.logemail.current.value, this.logpassword.current.value);
@@ -41,7 +42,7 @@ export default class Login extends Component {
             .then(result => {
                 if (result.auth) {
                     localStorage.setItem('User', JSON.stringify(result));
-                    this.setState({ isLoggedIn: true, message: '' });
+                    this.setState({ user: result.user, isLoggedIn: true, message: '' });
                 } else {
                     this.setState({ message: 'Login or password is not Correct' });
                     setTimeout(() => { this.setState({ message: '' }); }, 3000);
@@ -52,17 +53,6 @@ export default class Login extends Component {
 
     RegisterSubmit = e => {
         e.preventDefault();
-        this.Validation(
-            this.name.current.value,
-            this.lastname.current.value,
-            this.username.current.value,
-            this.password.current.value,
-            this.email.current.value,
-            this.address.current.value,
-            this.birthdate.current.value,
-            this.balance.current.value
-        );
-
         this.Adduser(
             this.name.current.value,
             this.lastname.current.value,
@@ -97,8 +87,12 @@ export default class Login extends Component {
     })
         .then(res => res.json())
         .then(user => {
-        this.setState({ user, message: 'You Successfully Register!' });
-        setTimeout(() => { this.setState({ message: '' }); }, 3000);
+            if(user.reg) {
+                this.setState({ user, message: user.message });
+            } else {
+                this.setState({ message: user.message });
+            }
+            setTimeout(() => { this.setState({ message: '' }); }, 3000);
         })
         .catch(err => console.log(err));
     };
@@ -111,6 +105,8 @@ export default class Login extends Component {
             return <Redirect to={`/`} />
         }
         return (
+            <>
+            <div id="login__header"></div>
             <div className="container register">
                 <div className="row">
                     <div className="col-md-3 register-left">
@@ -198,6 +194,7 @@ export default class Login extends Component {
                     </div>
                 </div>
             </div>
+        </>
         )
     }
 }

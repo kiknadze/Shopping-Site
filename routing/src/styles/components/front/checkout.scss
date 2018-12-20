@@ -184,6 +184,7 @@
     font-size: 1.5rem;
     &:hover {
         background: $green;
+        transition: 1s
     }
 }
   
@@ -269,7 +270,7 @@
     }
 }
 
-@media only screen and (min-width: 481px) and  (max-width: 768px) {
+@media only screen and (min-width: 481px) and  (max-width: 850px) {
     .checkout {
         width: 100%;
     }
