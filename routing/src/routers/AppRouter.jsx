@@ -1,22 +1,24 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { ProtectedRoute } from '../routes/ProtectedRoute';
-import NotFoundPage from '../components/NotFoundPage';
-import Login from '../components/Login';
-import AdminHeader from '../components/admin/AdminHeader';
-import AdminAddProduct from '../components/admin/AdminAddProduct';
-import AdminFooter from '../components/admin/AdminFooter';
-import AdminShowUSers from '../components/admin/AdminShowUsers';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { ProtectedRoute } from "../routes/ProtectedRoute";
+import NotFoundPage from "../components/NotFoundPage";
+import Login from "../components/Login";
+import AdminHeader from "../components/admin/AdminHeader";
+import AdminAddProduct from "../components/admin/AdminAddProduct";
+import AdminFooter from "../components/admin/AdminFooter";
+import AdminShowUSers from "../components/admin/AdminShowUsers";
 import AdminShowMessagesList from "../components/admin/AdminShowMessagesList";
-import ContactUs from '../components/ContactUs';
-import ExtraFooter from '../components/ExtraFooter';
-import Footer from '../components/Footer';
-import Gallery from '../components/Gallery';
-import HomePageProduct from '../components/HomePageProduct';
-import Sidebar from '../components/Sidebar';
-import Checkout from '../components/Checkout';
-import ProductFilter from '../components/ProductFilter';
-import Product from '../components/Product';
+import ContactUs from "../components/ContactUs";
+import ExtraFooter from "../components/ExtraFooterD";
+import Footer from "../components/Footer";
+import Gallery from "../components/Gallery";
+import HomePageProduct from "../components/HomePageProduct";
+import Sidebar from "../components/Sidebar";
+import Checkout from "../components/Checkout";
+import ProductFilter from "../components/ProductFilter";
+import Product from "../components/Product";
+
+import BackToTop from "../components/BackToTop";
 
 const Admin = () => (
   <div>
@@ -63,6 +65,7 @@ const checkout = () => (
 
 const contactus = () => (
   <div>
+    <BackToTop />
     <Sidebar />
     <ContactUs />
     <ExtraFooter />
@@ -71,39 +74,39 @@ const contactus = () => (
 );
 
 const adminShowUSers = () => (
-    <div>
-        <AdminHeader/>
-        <AdminShowUSers />
-        <AdminFooter/>
-    </div>
-)
+  <div>
+    <AdminHeader />
+    <AdminShowUSers />
+    <AdminFooter />
+  </div>
+);
 
 const index = () => (
-    <div>
-      <Sidebar />
-      <HomePageProduct />
-      <Gallery />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div>
+    <Sidebar />
+    <HomePageProduct />
+    <Gallery />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const filter = () => (
-    <div>
-      <Sidebar />
-      <ProductFilter />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div>
+    <Sidebar />
+    <ProductFilter />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const product = () => (
-    <div className="wrapper--all">
-      <Sidebar />
-      <Product />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div className="wrapper--all">
+    <Sidebar />
+    <Product />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const AppRouter = () => (

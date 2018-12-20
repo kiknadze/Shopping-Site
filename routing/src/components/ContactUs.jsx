@@ -24,15 +24,21 @@ export default class ContactUs extends Component {
     };
   }
 
-  // toggle between the show/hide of modal
+  validateEmail = email => {
+    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+      return true;
+    }
+  };
+
+  //toggle between the show/hide of modal
   toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
     if (
       this.state.name !== "" &&
-      this.state.email !== "" &&
-      this.state.text !== ""
+      this.state.text !== "" &&
+      this.validateEmail(this.state.email)
     ) {
       this.setState({
         confirmAlert: "Your message has been sent Successfully!"
@@ -85,6 +91,10 @@ export default class ContactUs extends Component {
     });
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div className="form--contactUs--wrapper">
@@ -107,8 +117,9 @@ export default class ContactUs extends Component {
             <label>
               <i className="fas fa-at" />
               <input
-                type="text"
+                type="email"
                 name="email"
+                id="email"
                 required
                 value={this.state.email}
                 onChange={this.changeHandler}

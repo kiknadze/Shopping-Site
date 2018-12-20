@@ -147,7 +147,7 @@
   button[disabled] {
     background-color: $yellow;
     opacity: 0.5;
-    cursor: auto;
+    cursor: no-drop;
   }
   span {
     color: #fff;
