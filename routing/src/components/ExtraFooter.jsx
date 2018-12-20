@@ -1,13 +1,24 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class ExtraFooter extends Component {
-  render() {
-    return (
-      <div className="extra-footer">
-        <div className="container">Extra Footer for New Year disscaunt</div>
+export default function ExtraFooterD() {
+  return (
+    <div className="extrafooter--wrapper">
+      <div className="extrafooter--part">
+        <i className="fas fa-truck" />
+        <h4>Free delivery over ₾300</h4>
       </div>
-    );
-  }
+      <div className="extrafooter--part">
+        <i className="fab fa-btc" />
+        <h4>Pay with BTC</h4>
+      </div>
+      <div className="extrafooter--part">
+        <i className="fas fa-gift" />
+        <h4>Gift Cards</h4>
+      </div>
+      <div className="extrafooter--part">
+        <i className="fas fa-hand-holding-usd" />
+        <h4>5 Days refund/return </h4>
+      </div>
+    </div>
+  );
 }
-
-export default ExtraFooter;

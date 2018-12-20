@@ -1,0 +1,67 @@
+.back-to-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  i {
+    width: 45px;
+    height: 45px;
+    background-color: $yellow;
+    text-align: center;
+    line-height: 40px;
+    z-index: 999;
+
+    font-size: 25px;
+    color: #fff;
+  }
+  &:hover {
+    .tooltiptext {
+      -webkit-animation: fadein 0.5s;
+      -moz-animation: fadein 0.5s;
+      -ms-animation: fadein 0.5s;
+      -o-animation: fadein 0.5s;
+      animation: fadein 0.5s;
+
+      visibility: visible;
+    }
+  }
+
+  .tooltiptext {
+    visibility: hidden;
+    display: inline-block;
+    // width: 200px;
+    color: $yellow;
+    text-align: center;
+    padding: 10px 20px;
+  }
+}
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(85px);
+    transform: translateY(85px);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(85px);
+    transform: translateY(85px);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

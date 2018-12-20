@@ -25,3 +25,15 @@ p.to-wrap {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+.show--message {
+  color: $yellow;
+  font-size: 1.5rem;
+  margin-left: 10%;
+  cursor: pointer;
+}
+
+.delete-message {
+  margin-left: 10%;
+  cursor: pointer;
+}

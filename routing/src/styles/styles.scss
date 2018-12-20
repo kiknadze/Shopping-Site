@@ -1,13 +1,17 @@
-@import './base/settings';
-@import './base/base';
-@import './components/admin/AdminAddProduct';
+@import "./base/settings";
+@import "./base/base";
+@import "./components/admin/AdminAddProduct";
 @import "./components/admin/message.scss";
 @import "./components/front/contactUs";
+@import "./components/front/categories.scss";
 @import "./components/front/footer.scss";
 @import "./components/front/main.scss";
 @import "./components/front/sidebar.scss";
 @import "./components/front/checkout.scss";
-@import "./components/front/aboutUs.scss";
-
-
-
+@import "./components/front/login.scss";
+@import "./components/front/filter.scss";
+@import "./components/front/product.scss";
+@import "./components/front/searchProduct.scss";
+@import "./components/front/extraFooter.scss";
+@import "./components/front/backToTop.scss";
+@import "./components/front/notFound.scss";

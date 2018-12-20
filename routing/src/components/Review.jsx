@@ -61,7 +61,7 @@ export default class Review extends Component {
             <div>
                 <form onSubmit={this.ReviewSubmit}>
                     <div className="form-group">
-                        <label for="desc">Write Review</label>
+                        <label htmlFor="desc">Write Review</label>
                         <textarea className="form-control" id="review" name="review" rows="3" ref={this.review}></textarea>
                     </div>
                     <button type="submit" className="btn btn-success" >Add Review</button>

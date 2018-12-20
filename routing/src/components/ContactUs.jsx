@@ -24,15 +24,21 @@ export default class ContactUs extends Component {
     };
   }
 
-  // toggle between the show/hide of modal
+  validateEmail = email => {
+    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+      return true;
+    }
+  };
+
+  //toggle between the show/hide of modal
   toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
     if (
       this.state.name !== "" &&
-      this.state.email !== "" &&
-      this.state.text !== ""
+      this.state.text !== "" &&
+      this.validateEmail(this.state.email)
     ) {
       this.setState({
         confirmAlert: "Your message has been sent Successfully!"
@@ -85,75 +91,99 @@ export default class ContactUs extends Component {
     });
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div className="form--contactUs--wrapper">
-        <form onSubmit={this.registerSubmit} className="form--contactUs">
-          <h1>Contact us:</h1>
-          <label>
-            <i className="fas fa-user" />
-            <input
-              type="text"
-              name="name"
-              required
-              value={this.state.name}
-              onChange={this.changeHandler}
-              placeholder="Enter your name, please"
-              ref={this.name}
-            />
-          </label>
-          <br />
-          <label>
-            <i className="fas fa-at" />
-            <input
-              type="text"
-              name="email"
-              required
-              value={this.state.email}
-              onChange={this.changeHandler}
-              placeholder="Enter your Email, please"
-              ref={this.email}
-            />
-          </label>
-          <br />
-          <label>
-            <i className="fas fa-tag" />
-            <input
-              type="text"
-              name="subject"
-              value={this.state.subject}
-              onChange={this.changeHandler}
-              placeholder="On which topic are you writing to us?"
-              ref={this.subject}
-            />
-          </label>
+        <h1>Contact Us:</h1>
+        <div className="form--contactUs--container">
+          <form onSubmit={this.registerSubmit} className="form--contactUs">
+            <label>
+              <i className="fas fa-user" />
+              <input
+                type="text"
+                name="name"
+                required
+                value={this.state.name}
+                onChange={this.changeHandler}
+                placeholder="Enter your name, please"
+                ref={this.name}
+              />
+            </label>
+            <br />
+            <label>
+              <i className="fas fa-at" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                value={this.state.email}
+                onChange={this.changeHandler}
+                placeholder="Enter your Email, please"
+                ref={this.email}
+              />
+            </label>
+            <br />
+            <label>
+              <i className="fas fa-tag" />
+              <input
+                type="text"
+                name="subject"
+                value={this.state.subject}
+                onChange={this.changeHandler}
+                placeholder="On which topic are you writing to us?"
+                ref={this.subject}
+              />
+            </label>
 
-          <br />
-          <label>
-            <i className="fas fa-pen" />
+            <br />
+            <label>
+              <i className="fas fa-pen" />
 
-            <textarea
-              rows="3"
-              type="text"
-              name="text"
-              required
-              value={this.state.text}
-              onChange={this.changeHandler}
-              placeholder="Enter your Message here..."
-              ref={this.message}
-            />
-          </label>
-          <button onClick={this.toggle}>Send!</button>
+              <textarea
+                rows="3"
+                type="text"
+                name="text"
+                required
+                value={this.state.text}
+                onChange={this.changeHandler}
+                placeholder="Enter your Message here..."
+                ref={this.message}
+              />
+            </label>
+            <button onClick={this.toggle}>Send!</button>
 
-          <Modal isOpen={this.state.modal}>
-            <ModalHeader>{this.state.confirmAlert}</ModalHeader>
-            <ModalFooter>
-              <Button color="danger" onClick={this.toggle}>
-                Close
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </form>
+            <Modal isOpen={this.state.modal}>
+              <ModalHeader>{this.state.confirmAlert}</ModalHeader>
+              <ModalFooter>
+                <Button color="danger" onClick={this.toggle}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </form>
+
+          <div className="contactus--contact--info">
+            <div className="contact--info contact--info__address--wrapper">
+              <i className="fas fa-map-marker-alt" />
+              <div className="contact--info__address">
+                Tbilisi 0162, Georgia I. Chavchavadze Avenue N82
+              </div>
+            </div>
+            <div className="contact--info contact--info__number--wrapper">
+              <i className="fas fa-phone" />
+              <div className=" contact--info__number">(+995 32) 230 80 55</div>
+            </div>
+            <div className="contact--info contact--info__email--wrapper">
+              <i className="fas fa-envelope" />
+              <div className="contact--info__email">info@btu.edu.ge</div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
