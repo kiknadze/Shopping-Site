@@ -18,8 +18,10 @@ import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 import Product from '../components/Product';
 import Slider from "../components/Slider";
+import BackToTop from "../components/BackToTop";
 
 import "antd/dist/antd.css";
+
 
 const Admin = () => (
   <div>
@@ -66,6 +68,7 @@ const checkout = () => (
 
 const contactus = () => (
   <div>
+    <BackToTop />
     <Sidebar />
     <ContactUs />
     <ExtraFooter />
@@ -83,39 +86,39 @@ const notFoundPage = () => (
 );
 
 const adminShowUSers = () => (
-    <div>
-        <AdminHeader/>
-        <AdminShowUSers />
-        <AdminFooter/>
-    </div>
-)
+  <div>
+    <AdminHeader />
+    <AdminShowUSers />
+    <AdminFooter />
+  </div>
+);
 
 const index = () => (
-    <div>
-      <Sidebar />
-      <Slider/>
-      <HomePageProduct />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div>
+    <Sidebar />
+    <Slider/>
+    <HomePageProduct />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const filter = () => (
-    <div>
-      <Sidebar />
-      <ProductFilter />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div>
+    <Sidebar />
+    <ProductFilter />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const product = () => (
-    <div className="wrapper--all">
-      <Sidebar />
-      <Product />
-      <ExtraFooter />
-      <Footer />
-    </div>
+  <div className="wrapper--all">
+    <Sidebar />
+    <Product />
+    <ExtraFooter />
+    <Footer />
+  </div>
 );
 
 const AppRouter = () => (
