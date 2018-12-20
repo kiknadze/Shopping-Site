@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { Carousel } from "antd";
 
-class Slider extends Component {
+function onChange(a, b, c) {
+  console.log(a, b, c);
+}
+
+class AboutUsSlider extends Component {
   render() {
     return (
       <div>
-        <Carousel effect="scrollx" autoplay>
+        <Carousel afterChange={onChange}>
           <div className="single-slide">
             <div className="info">description</div>
             <div className="image">
@@ -15,6 +19,7 @@ class Slider extends Component {
               />
             </div>
           </div>
+
           <div className="single-slide">
             <div className="info">description</div>
             <div className="image">
@@ -24,6 +29,17 @@ class Slider extends Component {
               />
             </div>
           </div>
+
+          <div className="single-slide">
+            <div className="info">description</div>
+            <div className="image">
+              <img
+                src="https://as2.ftcdn.net/jpg/01/62/73/75/500_F_162737591_eBkqM3aGSQ96HI4LclA8808h1HosQnzu.jpg"
+                alt="#"
+              />
+            </div>
+          </div>
+
           <div className="single-slide">
             <div className="info">description</div>
             <div className="image">
@@ -39,4 +55,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default AboutUsSlider;

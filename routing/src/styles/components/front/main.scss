@@ -17,22 +17,24 @@ li {
   z-index: 1;
   background-color: #3c3c3c;
   width: 100%;
-  color: #fff;
+  color:  #fbb710;;
   padding: 60px 0;
   float: left;
 }
 
 .right-side {
   float: left;
-  width: 80%;
+  width: 75%;
 }
 
-.ant-carousel .slick-slide {
+.ant-carousel, 
+.slick-slide {
   text-align: center;
   height: 360px;
   line-height: 360px;
   background: #d4d4d4;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .single-slide .image {
@@ -51,100 +53,151 @@ li {
   width: 33.33333%;
 }
 
-/* GALLERY */
+/* HomePageProduct*/
+
+// .gallery-container .first-grid,
+// .gallery-container .second-grid,
+// .gallery-container .third-grid {
+//   width: 33.333%;
+// }
+
+
+
+.gallery-container .gallery-container .single-item .ProductImage {
+  overflow: hidden;
+}
+
+.gallery-container .single-item .ProductImage img {
+  width: 100%;
+  // height: 100%;
+}
+
 .gallery-container {
   width: 100%;
-  height: 900px;
+  margin-top: 0;
+  height: 800px;
   overflow: hidden;
-  background: #364d79;
+  // background: #364d79;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-}
+  flex-wrap: wrap;
+  justify-content: center;
+  div{
+    &:nth-child(1) {
+      height: 300px;
+      img {
+        height: 300px
+      } 
+    }
 
-  .gallery-container
-  .frist-grid
-  .gallery-container
-  .second-grid
-  .gallery-container
-  .third-grid {
-  width: 33%;
-}
+    &:nth-child(4) {
+      height: 200px;
+      margin-top: -100px;
+      img {
+        height: 200px
+      } 
+    }
+    &:nth-child(7) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+    }
+  }
 
-.gallery-container .single-item {
-  overflow: hidden;
-  width: 100%;
-  /* height: 300px; */
-  position: relative;
+  &:nth-child(2) {
+    height: 200px;
+    img {
+      height: 300px;
+  }
 }
+    &:nth-child(5) {
+      height: 400px;
+      margin-top: -200px;
+      img {
+        height: 400px;
+      } 
+    }
+    &:nth-child(8) {
+      height: 200px;
+      margin-top: -100px;
+      img {
+        height: 200px;
+      } 
+    }
 
-.gallery-container .single-item .image {
-  overflow: hidden;
-}
+    
+    &:nth-child(3) {
+      height: 400px;
+      img {
+        height: 400px;
+      }
+    }
+    &:nth-child(6) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+      }
+    }
+    &:nth-child(9) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+      }
+    }
+    
+    
+  }
+  
 
-.gallery-container .single-item .image img {
-  width: 100%;
-  height: 100%;
-}
+  
+  
+  
+  
+  .single-item {
+    overflow: hidden;
+    width: 33.33%;
+    position: relative;
+    &:hover{
+      cursor: pointer;
+    }
 
-.gallery-container .single-item .info {
-  position: absolute;
-  width: 100%;
-  top: 40px;
-  left: 30px;
-}
+    
+   
 
-.gallery-container .single-item .info::before {
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 3px;
-  background-color: #fbb710;
-  top: 0;
-  left: 0;
-}
+    .ProductInfo {
+      position: absolute;
+      width: 100%;
+      top: 40px;
+      left: 30px;
 
-.gallery-container .single-item .info h2 {
-  margin: 0;
-  padding: 0;
-}
+      &::before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background-color: #fbb710;
+        top: 0;
+        left: 0;
+      }
 
-.gallery-container .single-item .info p {
-  margin: 0;
-  margin-top: 20px;
+      h4 {
+        margin: 0;
+        padding: 0;
+        
+      }
+      p {
+        margin: 0;
+        margin-top: 20px;
+      }
+    }
+  }
 }
-
-.gallery-container .frist-grid .single-item:nth-child(1) {
-  height: 33%;
-  background: green;
-}
-.gallery-container .frist-grid .single-item:nth-child(2) {
-  height: 33%;
-  background: green;
-}
-.gallery-container .frist-grid .single-item:nth-child(3) {
-  height: 33%;
-  background: green;
-}
-
-.gallery-container .second-grid .single-item:nth-child(1) {
-  height: 25%;
-}
-.gallery-container .second-grid .single-item:nth-child(2) {
-  height: 40%;
-}
-.gallery-container .second-grid .single-item:nth-child(3) {
-  height: 35%;
-}
-
-.gallery-container .third-grid .single-item:nth-child(1) {
-  height: 45%;
-}
-.gallery-container .third-grid .single-item:nth-child(2) {
-  height: 30%;
-}
-.gallery-container .third-grid .single-item:nth-child(3) {
-  height: 25%;
+.gray-bg {
+  &:hover {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255, 255, 255, 0.8)), url("https://images2.alphacoders.com/238/thumb-1920-238870.jpg");
+  }
+  
 }

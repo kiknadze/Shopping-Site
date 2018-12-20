@@ -77,12 +77,22 @@ export default class User extends Component {
                     <div className='custom-ui'>
                         <h1>EDIT USER....!</h1>
                         <h1>CHANGE USERNAME</h1>
-                        <input type="text" name="fname" placeholder={username} onChange={this.handleChange}></input>
-                        <button onClick={onClose}>Close</button>
-                        <button onClick={() => {
+                        <input type="text"
+                            name="fname" 
+                            className="form-control" 
+                            placeholder={username} 
+                            onChange={this.handleChange}
+                        ></input>
+                        <button 
+                            onClick={onClose} 
+                            className="btn btn-danger editUser__input" 
+                        >Close</button>
+
+                        <button className="btn btn-success editUser__input" 
+                            onClick={() => {
                             this.handleClickEdit(id, username)
                             onClose()
-                        }}>Submit!</button>
+                        }}>Save</button>
                     </div>
                 )
             }
@@ -110,7 +120,7 @@ export default class User extends Component {
                                     <td>{user.lastname}</td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.birtddate}</td>
+                                    <td>{user.birthdate}</td>
                                     <td>{user.balance}</td>
                                     <td>
                                         <i 
