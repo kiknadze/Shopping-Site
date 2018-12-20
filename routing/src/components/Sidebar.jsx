@@ -24,7 +24,8 @@ class Sidebar extends Component {
       birthdate: '',
       balance: '',
       email: '',
-      username: ''
+      username: '',
+      password: ''
     }
   }
 
@@ -33,7 +34,7 @@ class Sidebar extends Component {
   }
 
   GetUser = () => {
-    fetch(usersUrl)
+    userID && fetch(usersUrl)
       .then(users => users.json())
       .then(users => {
         let user = users.filter(user => user.id === userID)
@@ -60,15 +61,54 @@ class Sidebar extends Component {
     this.balance = React.createRef();
 
     this.setState({
-    name: this.state.user.name,
-    lastname: this.state.user.lastname,
-    email: this.state.user.email,
-    username: this.state.user.username,
-    address: this.state.user.address,
-    birthdate: this.state.user.birthdate,
-    balance: this.state.user.balance
+      name: this.state.user.name,
+      lastname: this.state.user.lastname,
+      email: this.state.user.email,
+      username: this.state.user.username,
+      address: this.state.user.address,
+      birthdate: this.state.user.birthdate,
+      balance: this.state.user.balance
     });
+  };
+
+  EditProfile = (e) => {
+    e.preventDefault();
+    this.EditUser(
+      this.state.user.id,
+      this.state.name,
+      this.state.lastname,
+      this.state.password,
+      this.state.address,
+      this.state.birthdate,
+      this.state.balance
+    );
   }
+
+  EditUser = (id, name, lastname, password, address, birthdate, balance) => {
+    fetch("http://localhost:5000/editUser", {
+      method: "POST",
+      headers: {
+        Accept:
+          "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id,
+        name,
+        lastname,
+        password,
+        address,
+        birthdate,
+        balance
+      })
+    })
+      .then(res => res.json())
+      .then(user => {
+        this.setState({ user, message: 'You Successfully Edited!' });
+        setTimeout(() => { this.setState({ message: '' }); }, 3000);
+      })
+      .catch(err => console.log(err));
+  };
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -81,65 +121,177 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="sidebar">
-        <div className="logo" >
-          <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
-        </div>
-        <div className="sidebar-nav">
-          <nav>
-            <div>
-              <Link to="/">Home</Link>
-            </div>
-            <div>
-              <Link to="/aboutus">About Us</Link>
-            </div>
-            <div>
-              <Link to="/shop">Product</Link>
-            </div>
-            <div>
-              <Link to="/contactus">Contact Us</Link>
-            </div>
-          </nav>
-        </div>
-        {
-          localStorage.getItem('User') ?
-            <div className="sidebar-btn-group">
-              <button className="menu__hi">Hi {this.state.user.name}</button>
-              <button
-                className="menu__profile"
-                data-toggle="modal"
-                data-target=".bd-example-modal-lg-profile"
-                onClick={this.ShowProfile}
-              >
-                PROFILE
+      <>
+        <div className="sidebar">
+          <div className="logo" >
+            <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
+          </div>
+          <div className="sidebar-nav">
+            <nav>
+              <div>
+                <Link to="/">Home</Link>
+              </div>
+              <div>
+                <Link to="/aboutus">About Us</Link>
+              </div>
+              <div>
+                <Link to="/shop">Product</Link>
+              </div>
+              <div>
+                <Link to="/contactus">Contact Us</Link>
+              </div>
+            </nav>
+          </div>
+          {
+            localStorage.getItem('User') ?
+              <div className="sidebar-btn-group">
+                <button className="menu__hi">Hi {this.state.user.name}</button>
+                <button
+                  className="menu__profile"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg-profile"
+                  onClick={this.ShowProfile}
+                >
+                  PROFILE
+                </button>
+                <Link to="/checkout"><button className="menu__cart">CART<sup>{this.state.cart}</sup></button></Link>
+                <button
+                  className="menu__orders"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg"
+                  onClick={this.ShowOrders}
+                >
+                  ORDERS
               </button>
-              <Link to="/checkout"><button className="menu__cart">CART<sup>{this.state.cart}</sup></button></Link>
-              <button
-                className="menu__orders"
-                data-toggle="modal"
-                data-target=".bd-example-modal-lg"
-                onClick={this.ShowOrders}
-              >
-                ORDERS
-              </button>
-              <button
-                className="menu__logout"
-                onClick={this.Logout}
-              >
-                LOGOUT
+                <button
+                  className="menu__logout"
+                  onClick={this.Logout}
+                >
+                  LOGOUT
               </button></div>
-            :
-            <div className="sidebar-btn-group">
-              <Link to="/login"><button className="menu__login">LOGIN</button></Link>
-              <Link to="/login#profile"><button className="menu__register">REGISTRATION</button></Link>
-            </div>
-        }
-        <div className="icons-list">
-          <Icon className="social" type="instagram" />
-          <Icon className="social" type="linkedin" />
-          <IconFont className="social" type="icon-facebook" />
-          <IconFont className="social" type="icon-twitter" />
+              :
+              <div className="sidebar-btn-group">
+                <Link to="/login"><button className="menu__login">LOGIN</button></Link>
+                <Link to="/login#profile"><button className="menu__register">REGISTRATION</button></Link>
+              </div>
+          }
+          <div className="icons-list">
+            <Icon className="social" type="instagram" />
+            <Icon className="social" type="linkedin" />
+            <IconFont className="social" type="icon-facebook" />
+            <IconFont className="social" type="icon-twitter" />
+          </div>
         </div>
+
+        <div class="accordion accordion-3 z-depth-1-half" id="accordionEx1" role="tablist" aria-multiselectable="true">
+          <div className="logo" >
+            <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
+          </div>
+          <hr class="mb-0" />
+          <div class="card">
+            <div class="card-header" role="tab" id="heading4">
+              <a data-toggle="collapse" data-parent="#accordionEx1" href="#collapse4" aria-expanded="true"
+                aria-controls="collapse4">
+                <h3 class="mb-0 mt-3 red-text">
+                  MENU
+                      </h3>
+              </a>
+            </div>
+
+            <div id="collapse4" class="collapse show" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx1">
+              <div class="card-body pt-0">
+                <div className="sidebar-nav">
+                  <nav>
+                    <div>
+                      <Link to="/">Home</Link>
+                    </div>
+                    <div>
+                      <Link to="/aboutus">About Us</Link>
+                    </div>
+                    <div>
+                      <Link to="/shop">Product</Link>
+                    </div>
+                    <div>
+                      <Link to="/contactus">Contact Us</Link>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" role="tab" id="heading5">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse5" aria-expanded="false"
+                aria-controls="collapse5">
+                <h3 class="mb-0 mt-3 red-text">
+                  Profile
+                      </h3>
+              </a>
+            </div>
+
+            <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordionEx1">
+              <div class="card-body pt-0">
+                {
+                  localStorage.getItem('User') ?
+                    <div className="sidebar-btn-group">
+                      <button className="menu__hi">Hi {this.state.user.name}</button>
+                      <button
+                        className="menu__profile"
+                        data-toggle="modal"
+                        data-target=".bd-example-modal-lg-profile"
+                        onClick={this.ShowProfile}
+                      >
+                        PROFILE
+                                  </button>
+                      <Link to="/checkout"><button className="menu__cart">CART<sup>{this.state.cart}</sup></button></Link>
+                      <button
+                        className="menu__orders"
+                        data-toggle="modal"
+                        data-target=".bd-example-modal-lg"
+                        onClick={this.ShowOrders}
+                      >
+                        ORDERS
+                                  </button>
+                      <button
+                        className="menu__logout"
+                        onClick={this.Logout}
+                      >
+                        LOGOUT
+                                  </button></div>
+                    :
+                    <div className="sidebar-btn-group">
+                      <Link to="/login"><button className="menu__login">LOGIN</button></Link>
+                      <Link to="/login#profile"><button className="menu__register">REGISTRATION</button></Link>
+                    </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" role="tab" id="heading6">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse6" aria-expanded="false"
+                aria-controls="collapse6">
+                <h3 class="mb-0 mt-3 red-text">
+                  Social Media
+                      </h3>
+              </a>
+            </div>
+
+            <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordionEx1">
+              <div class="card-body pt-0">
+                <div className="icons-list">
+                  <Icon className="social" type="instagram" />
+                  <Icon className="social" type="linkedin" />
+                  <IconFont className="social" type="icon-facebook" />
+                  <IconFont className="social" type="icon-twitter" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="modal fade bd-example-modal-lg" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
@@ -153,7 +305,7 @@ class Sidebar extends Component {
 
         <div className="modal fade bd-example-modal-lg-profile" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-lg">
-            <div className="modal-content">
+            <form className="modal-content" onSubmit={this.EditProfile}>
               <div className="modal-header profile--modal">
                 <h5 className="modal-title" id="exampleModalLabel">PROFILE</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -161,7 +313,7 @@ class Sidebar extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <form className="tab-pane fade show edit__profile--form" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.EditProfile}>
+                <div className="tab-pane fade show edit__profile--form" role="tabpanel" aria-labelledby="profile-tab">
                   <div className="row register-form">
                     <div className="col-md-6">
                       <div className="form-group">
@@ -179,13 +331,13 @@ class Sidebar extends Component {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        Password: <input type="password" className="form-control" placeholder="Password" name="password" onChange={this.onChange} ref={this.password} required />
+                        Password: <input type="password" className="form-control" placeholder="Password" name="password" onChange={this.onChange} ref={this.password} />
                       </div>
                       <div className="form-group">
                         Address: <input type="text" className="form-control" name="address" onChange={this.onChange} ref={this.address} value={this.state.address} required />
                       </div>
                       <div className="form-group">
-                        Birthday: <input type="date" className="form-control" name="birthday" onChange={this.onChange} ref={this.birthdate} value={this.state.birthdate} required />
+                        Birthday: <input type="date" className="form-control" name="birthdate" onChange={this.onChange} ref={this.birthdate} value={this.state.birthdate} required />
                       </div>
                       <div className="form-group">
                         Balance: <input type="number" className="form-control" name="balance" onChange={this.onChange} ref={this.balance} value={this.state.balance} required />
@@ -200,16 +352,16 @@ class Sidebar extends Component {
                       }
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-success">Save changes</button>
+                <button type="submit" className="btn btn-success">Save changes</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

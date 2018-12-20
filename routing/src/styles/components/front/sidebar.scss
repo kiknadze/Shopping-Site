@@ -16,9 +16,13 @@
       flex-direction: column;
       margin-left: 70px;
       div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         margin-bottom: 30px;
         a {
           margin-top: 20px;
+          margin-left: 10px;
           font-size: 1rem;
           text-transform: uppercase;
           color: $black;
@@ -27,8 +31,22 @@
             color: $yellow;
           }
         }
+        &:before {
+          content: '';
+          margin-top: 20px;
+          display: block;
+          width: 0;
+          height: 2px;
+          background: $yellow;
+          transition: width .3s;
+        }
+        &:hover {
+          &:before {
+            width: 5%;
+          }
+        }
       }
-  }
+    }
 }
 
 .sidebar-btn-group {
@@ -120,4 +138,145 @@
 .edit__profile--form {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.accordion.accordion-3 {
+  border-radius: 3px; 
+}
+
+#accordionEx1 {
+  display: none;
+}
+
+.card-header {
+  background: $yellow;
+  a {
+    h3 {
+      text-align: center;
+      color: #fff;
+    }
+  }
+  &:hover {
+    background: $green;
+    transition: 1s;
+  }
+}
+
+@media only screen and (min-width: 481px) and  (max-width: 850px) {
+  #accordionEx1 {
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+
+  .logo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin-left: 0;
+    }
+  }
+
+  .sidebar-nav {
+    margin-top: 20px;
+    nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0;
+      div {
+        margin-bottom: 20px;
+        &:hover {
+          &:before {
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .icons-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) { 
+  #accordionEx1 {
+    display: block;
+  }
+  .sidebar {
+    display: none;
+  }
+
+  .logo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin-left: 0;
+    }
+  }
+
+  .sidebar-nav {
+    margin-top: 20px;
+    nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0;
+      div {
+        margin-bottom: 20px;
+        &:hover {
+          &:before {
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .icons-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 0;
+  }
 }
