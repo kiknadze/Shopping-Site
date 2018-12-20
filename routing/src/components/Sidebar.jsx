@@ -183,23 +183,23 @@ class Sidebar extends Component {
           </div>
         </div>
 
-        <div class="accordion accordion-3 z-depth-1-half" id="accordionEx1" role="tablist" aria-multiselectable="true">
+        <div className="accordion accordion-3 z-depth-1-half" id="accordionEx1" role="tablist" aria-multiselectable="true">
           <div className="logo" >
             <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
           </div>
-          <hr class="mb-0" />
-          <div class="card">
-            <div class="card-header" role="tab" id="heading4">
+          <hr className="mb-0" />
+          <div className="card">
+            <div className="card-header" role="tab" id="heading4">
               <a data-toggle="collapse" data-parent="#accordionEx1" href="#collapse4" aria-expanded="true"
                 aria-controls="collapse4">
-                <h3 class="mb-0 mt-3 red-text">
+                <h3 className="mb-0 mt-3 red-text">
                   MENU
                       </h3>
               </a>
             </div>
 
-            <div id="collapse4" class="collapse show" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx1">
-              <div class="card-body pt-0">
+            <div id="collapse4" className="collapse show" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx1">
+              <div className="card-body pt-0">
                 <div className="sidebar-nav">
                   <nav>
                     <div>
@@ -220,18 +220,18 @@ class Sidebar extends Component {
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-header" role="tab" id="heading5">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse5" aria-expanded="false"
+          <div className="card">
+            <div className="card-header" role="tab" id="heading5">
+              <a className="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse5" aria-expanded="false"
                 aria-controls="collapse5">
-                <h3 class="mb-0 mt-3 red-text">
+                <h3 className="mb-0 mt-3 red-text">
                   Profile
                       </h3>
               </a>
             </div>
 
-            <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordionEx1">
-              <div class="card-body pt-0">
+            <div id="collapse5" className="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordionEx1">
+              <div className="card-body pt-0">
                 {
                   localStorage.getItem('User') ?
                     <div className="sidebar-btn-group">
@@ -269,18 +269,18 @@ class Sidebar extends Component {
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-header" role="tab" id="heading6">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse6" aria-expanded="false"
+          <div className="card">
+            <div className="card-header" role="tab" id="heading6">
+              <a className="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapse6" aria-expanded="false"
                 aria-controls="collapse6">
-                <h3 class="mb-0 mt-3 red-text">
+                <h3 className="mb-0 mt-3 red-text">
                   Social Media
                       </h3>
               </a>
             </div>
 
-            <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordionEx1">
-              <div class="card-body pt-0">
+            <div id="collapse6" className="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordionEx1">
+              <div className="card-body pt-0">
                 <div className="icons-list">
                   <Icon className="social" type="instagram" />
                   <Icon className="social" type="linkedin" />

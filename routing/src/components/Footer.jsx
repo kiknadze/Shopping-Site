@@ -7,7 +7,9 @@ class Footer extends Component {
       <div className="footer">
         <div className="container">
           <div className="left">
-            <div className="logo" />
+          <div className="logo" >
+            <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
+          </div>
             <div className="copy">Copyright ©2018 All rights reserved</div>
           </div>
 
