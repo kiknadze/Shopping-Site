@@ -1,10 +1,16 @@
 .proFilter {
     display: flex;
-    direction: column;
+    display: column;
     margin-left:5%;
-    height: 100vh;
+    height: 130vh;
     cursor: pointer;
     color:$darkgray;
+}
+
+.container--product--container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 h4 {
     color:black;
@@ -15,7 +21,7 @@ h4 {
 .proFilter--details {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     
    
 }
@@ -51,14 +57,37 @@ h4 {
     }
 }
 .proFilter--img {
-    display: flex;
-    flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
-    width: 70%;
-    margin-left: 5%;
-    margin-top:10%
+    // margin-left: 4%;
+    width: 100%;
+    margin-top:10%;
+   
 }
+.container--product--wrapper{
+   width: 45%;
+
+    .image img{
+        width: 330px;
+        height: 270px;
+        // margin-left:2px;
+           
+    }
+    &:hover {
+        opacity: 0.4;
+ 
+    }
+
+}
+
+.container--product {
+  
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        height: auto;
+}
+
 
 .proFilter-color--menu {
     display: flex;
@@ -67,7 +96,8 @@ h4 {
     flex-wrap: wrap;
     width:40%;
     margin-left: 15%;
-    margin-top:10%
+    
+
 }
 
 .proFilter-categories--menu, {
@@ -81,8 +111,9 @@ h4 {
 
 .proFilter-color--menu > div {
     
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    margin-top: 20px;
+    height: 40px;
     display: block;
     border-radius: 50%;
     position: relative;
@@ -108,3 +139,25 @@ h4 {
     }
 
 }
+.container--product--wrapper {
+    font-size: $s-size;
+    margin-bottom: -5%;
+    
+    .line {
+        width: 110px;
+        height: 3px;
+        background-color: $yellow;
+
+    }
+    .proPrice {
+        color: $yellow;
+       
+    }
+}
+.container--product--wrapper > div { 
+    padding: 2px;
+    
+
+}
+
+

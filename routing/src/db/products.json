@@ -11,7 +11,7 @@
     },
     {
         "id": "2",
-        "url": "https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg",
+        "url": "https://d36b7pis6t83uj.cloudfront.net/product/ashley/images/B128-31-36-46-77-92-SD.jpg",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -48,5 +48,55 @@
         "price": "1180",
         "color": "1",
         "material": "4"
+    },
+    {
+        "id": "6",
+        "url": "http://2.bp.blogspot.com/_QXjsSCEygKg/TC5mDL_lgmI/AAAAAAAAASM/7av_ptTXiCo/s1600/Muebles+de+Dormitorio.jpg",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "7",
+        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "8",
+        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "9",
+        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
+    },
+    {
+        "id": "10",
+        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "2",
+        "material": "2"
     }
 ]

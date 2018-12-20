@@ -25,15 +25,16 @@ li {
 .right-side {
   float: left;
   width: 75%;
-  margin-top: 2%;
 }
 
-.ant-carousel .slick-slide {
+.ant-carousel, 
+.slick-slide {
   text-align: center;
   height: 360px;
   line-height: 360px;
   background: #d4d4d4;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .single-slide .image {
@@ -73,23 +74,98 @@ li {
 
 .gallery-container {
   width: 100%;
-  // height: 1100px;
-  height: 100%;
+  margin-top: 0;
+  height: 800px;
   overflow: hidden;
   // background: #364d79;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  div{
+    &:nth-child(1) {
+      height: 300px;
+      img {
+        height: 300px
+      } 
+    }
 
+    &:nth-child(4) {
+      height: 200px;
+      margin-top: -100px;
+      img {
+        height: 200px
+      } 
+    }
+    &:nth-child(7) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+    }
+  }
+
+  &:nth-child(2) {
+    height: 200px;
+    img {
+      height: 300px;
+  }
+}
+    &:nth-child(5) {
+      height: 400px;
+      margin-top: -200px;
+      img {
+        height: 400px;
+      } 
+    }
+    &:nth-child(8) {
+      height: 200px;
+      margin-top: -100px;
+      img {
+        height: 200px;
+      } 
+    }
+
+    
+    &:nth-child(3) {
+      height: 400px;
+      img {
+        height: 400px;
+      }
+    }
+    &:nth-child(6) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+      }
+    }
+    &:nth-child(9) {
+      height: 300px;
+      margin-top: -200px;
+      img {
+        height: 300px;
+      }
+    }
+    
+    
+  }
+  
+
+  
+  
+  
   
   .single-item {
     overflow: hidden;
-    width: 100%;
-    // height: 300px;
+    width: 33.33%;
     position: relative;
-    padding: 4px;
+    &:hover{
+      cursor: pointer;
+    }
+
+    
+   
 
     .ProductInfo {
       position: absolute;
@@ -118,4 +194,10 @@ li {
       }
     }
   }
+}
+.gray-bg {
+  &:hover {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255, 255, 255, 0.8)), url("https://images2.alphacoders.com/238/thumb-1920-238870.jpg");
+  }
+  
 }
