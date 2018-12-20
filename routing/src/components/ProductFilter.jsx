@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import SearchProduct from "./SearchProduct"
+import GetCategory from "./GetCategory"
 const userURL = "http://localhost:5000/db/products";
+
 
 
 
@@ -14,7 +17,11 @@ class ProductFilter extends Component {
             categoryDate: [],
             material: [],
             color: "",
-            products: []
+            products: [],
+            matchProduct: [],
+           
+
+
         }
     }
     componentDidMount() {
@@ -25,15 +32,18 @@ class ProductFilter extends Component {
         this.setState({ category: e.target.id })
         this.setState({ colorChoose: false })
         this.setState({ categoryChoose: true })
+        
     }
     colorClick = (e) => {
         this.setState({ color: e.target.id })
         this.setState({ colorChoose: true })
-        console.log(e.target.id)
+        
+
     }
     handleChange = (e) => {
 
         let materialArray = this.state.material
+      
         if (!materialArray.includes(e.target.id)) {
             materialArray.push(e.target.id)
             this.setState({ material: materialArray })
@@ -47,16 +57,35 @@ class ProductFilter extends Component {
         if (materialArray.length === 0) {
             this.setState({ materialChoose: false })
         }
+        
     }
     GetProduct = () => {
         fetch(userURL)
             .then(products => products.json())
             .then(products => {
                 this.setState({ products })
-                console.log(this.state.products)
+
             })
             .catch(err => console.log(err));
 
+
+    }
+    onSearch = (e) => {
+        let matchProduct = [];
+        let search = new RegExp(e.target.value, 'gi');
+
+        this.state.products.forEach((item, index) => {
+            if ((item.name.match(search) || item.desc.match(search)) && (!matchProduct.includes(item))) {
+                matchProduct.push(item)
+            } else if (matchProduct.includes(item)) {
+                matchProduct.splice(index, 1);
+            }
+        })
+        if (!matchProduct.length || e.target.value === "") {
+            this.setState({ matchProduct: [] })
+        } else {
+            this.setState({ matchProduct: matchProduct })
+        }
 
     }
 
@@ -94,10 +123,7 @@ class ProductFilter extends Component {
                                     <input className="form-check-input" type="checkbox" onChange={this.handleChange} value="" id="4"></input>
                                     <label className="form-check-label" for="glass">Glass</label>
                                 </div>
-
-
                             </div>
-                            {console.log(this.state.material)}
                         </div>
                         <div className="proFilter-color">
                             <h4>Colors</h4>
@@ -108,69 +134,46 @@ class ProductFilter extends Component {
                                 <div className="color4" id="4" onClick={this.colorClick}></div>
                                 <div className="color5" id="5" onClick={this.colorClick}></div>
                                 <div className="color6" id="6" onClick={this.colorClick}></div>
-
-
-
-
-
-                                
                             </div>
                         </div>
-                        {/* <div className="proFilter-price">
-                            <h4>Price</h4>
-                            <div className="proFilter-price--menu">
-                            </div>
-                        </div> */}
-
                     </div>
                     <div className="proFilter--img">
+                        <div className="searchProduct">
+                            <div><SearchProduct onSearch={this.onSearch} /> </div>
+                        </div>
+                        <GetCategory matchProduct={this.state.matchProduct}
+                            color={this.state.color}
+                            material={this.state.material}
+                            category={this.state.category}
+                            categoryChoose={this.state.categoryChoose}
+                            colorChoose={this.state.colorChoose}
+                            materialChoose={this.state.materialChoose}
+                            products={this.state.products}
+                            handleClick={this.handleClick}
+                            colorClick={this.colorClick}
+                            handleChange={this.handleChange}
+                            
+                        />
+                         <div className="container--product">
+                       
                         {
-                            this.state.products
-                                .filter(product => product.category === this.state.category && !this.state.colorChoose && !this.state.materialChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>1</div>
+                            this.state.matchProduct.map((product) =>
+                           
+                            <div className="container--product--wrapper">
+                                <div className="image"><img alt="NO" src={product.url} ></img></div>
+                                <div className="line"></div>
+                                <div className="proPrice">{product.price}ლ</div>
+                                <div className="proName">{product.name}</div>
+                            </div>
+                        
+                            )
+                        }
+                        </div>
 
-                                )
-                        }
-                        {
-                            this.state.products
-                                .filter(product => product.color === this.state.color && product.category === this.state.category && !this.state.materialChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>2</div>
-                                )
-                        }
-                        {
-                            this.state.products
-                                .filter(product => product.color === this.state.color && !this.state.categoryChoose && this.state.colorChoose && !this.state.materialChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>3</div>
-                                )
-                        }
-                        {
-                            this.state.products
-                                .filter(product => this.state.material.includes(product.material) && product.category === this.state.category && this.state.categoryChoose && !this.state.colorChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>4</div>
-                                )
-                        }
-                        {
-                            this.state.products
-                                .filter(product => this.state.material.includes(product.material) && !this.state.categoryChoose && this.state.materialChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>5</div>
-                                )
-                        }
-                        {
-                            this.state.products
-                                .filter(product => this.state.material.includes(product.material) && product.category === this.state.category && this.state.categoryChoose && this.state.materialChoose
-                                    && product.color === this.state.color && this.state.colorChoose)
-                                .map((product) =>
-                                    <div><img alt="NO" src={product.url} width="70%"></img>6</div>
-                                )
-                        }
                     </div>
                 </div>
             </div>
+
         );
     }
 }
