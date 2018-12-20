@@ -26,6 +26,7 @@ app.use(cors("*"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//encrypt password
 const encrypt = data => {
   const hash = crypto
     .createHmac("sha256", secret)
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
+//register new user
 app.post("/register", (req, res) => {
   let {
     name,
@@ -64,14 +66,17 @@ app.post("/register", (req, res) => {
 
   fs.readFile(usersfileDB, function(err, data) {
     let json = JSON.parse(data);
-    json.push(user);
-    fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
-      if (err) res.json(json);
-      res.json(json);
-    });
+    if(json.filter(user => user.email == email || user.username == username).length) {
+        res.json({reg: false, message: 'Email or Username Exist!'})
+    } else {
+      json.push(user);
+      fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
+        if (err) res.json(json);
+        res.json({reg: true, message: 'You Successfully Register!'});
+      });
+      userID++;
+    }
   });
-
-  userID++;
 });
 
 //get userData to checkout page
@@ -95,6 +100,7 @@ app.post("/login", (req, res) => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].email == email && users[i].password == encrypt(password)) {
         matchUser = {
+          user: users[i],
           id: users[i].id,
           level: users[i].level,
           auth: true
@@ -134,6 +140,38 @@ app.get("/db/category", (req, res) => {
     let json = JSON.parse(data);
     res.json(json);
   });
+});
+
+//edit user
+app.post("/editUser", (req, res) => {
+  let {
+    id,
+    name,
+    lastname,
+    password,
+    birthdate,
+    address,
+    balance
+  } = req.body;
+  console.log(password)
+  fs.readFile(usersfileDB, function(err, data) {
+    let json = JSON.parse(data);
+    let index = json.findIndex(user => user.id == id);
+    json[index].name = name;
+    json[index].lastname = lastname;
+    json[index].birthdate = birthdate;
+    json[index].address = address;
+    json[index].balance = balance;
+    if(password != '') {
+      json[index].password = encrypt(password);
+    }
+    fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
+      if (err) res.json(json[index]);
+      res.json(json[index]);
+    });
+  });
+
+  userID++;
 });
 
 adminControllers(app);
