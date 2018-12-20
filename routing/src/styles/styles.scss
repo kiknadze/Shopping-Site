@@ -1,6 +1,6 @@
-@import './base/settings';
-@import './base/base';
-@import './components/admin/AdminAddProduct';
+@import "./base/settings";
+@import "./base/base";
+@import "./components/admin/AdminAddProduct";
 @import "./components/admin/message.scss";
 @import "./components/front/contactUs";
 @import "./components/front/categories.scss";
@@ -12,3 +12,6 @@
 @import "./components/front/filter.scss";
 @import "./components/front/product.scss";
 @import "./components/front/searchProduct.scss";
+@import "./components/front/extraFooter.scss";
+@import "./components/front/backToTop.scss";
+@import "./components/front/notFound.scss";
