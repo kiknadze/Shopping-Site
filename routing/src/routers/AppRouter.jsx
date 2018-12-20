@@ -17,6 +17,7 @@ import Sidebar from '../components/Sidebar';
 import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 import Product from '../components/Product';
+import Slider from "../components/Slider";
 
 import "antd/dist/antd.css";
 
@@ -92,6 +93,7 @@ const adminShowUSers = () => (
 const index = () => (
     <div>
       <Sidebar />
+      <Slider/>
       <HomePageProduct />
       <ExtraFooter />
       <Footer />
