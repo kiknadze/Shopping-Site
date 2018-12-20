@@ -17,8 +17,9 @@ import Sidebar from '../components/Sidebar';
 import Checkout from '../components/Checkout';
 import ProductFilter from '../components/ProductFilter';
 import Product from '../components/Product';
-import Slider from "../components/Slider";
-import BackToTop from "../components/BackToTop";
+import Slider from '../components/Slider';
+import BackToTop from '../components/BackToTop';
+import AboutUs from '../components/AboutUs';
 
 import "antd/dist/antd.css";
 
@@ -48,6 +49,16 @@ const registration = () => (
   </div>
 );
 
+const aboutUs = () => (
+  <div>
+    <Sidebar />
+    <BackToTop />
+    <AboutUs />
+    <ExtraFooter />
+    <Footer />
+  </div>
+)
+
 const login = () => (
   <div>
     <Sidebar />
@@ -59,6 +70,7 @@ const login = () => (
 
 const checkout = () => (
   <div>
+    <BackToTop />
     <Sidebar />
     <Checkout />
     <ExtraFooter />
@@ -76,15 +88,6 @@ const contactus = () => (
   </div>
 );
 
-const notFoundPage = () => (
-  <div>
-    <Sidebar />
-    <NotFoundPage />
-    <ExtraFooter />
-    <Footer />
-  </div>
-);
-
 const adminShowUSers = () => (
   <div>
     <AdminHeader />
@@ -96,7 +99,8 @@ const adminShowUSers = () => (
 const index = () => (
   <div>
     <Sidebar />
-    <Slider/>
+    <BackToTop />
+    <Slider />
     <HomePageProduct />
     <ExtraFooter />
     <Footer />
@@ -105,6 +109,7 @@ const index = () => (
 
 const filter = () => (
   <div>
+    <BackToTop />
     <Sidebar />
     <ProductFilter />
     <ExtraFooter />
@@ -114,6 +119,7 @@ const filter = () => (
 
 const product = () => (
   <div className="wrapper--all">
+    <BackToTop />
     <Sidebar />
     <Product />
     <ExtraFooter />
@@ -131,13 +137,14 @@ const AppRouter = () => (
         <Route path="/registration" component={registration} />
         <Route path="/login" component={login} />
         <Route path="/shop" component={filter} />
+        <Route path="/aboutus" component={aboutUs} />
         <Route path="/products/tables/1" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedAdmin path="/admin" component={Admin} exact={true} />
         <ProtectedAdmin path="/admin/messages" component={Messages} />
         <ProtectedAdmin path="/admin/users" component={adminShowUSers} />
         <Route path="/contact" />
-        <Route component={notFoundPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>

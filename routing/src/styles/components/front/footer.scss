@@ -41,5 +41,8 @@
 
 .footer-nav li a {
   color: #fff;
+  &:hover {
+    color: $yellow;
+  }
   
 }

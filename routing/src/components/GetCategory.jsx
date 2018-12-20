@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function GetCategory(props) {
     return (
-        <div>
+        <div className="container--product--container">
             <div className="container--product">
                 {
 
@@ -19,8 +19,8 @@ export default function GetCategory(props) {
                         )
 
                 }
-            </div>
-            <div className="container--product">
+            
+            
                 {
                     props.products
                         .filter(product => product.color === props.color && product.category === props.category && !props.materialChoose)
@@ -35,8 +35,7 @@ export default function GetCategory(props) {
 
                         )
                 }
-            </div>
-            <div className="container--product">
+           
                 {
                     props.products
                         .filter(product => product.color === props.color && !props.categoryChoose && props.colorChoose && !props.materialChoose)
@@ -51,8 +50,7 @@ export default function GetCategory(props) {
 
                         )
                 }
-            </div>
-            <div className="container--product">
+           
                 {
                     props.products
                         .filter(product => props.material.includes(product.material) && product.category === props.category && props.categoryChoose && !props.colorChoose)
@@ -67,8 +65,7 @@ export default function GetCategory(props) {
 
                         )
                 }
-            </div>
-            <div className="container--product">
+            
                 {
                     props.products
                         .filter(product => props.material.includes(product.material) && !props.categoryChoose && props.materialChoose)
@@ -83,8 +80,7 @@ export default function GetCategory(props) {
 
                         )
                 }
-            </div>
-            <div className="container--product">
+           
                 {
                     props.products
                         .filter(product => props.material.includes(product.material) && product.category === props.category && props.categoryChoose && props.materialChoose
