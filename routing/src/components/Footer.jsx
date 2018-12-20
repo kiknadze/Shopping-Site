@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -7,7 +7,9 @@ class Footer extends Component {
       <div className="footer">
         <div className="container">
           <div className="left">
-            <div className="logo" />
+          <div className="logo" >
+            <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
+          </div>
             <div className="copy">Copyright ©2018 All rights reserved</div>
           </div>
 
@@ -15,19 +17,16 @@ class Footer extends Component {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <Link to="#">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="#">Home</Link>
+                  <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <Link to="#">Home</Link>
+                  <Link to="/products">Products</Link>
                 </li>
                 <li>
-                  <Link to="#">Home</Link>
-                </li>
-                <li>
-                  <Link to="#">Home</Link>
+                  <Link to="/contactus">Contact</Link>
                 </li>
               </ul>
             </nav>

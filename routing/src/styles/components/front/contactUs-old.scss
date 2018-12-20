@@ -10,7 +10,6 @@
     background-color: $darkgray;
     color: $gray;
     text-align: center;
-    margin-top: 70px;
   }
 }
 .form--contactUs--container {
@@ -40,10 +39,6 @@
   .contact--info {
     display: flex;
     justify-content: space-between;
-    &:hover {
-      color: $yellow;
-      cursor: grab;
-    }
   }
   i {
     font-size: 20pt;
@@ -88,7 +83,6 @@
     margin: 20px auto 0 20px;
     &:hover {
       background-color: #4caf50;
-      transition: 1s;
     }
   }
 }
@@ -96,36 +90,4 @@
   width: 200px;
   margin: 0 auto;
   background-color: green;
-}
-
-@media only screen and (max-width: 768px) {
-  .form--contactUs--wrapper {
-    width: 100%;
-  }
-
-  .form--contactUs--container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .form--contactUs {
-    width: 80%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .contactus--contact--info {
-    width: 100%;
-    margin-top: 2%;
-
-    * {
-      padding: 1% 0;
-    }
-    .contact--info {
-      display: flex;
-      justify-content: flex-start;
-      width: 90%;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
-  }
 }
