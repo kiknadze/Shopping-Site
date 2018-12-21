@@ -3,22 +3,24 @@ import ProductProduct from "./ProductProduct";
 import Review from "./Review";
 import Navigation from "./Navigation";
 import ProductImage from "./ProductImage";
+import { confirmAlert } from "react-confirm-alert";
+import { Redirect } from 'react-router-dom';
 
 let productsURL = "http://localhost:5000/db/products";
 let categoryURL = "http://localhost:5000/db/category";
-let productID = "1";
 
 export default class Product extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      product: [],
-      quantity: 3,
+      product: {},
+      quantity: 1,
       userID: null,
       category: "",
       productName: "",
-      productID: null
+      productID: props.match.params.id,
+      addToCartPr: 3
     };
   }
   componentDidMount() {
@@ -41,9 +43,8 @@ export default class Product extends Component {
     fetch(productsURL)
       .then(res => res.json())
       .then(products => {
-        let product = products.filter(product => product.id === productID);
+        let product = products.find(product => product.id === this.state.productID);
         this.setState({ product });
-        console.log(this.state.product[0].id);
       })
       .catch(err => console.log(err.message));
   };
@@ -53,10 +54,9 @@ export default class Product extends Component {
       .then(res => res.json())
       .then(products => {
         let productName = products.find(
-          product => product.name === this.state.product[0].name
+          product => product.name === this.state.product.name
         ).name;
         this.setState({ productName });
-        console.log(this.state.productName);
       })
       .catch(err => console.log(err.message));
   };
@@ -67,7 +67,7 @@ export default class Product extends Component {
         .then(res => res.json())
         .then(categories => {
           let category = categories.find(
-            category => category.id === this.state.product[0].category
+            category => category.id === this.state.product.category
           ).name;
           this.setState({ category });
         })
@@ -75,15 +75,38 @@ export default class Product extends Component {
   };
 
   addToCart = (userID, productID, quantity) => {
-    fetch("http://localhost:5000/admin/user/addproduct", {
+    fetch("http://localhost:5000/user/addproduct", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ userID, productID, quantity })
-    });
-  };
+    })
+      .then(res => res.json())
+      .then(result => {
+            confirmAlert({
+              customUI: ({ onClose }) => {
+                  return (
+                      <div className='custom-ui'>
+                          <h1>{this.state.quantity + ' ' + result.message}</h1>
+                          <button className="btn btn-success editUser__input" 
+                              onClick={() => {
+                              this.setState({ addToCartPr: 2 });
+                              onClose()
+                          }}>Go To Checkout</button>
+                          <button className="btn btn-success editUser__input" 
+                              onClick={() => {
+                              this.setState({ addToCartPr: 1 });
+                              onClose()
+                          }}>Continiue Shopping</button>
+                      </div>
+                  )
+              }
+          })
+      })
+      .catch(err => console.log(err));
+  }
 
   increaseQuantity = () => {
     this.setState({
@@ -101,12 +124,24 @@ export default class Product extends Component {
     const { userID } = this.state;
     const isEnabled = userID !== null;
 
+    if (this.state.addToCartPr === 1) {
+      this.setState({
+        addToCartPr: 3
+      });
+      return <Redirect to={`/shop`} />
+    } 
+    else if (this.state.addToCartPr === 2) {
+      this.setState({
+        addToCartPr: 3
+      });
+      return <Redirect to={`/checkout`} />
+    }
     return (
       <>
         <div className="product--container">
           <Navigation
             category={this.state.category}
-            productID={productID}
+            productID={this.state.productID}
             productName={this.state.productName}
           />
           <div className="product--image--details--wrapper">
@@ -122,6 +157,7 @@ export default class Product extends Component {
                 userID={this.state.userID}
                 product0id={this.state.product}
                 isEnabled={isEnabled}
+                message={this.state.message}
               />
             )}
           </div>
@@ -130,8 +166,8 @@ export default class Product extends Component {
           <Review
             onSubmit={this.props.onSubmit}
             reviews={this.props.reviews}
-            productID={this.props.productID}
-            userID={this.props.userID}
+            productID={this.state.productID}
+            userID={this.state.userID}
           />
         )}
       </>

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import SearchProduct from "./SearchProduct"
 import GetCategory from "./GetCategory"
+import { Link } from 'react-router-dom';
 const userURL = "http://localhost:5000/db/products";
-
-
-
 
 class ProductFilter extends Component {
     constructor(props) {
@@ -19,9 +17,6 @@ class ProductFilter extends Component {
             color: "",
             products: [],
             matchProduct: [],
-           
-
-
         }
     }
     componentDidMount() {
@@ -32,18 +27,18 @@ class ProductFilter extends Component {
         this.setState({ category: e.target.id })
         this.setState({ colorChoose: false })
         this.setState({ categoryChoose: true })
-        
+
     }
     colorClick = (e) => {
         this.setState({ color: e.target.id })
         this.setState({ colorChoose: true })
-        
+
 
     }
     handleChange = (e) => {
 
         let materialArray = this.state.material
-      
+
         if (!materialArray.includes(e.target.id)) {
             materialArray.push(e.target.id)
             this.setState({ material: materialArray })
@@ -57,7 +52,7 @@ class ProductFilter extends Component {
         if (materialArray.length === 0) {
             this.setState({ materialChoose: false })
         }
-        
+
     }
     GetProduct = () => {
         fetch(userURL)
@@ -109,19 +104,19 @@ class ProductFilter extends Component {
                             <div className="proFilter-material-menu">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" onChange={this.handleChange} value="" id="1"></input>
-                                    <label className="form-check-label" for="wood">Wood</label>
+                                    <label className="form-check-label" htmlFor="wood">Wood</label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" onChange={this.handleChange} value="" id="2"></input>
-                                    <label className="form-check-label" for="metal">Metal</label>
+                                    <label className="form-check-label" htmlFor="metal">Metal</label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" onChange={this.handleChange} value="" id="3"></input>
-                                    <label className="form-check-label" for="plastic">Plastic</label>
+                                    <label className="form-check-label" htmlFor="plastic">Plastic</label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" onChange={this.handleChange} value="" id="4"></input>
-                                    <label className="form-check-label" for="glass">Glass</label>
+                                    <label className="form-check-label" htmlFor="glass">Glass</label>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +136,7 @@ class ProductFilter extends Component {
                         <div className="searchProduct">
                             <div><SearchProduct onSearch={this.onSearch} /> </div>
                         </div>
-                        <GetCategory matchProduct={this.state.matchProduct}
+                        {!this.state.matchProduct.length ? <GetCategory matchProduct={this.state.matchProduct}
                             color={this.state.color}
                             material={this.state.material}
                             category={this.state.category}
@@ -152,24 +147,22 @@ class ProductFilter extends Component {
                             handleClick={this.handleClick}
                             colorClick={this.colorClick}
                             handleChange={this.handleChange}
-                            
-                        />
-                         <div className="container--product">
-                       
-                        {
-                            this.state.matchProduct.map((product) =>
-                           
-                            <div className="container--product--wrapper">
-                                <div className="image"><img alt="NO" src={product.url} ></img></div>
-                                <div className="line"></div>
-                                <div className="proPrice">{product.price}ლ</div>
-                                <div className="proName">{product.name}</div>
-                            </div>
-                        
-                            )
-                        }
-                        </div>
 
+                        /> :
+                        <div className="container--product--container">
+                        <div className="container--product">
+                            {
+                                this.state.matchProduct.map((product, index) =>
+                                    <div key={index} className="container--product--wrapper">
+                                        <Link to={`/products/${product.id}`} key={index} ><div className="image"><img alt="NO" src={product.url} ></img></div></Link>
+                                        <div className="line"></div>
+                                        <div className="proPrice">{product.price}ლ</div>
+                                        <div className="proName">{product.name}</div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                        </div>}
                     </div>
                 </div>
             </div>

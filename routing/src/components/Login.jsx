@@ -43,6 +43,7 @@ export default class Login extends Component {
                 if (result.auth) {
                     localStorage.setItem('User', JSON.stringify(result));
                     this.setState({ user: result.user, isLoggedIn: true, message: '' });
+                    window.location.reload();
                 } else {
                     this.setState({ message: 'Login or password is not Correct' });
                     setTimeout(() => { this.setState({ message: '' }); }, 3000);
@@ -102,7 +103,7 @@ export default class Login extends Component {
         if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '0') {
             return <Redirect to={`/admin`} />
         } else if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '1') {
-            return <Redirect to={`/`} />
+            return <Redirect to={`/products/tables/1`} />
         }
         return (
             <>
