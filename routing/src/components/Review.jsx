@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 const reviewsUrl = "http://localhost:5000/db/review";
-const usersURL = "http://localhost:5000/db/users";
+// const usersURL = "http://localhost:5000/db/users";
 
 export default class Review extends Component {
   constructor(props) {
@@ -76,6 +76,7 @@ export default class Review extends Component {
 
   getUserName = () => {
     let userName = JSON.parse(localStorage.getItem("User")).username;
+    console.log(userName);
     this.setState({
       userName
     });
@@ -83,20 +84,28 @@ export default class Review extends Component {
 
   render() {
     return (
-      <div>
-        <h4 className="review-heading">Reviews about this product:</h4>
-        {this.state.reviews.map((review, index) => (
-          <div className="review--wrapper" key={index}>
-            <div className="review-header">{this.state.userName}</div>
-            <div className="review-body">
-              <p className="review-text">{review.message}</p>
+      <div className="review--container">
+        <div className="review--container--inside">
+          <h4 className="review-heading">Reviews about this product:</h4>
+          {this.state.reviews.map((review, index) => (
+            <div className="review--wrapper" key={index}>
+              <div className="review-header">
+                <i className="fas fa-user" />
+                <span>{this.state.userName}</span>
+              </div>
+              <div className="review-body">
+                <p className="review-text">
+                  <i class="fas fa-pen" />
+                  <span>{review.message}</span>
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <form onSubmit={this.ReviewSubmit}>
           <div className="form-group">
-            <label htmlFor="desc">Write Review</label>
+            <label htmlFor="desc">Write a Review</label>
             <textarea
               className="form-control"
               id="review"
@@ -104,11 +113,12 @@ export default class Review extends Component {
               rows="3"
               value={this.state.reviewText}
               onChange={this.changeHandler}
+              placeholder="Share your experience with others..."
               ref={this.review}
             />
           </div>
           <button type="submit" className="btn btn-success">
-            Add Review
+            Add a Review
           </button>
         </form>
       </div>

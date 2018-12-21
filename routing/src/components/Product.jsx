@@ -126,9 +126,11 @@ export default class Product extends Component {
   };
 
   decreaseQuantity = () => {
-    this.setState({
-      quantity: this.state.quantity - 1
-    });
+    if (this.state.quantity > 0) {
+      this.setState({
+        quantity: this.state.quantity - 1
+      });
+    }
   };
 
   render() {
