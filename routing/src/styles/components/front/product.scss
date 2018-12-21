@@ -237,3 +237,8 @@
 .alert--added {
   text-align: center;
 }
+
+.card,
+.text-white bg-warning mb-3 {
+  z-index: -5;
+}
