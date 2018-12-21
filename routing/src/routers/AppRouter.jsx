@@ -117,11 +117,11 @@ const filter = () => (
   </div>
 );
 
-const product = () => (
+const product = ({match}) => (
   <div className="wrapper--all">
     <BackToTop />
     <Sidebar />
-    <Product />
+    <Product match={match}/>
     <ExtraFooter />
     <Footer />
   </div>
@@ -138,7 +138,7 @@ const AppRouter = () => (
         <Route path="/login" component={login} />
         <Route path="/shop" component={filter} />
         <Route path="/aboutus" component={aboutUs} />
-        <Route path="/products/tables/1" component={product} />
+        <Route path="/products/:id" component={product} />
         <ProtectedRoute path="/checkout" component={checkout} />
         <ProtectedAdmin path="/admin" component={Admin} exact={true} />
         <ProtectedAdmin path="/admin/messages" component={Messages} />
