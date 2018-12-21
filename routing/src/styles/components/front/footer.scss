@@ -1,40 +1,48 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-class Footer extends Component {
-  render() {
-    return (
-      <div className="footer">
-        <div className="container">
-          <div className="left">
-          <div className="logo" >
-            <img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt="No Logo" />
-          </div>
-            <div className="copy">Copyright ©2018 All rights reserved</div>
-          </div>
-
-          <div className="right">
-            <nav className="footer-nav">
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About Us</Link>
-                </li>
-                <li>
-                  <Link to="/products">Products</Link>
-                </li>
-                <li>
-                  <Link to="/contactus">Contact</Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    );
-  }
+.footer {
+  position: relative;
+  z-index: -999;
+  background-color: #252525;
+  padding: 80px 0;
+  float: left;
+  width: 100%;
 }
 
-export default Footer;
+.footer .left {
+  float: left;
+  width: 40%;
+  color: #fff;
+}
+
+.footer .left .copy {
+  color: #efefef;
+  font-size: 12px;
+}
+
+.footer .right {
+  float: left;
+  width: 60%;
+  text-align: right;
+}
+
+.footer-nav {
+  ul{
+    .footerHome{
+      color:  #fbb710;
+    }
+  }
+  
+}
+.footer-nav li {
+  display: inline;
+  font-size: 16px;
+  color: #fff;
+  margin-right: 35px;
+}
+
+.footer-nav li a {
+  color: #fff;
+  &:hover {
+    color: $yellow;
+  }
+  
+}
