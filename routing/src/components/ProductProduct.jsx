@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function ProductProduct(props) {
-  return props.product.map(product => (
-    <div className="product--details" key={product}>
+  return (
+    <div className="product--details" >
       <div className="product--details--wrapper">
         <div className="product--details--line" />
-        <div className="product--details__price">₾{product.price}</div>
-        <div className="product--details__title">{product.name}</div>
-        <div className="product--details__description">{product.desc}</div>
+        <div className="product--details__price">₾{props.product.price}</div>
+        <div className="product--details__title">{props.product.name}</div>
+        <div className="product--details__description">{props.product.desc}</div>
 
         {/* //qty */}
         <div className="product--details__quantity">
@@ -31,7 +31,7 @@ export default function ProductProduct(props) {
             onClick={() => {
               props.addToCart(
                 props.userID,
-                props.product0id[0].id,
+                props.product.id,
                 props.quantity
               );
             }}
@@ -41,5 +41,5 @@ export default function ProductProduct(props) {
         </div>
       </div>
     </div>
-  ));
+  );
 }
