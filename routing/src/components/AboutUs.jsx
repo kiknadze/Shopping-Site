@@ -1,58 +1,71 @@
 import React, { Component } from "react";
-import { Carousel } from "antd";
+import PerMember from "./PerMember";
 
-function onChange(a, b, c) {
-  console.log(a, b, c);
-}
-
-class AboutUsSlider extends Component {
+class AboutUs extends Component {
   render() {
     return (
-      <div>
-        <Carousel afterChange={onChange}>
-          <div className="single-slide">
-            <div className="info">description</div>
-            <div className="image">
-              <img
-                src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                alt="#"
-              />
-            </div>
-          </div>
+      <div className="aboutus--container--wrapper">
+        <div className="aboutus--heading">
+          <h1>Wanna meet our team?</h1>
+        </div>
+        <div className="aboutus--container">
+          <PerMember
+            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
+            img={"https://source.unsplash.com/user/erondu/160x90"}
+            heading={"Temo"}
+            fullName={"Temo Kiknadze"}
+            intro={"Hi, finances is smth I am mad about!"}
+            fullinfo={
+              "I am 25 years old and since childhood, I have been interested in math, especially in Geometry"
+            }
+            jobTitle={"Accountant"}
+            facebook={"https://www.facebook.com/kiknadzetemo"}
+            instagram={"https://www.facebook.com/kiknadzetemo"}
+          />
+          <PerMember
+            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
+            img={"https://source.unsplash.com/user/erondu/160x90"}
+            heading={"Dea"}
+            fullName={"Dea Samniashvili"}
+            intro={"Hi, Coffee makes my life!"}
+            fullinfo={
+              "Honestly, I can drink coffee for dozen times a day. That's why I chose this profession. I am the producer and I am the customer!"
+            }
+            jobTitle={"Coffee Maker"}
+            facebook={"https://www.facebook.com/samniashvili.dea"}
+            instagram={"https://www.instagram.com/__dsamniashvili/"}
+          />
 
-          <div className="single-slide">
-            <div className="info">description</div>
-            <div className="image">
-              <img
-                src="https://as2.ftcdn.net/jpg/01/62/73/75/500_F_162737591_eBkqM3aGSQ96HI4LclA8808h1HosQnzu.jpg"
-                alt="#"
-              />
-            </div>
-          </div>
-
-          <div className="single-slide">
-            <div className="info">description</div>
-            <div className="image">
-              <img
-                src="https://as2.ftcdn.net/jpg/01/62/73/75/500_F_162737591_eBkqM3aGSQ96HI4LclA8808h1HosQnzu.jpg"
-                alt="#"
-              />
-            </div>
-          </div>
-
-          <div className="single-slide">
-            <div className="info">description</div>
-            <div className="image">
-              <img
-                src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                alt="#"
-              />
-            </div>
-          </div>
-        </Carousel>
+          <PerMember
+            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
+            img={"https://source.unsplash.com/user/erondu/160x90"}
+            heading={"Mariami"}
+            fullName={"Mariam Sahamatava"}
+            intro={"Hi, I fly all the time!"}
+            fullinfo={
+              "I love birds and I love the sky. That's why I decided to spend half of my time close to the things that I love!"
+            }
+            jobTitle={"Steward"}
+            facebook={"https://www.facebook.com/mariam.shamatava"}
+            instagram={"https://www.facebook.com/mariam.shamatava"}
+          />
+          <PerMember
+            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
+            img={"https://source.unsplash.com/user/erondu/160x90"}
+            heading={"Salome"}
+            fullName={"Salome Babukhadze"}
+            intro={"Hi, Speaking is strong part of mine!"}
+            fullinfo={
+              "I love to speak and I can speak for the whole day. I love my job so much that sometimes I work overtime!"
+            }
+            jobTitle={"Operator"}
+            facebook={"https://www.facebook.com/Salomebbb"}
+            instagram={"https://www.instagram.com/fathousecatt/"}
+          />
+        </div>
       </div>
     );
   }
 }
 
-export default AboutUsSlider;
+export default AboutUs;
