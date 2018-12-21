@@ -164,8 +164,6 @@ export default class Product extends Component {
         </div>
         {this.state.userID && (
           <Review
-            onSubmit={this.props.onSubmit}
-            reviews={this.props.reviews}
             productID={this.state.productID}
             userID={this.state.userID}
           />

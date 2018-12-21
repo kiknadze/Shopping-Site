@@ -155,7 +155,23 @@ class Sidebar extends Component {
                 >
                   PROFILE
                 </button>
-                <Link to="/checkout"><button className="menu__cart">CART<sup>{this.state.cart}</sup></button></Link>
+                {
+                  this.state.user.cart ?
+                      (<Link to="/checkout">
+                        <button 
+                          className="menu__cart"
+                          style={{"animation": "pulse 1s infinite", "color": "red"}}
+                        >CART<sup>{this.state.cart}</sup>
+                        </button>
+                      </Link>)
+                    :
+                      (<Link to="/checkout">
+                        <button 
+                          className="menu__cart"
+                        >CART<sup>{this.state.cart}</sup>
+                        </button>
+                      </Link>)
+                }
                 <button
                   className="menu__orders"
                   data-toggle="modal"
