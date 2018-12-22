@@ -157,6 +157,7 @@ li {
   position: relative;
   &:hover {
     cursor: pointer;
+    opacity: .3;
   }
 
   .ProductInfo {

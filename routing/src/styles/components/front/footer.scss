@@ -9,10 +9,16 @@
   flex-direction: row;
 }
 
-.footer .left {
+.left {
   width: 40%;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  .copy {
+    margin-top: 20px;
+  }
 }
 
 .footer .left .copy {
