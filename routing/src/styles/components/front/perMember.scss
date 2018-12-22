@@ -1,0 +1,135 @@
+.member--wrapper {
+  position: relative;
+  margin: 1% auto;
+  width: 400px;
+  height: 400px;
+  background-color: $gray;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    cursor: pointer;
+    .image--person {
+      transition: all 1s;
+      -webkit-transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+      -o-transition: opacity 1s ease-in-out;
+      opacity: 0;
+    }
+
+    .detailed--info {
+      background-color: $darkgray;
+      transition: all 2s;
+      -webkit-transition: opacity 2s ease-in-out;
+      -moz-transition: opacity 2s ease-in-out;
+      -ms-transition: opacity 2s ease-in-out;
+      -o-transition: opacity 2s ease-in-out;
+      opacity: 1;
+    }
+  }
+}
+
+.member--wrapper--container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.image--half {
+  width: 100%;
+  height: 75%;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
+}
+.detailed--info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.detailed--info--wrapper {
+  padding: 5%;
+  h4,
+  h5,
+  p {
+    margin: 2%;
+    padding: 2%;
+    word-break: normal;
+    color: #fff;
+  }
+}
+
+.image--person {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -25%;
+  margin-left: 50%;
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    border: 5px solid #fff;
+    position: absolute;
+  }
+}
+
+.person--name {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -20%;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.socials {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: flex-start;
+  align-items: baseline;
+
+  a {
+    padding: 2%;
+    text-decoration: none;
+    .fa-facebook-f {
+      color: #3c5a99;
+    }
+    .fa-instagram {
+      color: #fb3958;
+    }
+
+    i {
+      font-size: $m-size;
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+  h5 {
+    padding: 2%;
+  }
+}

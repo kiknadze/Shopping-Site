@@ -4,7 +4,7 @@ import Review from "./Review";
 import Navigation from "./Navigation";
 import ProductImage from "./ProductImage";
 import { confirmAlert } from "react-confirm-alert";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 let productsURL = "http://localhost:5000/db/products";
 let categoryURL = "http://localhost:5000/db/category";
@@ -22,6 +22,7 @@ export default class Product extends Component {
       productID: props.match.params.id,
       addToCartPr: 3
     };
+    // console.log(this.state);
   }
   componentDidMount() {
     this.getProducts();
@@ -43,7 +44,9 @@ export default class Product extends Component {
     fetch(productsURL)
       .then(res => res.json())
       .then(products => {
-        let product = products.find(product => product.id === this.state.productID);
+        let product = products.find(
+          product => product.id === this.state.productID
+        );
         this.setState({ product });
       })
       .catch(err => console.log(err.message));
@@ -85,28 +88,36 @@ export default class Product extends Component {
     })
       .then(res => res.json())
       .then(result => {
-            confirmAlert({
-              customUI: ({ onClose }) => {
-                  return (
-                      <div className='custom-ui'>
-                          <h1>{this.state.quantity + ' ' + result.message}</h1>
-                          <button className="btn btn-success editUser__input" 
-                              onClick={() => {
-                              this.setState({ addToCartPr: 2 });
-                              onClose()
-                          }}>Go To Checkout</button>
-                          <button className="btn btn-success editUser__input" 
-                              onClick={() => {
-                              this.setState({ addToCartPr: 1 });
-                              onClose()
-                          }}>Continiue Shopping</button>
-                      </div>
-                  )
-              }
-          })
+        confirmAlert({
+          customUI: ({ onClose }) => {
+            return (
+              <div className="custom-ui">
+                <h1>{this.state.quantity + " " + result.message}</h1>
+                <button
+                  className="btn btn-success editUser__input"
+                  onClick={() => {
+                    this.setState({ addToCartPr: 2 });
+                    onClose();
+                  }}
+                >
+                  Go To Checkout
+                </button>
+                <button
+                  className="btn btn-success editUser__input"
+                  onClick={() => {
+                    this.setState({ addToCartPr: 1 });
+                    onClose();
+                  }}
+                >
+                  Continiue Shopping
+                </button>
+              </div>
+            );
+          }
+        });
       })
       .catch(err => console.log(err));
-  }
+  };
 
   increaseQuantity = () => {
     this.setState({
@@ -115,9 +126,11 @@ export default class Product extends Component {
   };
 
   decreaseQuantity = () => {
-    this.setState({
-      quantity: this.state.quantity - 1
-    });
+    if (this.state.quantity > 0) {
+      this.setState({
+        quantity: this.state.quantity - 1
+      });
+    }
   };
 
   render() {
@@ -128,13 +141,12 @@ export default class Product extends Component {
       this.setState({
         addToCartPr: 3
       });
-      return <Redirect to={`/shop`} />
-    } 
-    else if (this.state.addToCartPr === 2) {
+      return <Redirect to={`/shop`} />;
+    } else if (this.state.addToCartPr === 2) {
       this.setState({
         addToCartPr: 3
       });
-      return <Redirect to={`/checkout`} />
+      return <Redirect to={`/checkout`} />;
     }
     return (
       <>
@@ -161,15 +173,18 @@ export default class Product extends Component {
               />
             )}
           </div>
+
+          {this.state.userID && this.state.userID ? (
+            <Review
+              productID={this.state.productID}
+              userID={this.state.userID}
+            />
+          ) : (
+            <div className="not-show-review">
+              <h4>Log in to see the reviews and write your own one!</h4>
+            </div>
+          )}
         </div>
-        {this.state.userID && (
-          <Review
-            onSubmit={this.props.onSubmit}
-            reviews={this.props.reviews}
-            productID={this.state.productID}
-            userID={this.state.userID}
-          />
-        )}
       </>
     );
   }

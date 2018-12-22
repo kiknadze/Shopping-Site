@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+        "url": "https://images.pexels.com/photos/1125137/pexels-photo-1125137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Jurnal Table",
         "category": "1",
         "desc": "Small Table for Journals, usually used in living rooms",
@@ -11,7 +11,7 @@
     },
     {
         "id": "2",
-        "url": "https://d36b7pis6t83uj.cloudfront.net/product/ashley/images/B128-31-36-46-77-92-SD.jpg",
+        "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -21,7 +21,7 @@
     },
     {
         "id": "3",
-        "url": "https://cdn.shopify.com/s/files/1/2100/8967/products/enz_TripProtFurnCover_cream_chr_1024x1024@2x.jpg?v=1541780525",
+        "url": "https://images.pexels.com/photos/1029799/pexels-photo-1029799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "name": "Double Bed",
         "category": "2",
         "desc": "Double bed, suitable for two persons",
@@ -31,7 +31,7 @@
     },
     {
         "id": "4",
-        "url": "http://interfusta.com/wp-content/uploads/2016/02/empapelar-pared-3.jpg",
+        "url": "https://images.pexels.com/photos/916339/pexels-photo-916339.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "3",
         "desc": "Double bed, suitable for two persons",
@@ -41,7 +41,7 @@
     },
     {
         "id": "5",
-        "url": "http://www.dreamingcroatia.com/upload/2018/10/06/beautiful-living-room-design-hdf-tjihome-modern-living-room-beautiful-living-room-l-20aacc328697a46e.jpg",
+        "url": "https://images.pexels.com/photos/905198/pexels-photo-905198.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "3",
         "desc": "Double bed, suitable for two persons",
@@ -51,7 +51,7 @@
     },
     {
         "id": "6",
-        "url": "http://2.bp.blogspot.com/_QXjsSCEygKg/TC5mDL_lgmI/AAAAAAAAASM/7av_ptTXiCo/s1600/Muebles+de+Dormitorio.jpg",
+        "url": "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -61,7 +61,7 @@
     },
     {
         "id": "7",
-        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "url": "https://images.pexels.com/photos/1166644/pexels-photo-1166644.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -71,7 +71,7 @@
     },
     {
         "id": "8",
-        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "url": "https://images.pexels.com/photos/509922/pexels-photo-509922.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -81,7 +81,7 @@
     },
     {
         "id": "9",
-        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "url": "https://images.pexels.com/photos/879821/pexels-photo-879821.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -91,7 +91,7 @@
     },
     {
         "id": "10",
-        "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+        "url": "https://images.pexels.com/photos/707579/pexels-photo-707579.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
         "name": "Double Bed",
         "category": "4",
         "desc": "Double bed, suitable for two persons",
@@ -99,4 +99,5 @@
         "color": "2",
         "material": "2"
     }
+
 ]
