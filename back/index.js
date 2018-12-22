@@ -83,11 +83,11 @@ app.post("/register", (req, res) => {
 app.get("/checkout", (req, res) => {
   fs.readFile(usersfileDB, (err, data) => {
     let user = JSON.parse(data);
-    console.log(user);
     res.json(user);
   });
 });
 
+//login
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   let matchUser = {
@@ -100,7 +100,6 @@ app.post("/login", (req, res) => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].email == email && users[i].password == encrypt(password)) {
         matchUser = {
-          user: users[i],
           id: users[i].id,
           level: users[i].level,
           auth: true
@@ -112,6 +111,7 @@ app.post("/login", (req, res) => {
   });
 });
 
+//send message to admin
 app.post("/addmessage", (req, res) => {
   const { name, email, subject, message } = req.body;
 
@@ -153,7 +153,7 @@ app.post("/editUser", (req, res) => {
     address,
     balance
   } = req.body;
-  console.log(password)
+
   fs.readFile(usersfileDB, function(err, data) {
     let json = JSON.parse(data);
     let index = json.findIndex(user => user.id == id);

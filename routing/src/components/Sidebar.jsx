@@ -174,14 +174,30 @@ class Sidebar extends Component {
                 <button className="menu__cart">
                   CART<sup>{this.state.cart}</sup>
                 </button>
-              </Link>
-              <button
-                className="menu__orders"
-                data-toggle="modal"
-                data-target=".bd-example-modal-lg"
-                onClick={this.ShowOrders}
-              >
-                ORDERS
+                {
+                  this.state.cart > 0 ?
+                      (<Link to="/checkout">
+                        <button 
+                          className="menu__cart"
+                          style={{"animation": "pulse 1s infinite", "color": "red"}}
+                        >CART<sup>{this.state.cart}</sup>
+                        </button>
+                      </Link>)
+                    :
+                      (<Link to="/checkout">
+                        <button 
+                          className="menu__cart"
+                        >CART<sup>{this.state.cart}</sup>
+                        </button>
+                      </Link>)
+                }
+                <button
+                  className="menu__orders"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg"
+                  onClick={this.ShowOrders}
+                >
+                  ORDERS
               </button>
               <button className="menu__logout" onClick={this.Logout}>
                 LOGOUT
