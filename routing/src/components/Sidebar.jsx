@@ -156,7 +156,7 @@ class Sidebar extends Component {
                   PROFILE
                 </button>
                 {
-                  this.state.user.cart ?
+                  this.state.cart > 0 ?
                       (<Link to="/checkout">
                         <button 
                           className="menu__cart"

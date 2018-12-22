@@ -59,7 +59,17 @@
         "birthdate": "2018-12-25",
         "balance": "500",
         "cart": [
-            
+            {
+                "id": "7",
+                "url": "http://furnitureurban.com/wp-content/uploads/2014/06/AS_B271-31-36-46-67-64-61-92.jpg",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": "1"
+            }
         ],
         "orders": [
             {
