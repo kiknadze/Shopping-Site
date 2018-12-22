@@ -199,97 +199,36 @@ li {
 
 @media only screen and (max-width: 480px) {
  
-
+  .gallery-container .gallery-container .single-item .ProductImage {
+    overflow: hidden;
+  }
+  
+  .gallery-container .single-item .ProductImage img {
+    width: 100%;
+  }
   .gallery-container {
-    display: none;
     
-  //  display: flex;
-  //  flex-flow: wrap;
-    height: 1800px;
+    
+   display: flex;
+   flex-flow: wrap;
+    height: 2700px;
     overflow: hidden;
 
     > div {
       width: 100%;
+      height: 300px;
   
       // display: table;
     
     }
   }
 
-  .a0 {
-    div {
-      &:nth-child(1) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(2) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(3) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-    }
-  }
-  .a1 {
-    div {
-      &:nth-child(1) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(2) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(3) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-    }
-  }
-  .a2 {
-    div {
-      &:nth-child(1) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(2) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-      &:nth-child(3) {
-        height: 100px;
-        img {
-          height: 100px;
-        }
-      }
-    }
-  }
   
 .single-item {
  
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
   width: 100%;
+  height: 900px;
   position: relative;
   &:hover {
     cursor: pointer;
