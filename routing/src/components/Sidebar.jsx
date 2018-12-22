@@ -7,6 +7,7 @@ const IconFont = Icon.createFromIconfontCN({
   scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
 });
 const usersUrl = "http://localhost:5000/db/users";
+//get user id from localstorage
 const userID = localStorage.getItem("User")
   ? JSON.parse(localStorage.getItem("User")).id
   : 0;
