@@ -170,10 +170,6 @@ class Sidebar extends Component {
               >
                 PROFILE
               </button>
-              <Link to="/checkout">
-                <button className="menu__cart">
-                  CART<sup>{this.state.cart}</sup>
-                </button>
                 {
                   this.state.cart > 0 ?
                       (<Link to="/checkout">
@@ -191,13 +187,13 @@ class Sidebar extends Component {
                         </button>
                       </Link>)
                 }
-                <button
-                  className="menu__orders"
-                  data-toggle="modal"
-                  data-target=".bd-example-modal-lg"
-                  onClick={this.ShowOrders}
-                >
-                  ORDERS
+              <button
+                className="menu__orders"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+                onClick={this.ShowOrders}
+              >
+                ORDERS
               </button>
               <button className="menu__logout" onClick={this.Logout}>
                 LOGOUT
