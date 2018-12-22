@@ -12,7 +12,7 @@ export default function PerMember(props) {
           />
         </div>
         <div className="image--person">
-          <img src={props.img} className="person--image" alt="member" />
+          <img src={props.img} alt="member" />
         </div>
         <div className="person--name">
           <h1>{props.heading}</h1>

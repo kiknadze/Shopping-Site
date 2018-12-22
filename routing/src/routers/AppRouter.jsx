@@ -51,10 +51,10 @@ const registration = () => (
 const aboutUs = () => (
   <div className="wrapper--about">
     <Sidebar />
-    <BackToTop />
     <AboutUs />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 
@@ -69,21 +69,21 @@ const login = () => (
 
 const checkout = () => (
   <div>
-    <BackToTop />
     <Sidebar />
     <Checkout />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 
 const contactus = () => (
   <div>
-    <BackToTop />
     <Sidebar />
     <ContactUs />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 
@@ -98,31 +98,32 @@ const adminShowUSers = () => (
 const index = () => (
   <div>
     <Sidebar />
-    <BackToTop />
+
     <Slider />
     <HomePageProduct />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 
 const filter = () => (
   <div>
-    <BackToTop />
     <Sidebar />
     <ProductFilter />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 
 const product = ({ match }) => (
   <div className="wrapper--all">
-    <BackToTop />
     <Sidebar />
     <Product match={match} />
     <ExtraFooter />
     <Footer />
+    <BackToTop />
   </div>
 );
 

@@ -10,8 +10,10 @@ class AboutUs extends Component {
         </div>
         <div className="aboutus--container">
           <PerMember
-            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
-            img={"https://source.unsplash.com/user/erondu/160x90"}
+            imgbanner={
+              "https://files.theinteriorsaddict.com/uploads/2014/10/Screen-Shot-2014-10-19-at-12.59.05-pm.png"
+            }
+            img={"imgs//members/temo.jpg"}
             heading={"Temo"}
             fullName={"Temo Kiknadze"}
             intro={"Hi, finances is smth I am mad about!"}
@@ -23,8 +25,10 @@ class AboutUs extends Component {
             instagram={"https://www.facebook.com/kiknadzetemo"}
           />
           <PerMember
-            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
-            img={"https://source.unsplash.com/user/erondu/160x90"}
+            imgbanner={
+              "https://i.pinimg.com/564x/c0/6c/e5/c06ce5b6f6227962be6b150d78fc27f4.jpg"
+            }
+            img={"imgs/members/dea.jpg"}
             heading={"Dea"}
             fullName={"Dea Samniashvili"}
             intro={"Hi, Coffee makes my life!"}
@@ -37,8 +41,10 @@ class AboutUs extends Component {
           />
 
           <PerMember
-            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
-            img={"https://source.unsplash.com/user/erondu/160x90"}
+            imgbanner={
+              "https://i.pinimg.com/564x/d4/5c/68/d45c687fe9341b3df29142c6e97d6fed.jpg"
+            }
+            img={"imgs//members/mariami.jpg"}
             heading={"Mariami"}
             fullName={"Mariam Sahamatava"}
             intro={"Hi, I fly all the time!"}
@@ -50,8 +56,10 @@ class AboutUs extends Component {
             instagram={"https://www.facebook.com/mariam.shamatava"}
           />
           <PerMember
-            imgbanner={"https://source.unsplash.com/w8YICpz1I10/358x458"}
-            img={"https://source.unsplash.com/user/erondu/160x90"}
+            imgbanner={
+              "https://i1.wp.com/homegardenmagz.com/wp-content/uploads/2018/05/Modern-Minimalist-DIY-Room-Decor-Ideas8.jpg?resize=973%2C1460&ssl=1"
+            }
+            img={"imgs/members/salome.jpg"}
             heading={"Salome"}
             fullName={"Salome Babukhadze"}
             intro={"Hi, Speaking is strong part of mine!"}
