@@ -1,5 +1,6 @@
 .back-to-top {
   display: flex;
+  z-index: 999;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -30,7 +31,7 @@
   .tooltiptext {
     visibility: hidden;
     display: inline-block;
-    // width: 200px;
+    text-shadow: 2px 2px 2px $darkgray;
     color: $yellow;
     text-align: center;
     padding: 10px 20px;

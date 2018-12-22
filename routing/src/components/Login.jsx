@@ -89,7 +89,7 @@ export default class Login extends Component {
         .then(res => res.json())
         .then(user => {
             if(user.reg) {
-                this.setState({ user, message: user.message });
+                this.setState({ message: user.message });
             } else {
                 this.setState({ message: user.message });
             }
@@ -103,7 +103,7 @@ export default class Login extends Component {
         if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '0') {
             return <Redirect to={`/admin`} />
         } else if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '1') {
-            return <Redirect to={`/products/tables/1`} />
+            return <Redirect to={`/`} />
         }
         return (
             <>
