@@ -14,8 +14,9 @@
   }
 }
 .form--contactUs--container {
-  margin: 5% 0 10% 0;
+  margin: 5% 0 5% 0;
   width: 100%;
+  max-width: 945px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -30,7 +31,7 @@
 }
 .contactus--contact--info {
   width: 40%;
-  max-height: 250px;
+  max-height: 240px;
   background-color: #3c3c3c;
   color: $gray;
   display: flex;
@@ -38,11 +39,17 @@
   justify-content: space-around;
   align-items: flex-start;
   .contact--info {
+    a {
+      text-decoration: none;
+      color: $gray;
+    }
     display: flex;
     justify-content: space-between;
     &:hover {
-      color: $yellow;
-      cursor: grab;
+      a {
+        color: $yellow;
+        cursor: grab;
+      }
     }
   }
   i {

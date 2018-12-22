@@ -1,24 +1,27 @@
 body {
-    background: #ffffff;
-    font-family: 'Indie Flower', cursive;
+  background: #ffffff;
+  font-family: "Indie Flower", cursive;
 }
 
 button,
 .fa-pen-square,
 .fa-credit-card {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button:disabled {
-    cursor: default;
+  cursor: default;
+  background: $darkgray;
+  &:hover {
     background: $darkgray;
-    &:hover {
-        background: $darkgray;
-    }
+  }
 }
 
 .modalheader {
-    background: $yellow;
-    color: #fff;
-    font-weight: bold;
+  background: $yellow;
+  color: #fff;
+  font-weight: bold;
+}
+.back-to-top {
+  z-index: 999;
 }
