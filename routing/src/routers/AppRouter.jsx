@@ -24,7 +24,7 @@ import AboutUs from "../components/AboutUs";
 import "antd/dist/antd.css";
 
 const Admin = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminAddProduct />
     <AdminFooter />
@@ -32,7 +32,7 @@ const Admin = () => (
 );
 
 const Messages = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminShowMessagesList />
     <AdminFooter />
@@ -88,7 +88,7 @@ const contactus = () => (
 );
 
 const adminShowUSers = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminShowUSers />
     <AdminFooter />
