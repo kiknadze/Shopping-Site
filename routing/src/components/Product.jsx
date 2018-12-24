@@ -17,6 +17,7 @@ export default class Product extends Component {
       product: {},
       quantity: 1,
       userID: null,
+      username: '',
       category: "",
       productName: "",
       productID: props.match.params.id,
@@ -34,8 +35,10 @@ export default class Product extends Component {
   setUser = () => {
     if (localStorage.getItem("User")) {
       let userID = JSON.parse(localStorage.getItem("User")).id;
+      let username = JSON.parse(localStorage.getItem("User")).username;
       this.setState({
-        userID
+        userID, 
+        username
       });
     }
   };
@@ -172,6 +175,7 @@ export default class Product extends Component {
             <Review
               productID={this.state.productID}
               userID={this.state.userID}
+              username={this.state.username}
             />
           ) : (
             <div className="not-show-review">
