@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import Users from '../db/users.json'; //get users DB
 
 const reviewsUrl = "http://localhost:5000/db/review";
-// const usersURL = "http://localhost:5000/db/users";
 
 export default class Review extends Component {
   constructor(props) {
@@ -13,18 +13,16 @@ export default class Review extends Component {
       userID: props.userID,
       productID: props.productID,
       reviews: [],
-      userName: "",
       reviewText: ""
     };
-    console.log(this.state);
   }
 
   componentDidMount() {
-    this.GetReview(this.state.productID);
-    this.getUserName(this.state.userID);
+    this.getReview(this.state.productID);
   }
 
-  GetReview = productID => {
+  //Get data from review DB
+  getReview = productID => {
     fetch(reviewsUrl, {
       method: "POST",
       headers: {
@@ -40,9 +38,10 @@ export default class Review extends Component {
       .catch(err => console.log(err));
   };
 
-  ReviewSubmit = e => {
+  //Add new review to state
+  reviewSubmit = e => {
     e.preventDefault();
-    this.AddReview(
+    this.addReview(
       this.state.productID,
       this.state.userID,
       this.review.current.value
@@ -52,13 +51,14 @@ export default class Review extends Component {
     });
   };
 
+  //change input value
   changeHandler = e => {
     this.setState({
       reviewText: e.target.value
     });
   };
-
-  AddReview(productID, userID, message) {
+  //add review to db and renew state
+  addReview(productID, userID, message) {
     fetch("http://localhost:5000/product/review/add", {
       method: "POST",
       headers: {
@@ -74,12 +74,8 @@ export default class Review extends Component {
       .catch(err => console.log(err));
   }
 
-  getUserName = () => {
-    let userName = JSON.parse(localStorage.getItem("User")).username;
-    console.log(userName);
-    this.setState({
-      userName
-    });
+  getUserName = (userID) => {
+    return Users.find(user => user.id === userID).username
   };
 
   render() {
@@ -91,11 +87,11 @@ export default class Review extends Component {
             <div className="review--wrapper" key={index}>
               <div className="review-header">
                 <i className="fas fa-user" />
-                <span>{this.state.userName}</span>
+                <span>{this.getUserName(review.userID)}</span>
               </div>
               <div className="review-body">
                 <p className="review-text">
-                  <i class="fas fa-pen" />
+                  <i className="fas fa-pen" />
                   <span>{review.message}</span>
                 </p>
               </div>
@@ -103,7 +99,7 @@ export default class Review extends Component {
           ))}
         </div>
 
-        <form onSubmit={this.ReviewSubmit}>
+        <form onSubmit={this.reviewSubmit}>
           <div className="form-group">
             <label htmlFor="desc">Write a Review</label>
             <textarea

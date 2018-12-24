@@ -1,25 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => (
     <div>
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div class="box">
-                    <div class="shape1"></div>
-                    <div class="shape2"></div>
-                    <div class="shape3"></div>
-                    <div class="shape4"></div>
-                    <div class="shape5"></div>
-                    <div class="shape6"></div>
-                    <div class="shape7"></div>
-                    <div class="float">
-                    <form class="form" action="">
-                        404 - <Link to="/">Go Home</Link>
-                    </form>
-                    </div>
-                </div>
+        <div class="container__notFound">
+            <input type="checkbox" id="switch" />
+            <div class="ellipse"></div>
+            <div class="ray"></div>
+            <div class="head"></div>
+            <div class="neck"></div>
+            <div class="body">
+                <label for="switch"></label>
             </div>
+        </div>
+        <div class="container__notFound">
+            <div class="msg msg_1">404</div>
+            <div class="msg msg_2">Page Not Found</div>
         </div>
     </div>
 );
