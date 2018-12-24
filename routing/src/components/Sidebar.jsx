@@ -7,6 +7,7 @@ const IconFont = Icon.createFromIconfontCN({
   scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
 });
 const usersUrl = "http://localhost:5000/db/users";
+//get user id from localstorage
 const userID = localStorage.getItem("User")
   ? JSON.parse(localStorage.getItem("User")).id
   : 0;
@@ -81,7 +82,7 @@ class Sidebar extends Component {
     });
   };
 
-  EditProfile = e => {
+  editProfile = (e) => {
     e.preventDefault();
     this.EditUser(
       this.state.user.id,
@@ -393,7 +394,7 @@ class Sidebar extends Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-lg">
-            <form className="modal-content" onSubmit={this.EditProfile}>
+            <form className="modal-content" onSubmit={this.editProfile}>
               <div className="modal-header profile--modal">
                 <h5 className="modal-title" id="exampleModalLabel">
                   PROFILE

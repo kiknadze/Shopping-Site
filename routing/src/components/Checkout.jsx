@@ -23,13 +23,18 @@ export default class Checkout extends Component {
             balanceModal: false,
             addressModal: false,
             redirect: false,
-            shipping: 5
+            shipping: 5,
         }
     }
 
     componentDidMount() {
         this.GetUser();
+        this.mounted = true;
     };
+
+    componentWillUnmount() {
+        this.mounted = false;
+    }
 
     OnComplete = () => {
         let user = this.state.user;
@@ -54,7 +59,9 @@ export default class Checkout extends Component {
         })
             .then(res => res.json())
             .then(user => {
-                this.setState({ user })
+                if(this.mounted) {
+                    this.setState({ user })
+                }
             })
             .catch(err => console.log(err))
     }
