@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
+const users = "http://localhost:5000/db/users";
 
 export default class ContactUs extends Component {
   constructor(props) {
@@ -13,21 +14,81 @@ export default class ContactUs extends Component {
     this.state = {
       modal: false,
       message: {},
+      user: "",
       alert: "",
       isLoggedIn: false,
       name: "",
       email: "",
       subject: "",
       text: "",
-
       confirmAlert: "Please fill All the Inputs"
     };
   }
+  getUser = () => {
+    if (localStorage.getItem("User")) {
+      let test = JSON.parse(localStorage.getItem("User"));
+      let testUsername = test.username;
 
-  validateEmail = email => {
-    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-      return true;
+      fetch(users)
+        .then(res => res.json())
+        .then(users => {
+          let user = users.find(usr => usr.username === testUsername);
+          let email = user.email;
+          this.setState({
+            email: email
+          });
+        })
+        .catch(err => console.log(err.message));
+    } else {
+      this.setState({
+        email: ""
+      });
     }
+  };
+
+  validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
+  //send data to the back, then renew the state of component
+  addMessage = (name, email, subject, message) => {
+    fetch("http://localhost:5000/addmessage", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, subject, message })
+    })
+      .then(res => res.json())
+      .then(message => {
+        this.setState({ message });
+      })
+      .catch(err => console.log(err));
+  };
+
+  checkIsLoggedIn = name => {
+    if (localStorage.getItem("User")) {
+      name = JSON.parse(localStorage.getItem("User")).username;
+      if (name) {
+        this.setState({
+          name
+        });
+      } else {
+        this.setState({
+          name: ""
+        });
+      }
+    }
+  };
+
+  //set the value to the key, depending on user input
+  changeHandler = e => {
+    this.validateEmail(this.state.email);
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
   //toggle between the show/hide of modal
@@ -44,24 +105,6 @@ export default class ContactUs extends Component {
         confirmAlert: "Your message has been sent Successfully!"
       });
     }
-  };
-
-  //send data to the back, then renew the state of component
-
-  addMessage = (name, email, subject, message) => {
-    fetch("http://localhost:5000/addmessage", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ name, email, subject, message })
-    })
-      .then(res => res.json())
-      .then(message => {
-        this.setState({ message });
-      })
-      .catch(err => console.log(err));
   };
 
   //on submiting the form, all the input fields to set to empty
@@ -83,16 +126,12 @@ export default class ContactUs extends Component {
       text: ""
     });
   };
-  //set the value to the key, depending on user input
-
-  changeHandler = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.validateEmail(this.state.email);
+    this.checkIsLoggedIn(this.state.name);
+    this.getUser();
   }
 
   render() {
