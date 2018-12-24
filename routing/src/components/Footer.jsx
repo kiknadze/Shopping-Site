@@ -6,7 +6,7 @@ class Footer extends Component {
     return (
       <div className="footer">
         <div className="left">
-          <div className="logo">
+          <div className="footer__logo">
             <img
               src="https://colorlib.com/preview/theme/amado/img/core-img/logo2.png"
               alt="No Logo"

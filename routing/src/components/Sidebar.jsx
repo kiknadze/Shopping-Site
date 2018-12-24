@@ -82,7 +82,7 @@ class Sidebar extends Component {
     });
   };
 
-  EditProfile = e => {
+  editProfile = (e) => {
     e.preventDefault();
     this.EditUser(
       this.state.user.id,
@@ -394,7 +394,7 @@ class Sidebar extends Component {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-lg">
-            <form className="modal-content" onSubmit={this.EditProfile}>
+            <form className="modal-content" onSubmit={this.editProfile}>
               <div className="modal-header profile--modal">
                 <h5 className="modal-title" id="exampleModalLabel">
                   PROFILE

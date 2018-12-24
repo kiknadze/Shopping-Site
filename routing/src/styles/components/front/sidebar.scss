@@ -166,6 +166,11 @@
   #accordionEx1 {
     display: block;
   }
+
+  .main__slider {
+    display: none
+  }
+
   .sidebar {
     display: none;
   }
@@ -227,6 +232,10 @@
     display: block;
   }
   .sidebar {
+    display: none;
+  }
+
+  .main__slider {
     display: none;
   }
 
