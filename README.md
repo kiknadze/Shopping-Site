@@ -51,13 +51,15 @@ The quicker you answer a customer’s question, the quicker they move forward wi
 - 4.Contact page messages list
 
 ## Installation
-> cd routing
-> npm i
-> npm start
-> cd ../
-> npm i
-> cd back
-> npm start
+```
+cd routing
+npm i
+npm start
+cd ../
+npm i
+cd back
+npm start
+```
 
 ## Example
 > http://localhost:3000
