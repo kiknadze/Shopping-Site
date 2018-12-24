@@ -24,10 +24,10 @@ class Footer extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
+                <Link to="/aboutus">About Us</Link>
               </li>
               <li>
-                <Link to="/products">Products</Link>
+                <Link to="/shop">Products</Link>
               </li>
               <li>
                 <Link to="/contactus">Contact</Link>
@@ -39,7 +39,5 @@ class Footer extends Component {
     );
   }
 }
-
-
 
 export default Footer;
