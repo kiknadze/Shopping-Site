@@ -6,9 +6,7 @@ export default class Login extends Component {
         super(props)
 
         this.state = {
-            isLoggedIn: false,
             message: '',
-            user: {}
         }
 
         this.OnSubmitHandler = this.OnSubmitHandler.bind(this);
@@ -42,7 +40,7 @@ export default class Login extends Component {
             .then(result => {
                 if (result.auth) {
                     localStorage.setItem('User', JSON.stringify(result));
-                    this.setState({ user: result.user, isLoggedIn: true, message: '' });
+                    this.setState({ message: '' });
                     window.location.reload();
                 } else {
                     this.setState({ message: 'Login or password is not Correct' });

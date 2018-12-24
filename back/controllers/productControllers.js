@@ -3,23 +3,59 @@ module.exports = function(app) {
     let reviewID = 2;
     const reviewDB = "../routing/src/db/review.json";
     const usersfileDB = '../routing/src/db/users.json';
+    const productDB = "../routing/src/db/products.json";
 
+    app.post("/user/addproduct", (req, res) => {
+        const { userID, productID, quantity } = req.body;
+    
+        //read the products file from databse;
+        //get the right product and
+        //add the property - quantity, depending on user's chosen quantity
+        fs.readFile(productDB, function(err, data) {
+          let json = JSON.parse(data);
+          let findProduct = json.find(product => product.id === productID);
+          findProduct.quantity = "" + quantity;
+    
+          //read the users file from JSON,
+          //find the right User
+          //add the found product to the user's cart in the Database
+          fs.readFile(usersfileDB, function(err, data) {
+            let json = JSON.parse(data);
+            let index = json.findIndex(user => user.id === userID);
+            let userProdIndex = json[index].cart.findIndex(product => product.id == productID);
+            if(userProdIndex >= 0) {
+              json[index].cart[userProdIndex].quantity = Number(json[index].cart[userProdIndex].quantity) + Number(findProduct.quantity);
+            } else {
+              json[index].cart.push(findProduct);
+            }
+    
+            //write the renewed information in the USERS' database
+            fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
+              if (err) res.json(json);
+              res.json({message: 'Product Successfully Added'});
+            });
+          });
+        });
+    });
+
+    //read review from DB
     app.post('/db/review', (req, res) => {
-        const { productID } = req.body;
+        const { productID } = req.body; //get ID
         fs.readFile(reviewDB, function (err, data) {
             let json = JSON.parse(data);
-            let reviewFilter = json.filter(review => review.productID == productID);
+            let reviewFilter = json.filter(review => review.productID == productID); //filter reviews by product id
             res.json(reviewFilter);
         })
     });
 
+    //add new review
     app.post('/product/review/add', (req, res) => {
-        const { productID, userID, message } = req.body;
-
+        const { productID, userID, username, message } = req.body;
         const review = {
             id: "" + reviewID,
             productID: "" + productID,
             userID: "" + userID,
+            username,
             message
         };
         
@@ -36,6 +72,7 @@ module.exports = function(app) {
         });
     });
 
+    //make order
     app.post('/ordercompleted', (req, res) => {
         const { user } = req.body;
         fs.readFile(usersfileDB, function (err, data) {
