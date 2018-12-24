@@ -51,10 +51,6 @@
   }
 }
 
-.card,
-.text-white bg-warning mb-3 {
-  z-index: -5;
-}
 .form-group {
   label {
     float: left;
@@ -68,7 +64,7 @@
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 850px) {
   .review--container {
     margin: 5% auto;
   }
