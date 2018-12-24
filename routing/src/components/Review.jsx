@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Users from '../db/users.json'; //get users DB
+// import Users from '../db/users.json'; //get users DB
 
 const reviewsUrl = "http://localhost:5000/db/review";
 
@@ -11,6 +11,7 @@ export default class Review extends Component {
 
     this.state = {
       userID: props.userID,
+      username: props.username,
       productID: props.productID,
       reviews: [],
       reviewText: ""
@@ -44,6 +45,7 @@ export default class Review extends Component {
     this.addReview(
       this.state.productID,
       this.state.userID,
+      this.state.username,
       this.review.current.value
     );
     this.setState({
@@ -58,14 +60,14 @@ export default class Review extends Component {
     });
   };
   //add review to db and renew state
-  addReview(productID, userID, message) {
+  addReview(productID, userID, username, message) {
     fetch("http://localhost:5000/product/review/add", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ productID, userID, message })
+      body: JSON.stringify({ productID, userID, username, message })
     })
       .then(res => res.json())
       .then(reviews => {
@@ -73,10 +75,6 @@ export default class Review extends Component {
       })
       .catch(err => console.log(err));
   }
-
-  getUserName = (userID) => {
-    return Users.find(user => user.id === userID).username
-  };
 
   render() {
     return (
@@ -87,7 +85,7 @@ export default class Review extends Component {
             <div className="review--wrapper" key={index}>
               <div className="review-header">
                 <i className="fas fa-user" />
-                <span>{this.getUserName(review.userID)}</span>
+                <span>{review.username}</span>
               </div>
               <div className="review-body">
                 <p className="review-text">

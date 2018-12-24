@@ -8,7 +8,6 @@ const adminControllers = require("./controllers/adminControllers");
 const adminUsers = require("./controllers/adminUsers");
 const adminMessages = require("./controllers/adminMessages");
 const productControllers = require("./controllers/productControllers");
-const adminAddProduct = require("./controllers/adminAddProduct");
 
 const secret = "demo__system"; //encrypt
 const PORT = 5000; //PORT
@@ -102,6 +101,7 @@ app.post("/login", (req, res) => {
         matchUser = {
           id: users[i].id,
           level: users[i].level,
+          username: users[i].username,
           auth: true
         };
         break;
@@ -178,7 +178,6 @@ adminControllers(app);
 adminUsers(app);
 adminMessages(app);
 productControllers(app);
-adminAddProduct(app);
 
 app.listen(PORT, () => {
   console.log(`Port - ${PORT}`);

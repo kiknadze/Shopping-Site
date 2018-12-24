@@ -1,1 +1,161 @@
-[{"id":"1","name":"Admin","lastname":"Adminidze","username":"admin","password":"596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a","email":"admin@admin.ge","address":"Saburtalo str. #17","birthdate":"2018-12-11","balance":"135","cart":[],"orders":[{"id":"1","url":"https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg","name":"Jurnal Table","category":"1","desc":"Small Table for Journals, usually used in living rooms","price":"180","color":"3","material":"1","quantity":3}],"level":"0"},{"id":"2","name":"Temo","lastname":"Kiknadze","username":"temi","password":"596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a","email":"temo@temo.ge","address":"Saburtalo str. #16","birthdate":"2018-12-25","balance":"6780","cart":[{"id":"2","url":"https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260","name":"Double Bed","category":"4","desc":"Double bed, suitable for two persons","price":"1180","color":"2","material":"2","quantity":2}],"orders":[{"id":"1","url":"https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg","name":"Jurnal Table","category":"1","desc":"Small Table for Journals, usually used in living rooms","price":"180","color":"3","material":"1","quantity":2},{"id":"2","url":"https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg","name":"Double Bed","category":"4","desc":"Double bed, suitable for two persons","price":"1180","color":"2","material":"2","quantity":"1"},{"id":"2","url":"https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg","name":"Double Bed","category":"4","desc":"Double bed, suitable for two persons","price":"1180","color":"2","material":"2","quantity":2},{"id":"2","url":"https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260","name":"Double Bed","category":"4","desc":"Double bed, suitable for two persons","price":"1180","color":"2","material":"2","quantity":"1"}],"level":"1"},{"id":"3","name":"marimi","lastname":"shamo","username":"mari","password":"596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a","email":"shamatavamari@mail.ru","address":"Tbilisi, Saburtalo str. #17","birthdate":"2018-12-12","balance":"150","cart":[],"orders":[{"id":"1","url":"https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg","name":"Jurnal Table","category":"1","desc":"Small Table for Journals, usually used in living rooms","price":"180","color":"3","material":"1","quantity":"1"},{"id":"2","url":"https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg","name":"Double Bed","category":"4","desc":"Double bed, suitable for two persons","price":"1180","color":"2","material":"2","quantity":"1"}],"level":"1"},{"id":"4","name":"Dea","lastname":"Samniashvili","username":"dea","password":"11687ee61aefb306f6a888de45c56a79c6a1be5723fafb37907dc6963e993a83","email":"dea@dea.ge","birthdate":"2018-12-27","balance":"3000","cart":[],"orders":[],"level":"1"}]
+[
+    {
+        "id": "1",
+        "name": "Admin",
+        "lastname": "Adminidze",
+        "username": "admin",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "admin@admin.ge",
+        "address": "Saburtalo str. #17",
+        "birthdate": "2018-12-11",
+        "balance": "135",
+        "cart": [
+            {
+                "id": "2",
+                "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": 7
+            }
+        ],
+        "orders": [
+            {
+                "id": "1",
+                "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+                "name": "Jurnal Table",
+                "category": "1",
+                "desc": "Small Table for Journals, usually used in living rooms",
+                "price": "180",
+                "color": "3",
+                "material": "1",
+                "quantity": 3
+            }
+        ],
+        "level": "0"
+    },
+    {
+        "id": "2",
+        "name": "Temo",
+        "lastname": "Kiknadze",
+        "username": "temi",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "temo@temo.ge",
+        "address": "Saburtalo str. #16",
+        "birthdate": "2018-12-25",
+        "balance": "6780",
+        "cart": [
+            {
+                "id": "2",
+                "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": 2
+            }
+        ],
+        "orders": [
+            {
+                "id": "1",
+                "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+                "name": "Jurnal Table",
+                "category": "1",
+                "desc": "Small Table for Journals, usually used in living rooms",
+                "price": "180",
+                "color": "3",
+                "material": "1",
+                "quantity": 2
+            },
+            {
+                "id": "2",
+                "url": "https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": "1"
+            },
+            {
+                "id": "2",
+                "url": "https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": 2
+            },
+            {
+                "id": "2",
+                "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": "1"
+            }
+        ],
+        "level": "1"
+    },
+    {
+        "id": "3",
+        "name": "marimi",
+        "lastname": "shamo",
+        "username": "mari",
+        "password": "596de36373f65623cfc22eabd57fedeee767bd6b6d9e530a0ce6b72747b8ab7a",
+        "email": "shamatavamari@mail.ru",
+        "address": "Tbilisi, Saburtalo str. #17",
+        "birthdate": "2018-12-12",
+        "balance": "150",
+        "cart": [],
+        "orders": [
+            {
+                "id": "1",
+                "url": "https://i5.walmartimages.com/asr/67b44e0d-eb69-4ccf-b9c8-b557e26693bd_1.73a30cd50bd42e6fff51f0281b730fb8.jpeg",
+                "name": "Jurnal Table",
+                "category": "1",
+                "desc": "Small Table for Journals, usually used in living rooms",
+                "price": "180",
+                "color": "3",
+                "material": "1",
+                "quantity": "1"
+            },
+            {
+                "id": "2",
+                "url": "https://images-na.ssl-images-amazon.com/images/I/6111JCs9NxL._SX425_.jpg",
+                "name": "Double Bed",
+                "category": "4",
+                "desc": "Double bed, suitable for two persons",
+                "price": "1180",
+                "color": "2",
+                "material": "2",
+                "quantity": "1"
+            }
+        ],
+        "level": "1"
+    },
+    {
+        "id": "4",
+        "name": "Dea",
+        "lastname": "Samniashvili",
+        "username": "dea",
+        "password": "11687ee61aefb306f6a888de45c56a79c6a1be5723fafb37907dc6963e993a83",
+        "email": "dea@dea.ge",
+        "birthdate": "2018-12-27",
+        "balance": "3000",
+        "cart": [],
+        "orders": [],
+        "level": "1"
+    }
+]
