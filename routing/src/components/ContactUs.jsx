@@ -146,7 +146,10 @@ export default class ContactUs extends Component {
                 type="text"
                 name="name"
                 required
-                value={this.state.name}
+                value={
+                  this.state.name.charAt(0).toUpperCase() +
+                  this.state.name.slice(1)
+                }
                 onChange={this.changeHandler}
                 placeholder="Enter your name, please"
                 ref={this.name}
