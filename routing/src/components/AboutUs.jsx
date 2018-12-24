@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PerMember from "./PerMember";
 
+//Using PerMember Component, setting each member's module with props
+//And unite in Aboutus component
+
 class AboutUs extends Component {
   render() {
     return (

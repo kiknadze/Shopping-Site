@@ -17,14 +17,14 @@ export default class Product extends Component {
       product: {},
       quantity: 1,
       userID: null,
-      username: '',
+      username: "",
       category: "",
       productName: "",
       productID: props.match.params.id,
       addToCartPr: 3
     };
-    // console.log(this.state);
   }
+
   componentDidMount() {
     this.getProducts();
     this.setUser();
@@ -32,17 +32,21 @@ export default class Product extends Component {
     this.getProductName();
   }
 
+  // set the userID and username, depending on the storage in localstorage
+  //update the state of the component
   setUser = () => {
     if (localStorage.getItem("User")) {
       let userID = JSON.parse(localStorage.getItem("User")).id;
       let username = JSON.parse(localStorage.getItem("User")).username;
       this.setState({
-        userID, 
+        userID,
         username
       });
     }
   };
 
+  // get the product from the database (products.json file) and
+  //update the state of the component
   getProducts = () => {
     fetch(productsURL)
       .then(res => res.json())
@@ -55,6 +59,8 @@ export default class Product extends Component {
       .catch(err => console.log(err.message));
   };
 
+  //get the product name
+  //update the state of a component
   getProductName = () => {
     fetch(productsURL)
       .then(res => res.json())
@@ -66,7 +72,8 @@ export default class Product extends Component {
       })
       .catch(err => console.log(err.message));
   };
-
+  //get the category of the product
+  //update the state of a component
   getCategory = () => {
     this.state.product &&
       fetch(categoryURL)
@@ -121,6 +128,8 @@ export default class Product extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  //depending on user clicks, increase or decrease quantity of a product
 
   increaseQuantity = () => {
     this.setState({

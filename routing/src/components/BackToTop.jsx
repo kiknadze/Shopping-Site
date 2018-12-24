@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ScrollToTop from "react-scroll-up";
+
+// Using the library, create Back to top button with the info text on hover
+
 export default class BackToTop extends Component {
   render() {
     return (

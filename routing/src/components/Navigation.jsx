@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //Navigation on the product's page.
-
 export default function Navigation(props) {
   return (
     <div className="product--navigation">

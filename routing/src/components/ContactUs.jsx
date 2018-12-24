@@ -24,6 +24,10 @@ export default class ContactUs extends Component {
       confirmAlert: "Please fill All the Inputs"
     };
   }
+
+  //if there is a person, already logged in,
+  //the email address will be automatically filled in
+
   getUser = () => {
     if (localStorage.getItem("User")) {
       let test = JSON.parse(localStorage.getItem("User"));
@@ -67,6 +71,9 @@ export default class ContactUs extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  //if there is a person already logged in,
+  //name in the contact form, will get automatically filled in
 
   checkIsLoggedIn = name => {
     if (localStorage.getItem("User")) {
