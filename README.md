@@ -28,27 +28,27 @@ Don’t let a complicated or lengthy checkout process make customers abandon the
 The quicker you answer a customer’s question, the quicker they move forward with the purchase process. Prominently displaying your contact info on your store helps customers know where to turn for a quick resolution to their queries. You will have to implement Back-End system using  NodeJs/ExpressJs and create REST API with appropriate URL endpoints  for administration dashboard interface, Technology used for dashboard is ReactJs and other useful libraries of your choice. Technology used for Front-End is ReactJs and you should implement functionalities listed above .
 
 ### Customer
-1.Registeration
-- a.username ( string )
-- b.email ( string )
-- c.password (string)
-- d.age ( number )
-- e.birthday ( number )
-- f.balance ( number )
-2.Payment - buy product
-- a.balance - price
-3.Bought products list
-4.Shopping cart funcitonality
-5.Contact page feedback
+- 1. Registeration
+  - a. username ( string )
+  - b. email ( string )
+  - c. password (string)
+  - d. age ( number )
+  - e. birthday ( number )
+  - f. balance ( number )
+- 2. Payment - buy product
+  - a. balance - price
+- 3. Bought products list
+- 4. Shopping cart funcitonality
+- 5. Contact page feedback
 
 ### Administration
-1.Only one admin
-2.Products (CRUD) , dummy data - json file.
-3.Users list
-- a.Can edit user’s username
-- b.can see if the user has active cart
-- c.can see user’s bought products
-4.Contact page messages list
+- 1. Only one admin
+- 2. Products (CRUD) , dummy data - json file.
+- 3. Users list
+  - a. Can edit user’s username
+  - b. can see if the user has active cart
+  - c. can see user’s bought products
+- 4. Contact page messages list
 
 ## Installation
 ```
