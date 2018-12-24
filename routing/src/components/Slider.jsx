@@ -4,7 +4,7 @@ import { Carousel } from "antd";
 class Slider extends Component {
   render() {
     return (
-      <div>
+      <div className="main__slider">
         <Carousel effect="scrollx" autoplay>
           <div className="single-slide">
             <div className="info">description</div>

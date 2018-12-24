@@ -138,14 +138,8 @@ export default class Product extends Component {
     const isEnabled = userID !== null;
 
     if (this.state.addToCartPr === 1) {
-      this.setState({
-        addToCartPr: 3
-      });
       return <Redirect to={`/shop`} />;
     } else if (this.state.addToCartPr === 2) {
-      this.setState({
-        addToCartPr: 3
-      });
       return <Redirect to={`/checkout`} />;
     }
     return (

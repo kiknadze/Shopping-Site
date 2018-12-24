@@ -24,7 +24,7 @@ import AboutUs from "../components/AboutUs";
 import "antd/dist/antd.css";
 
 const Admin = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminAddProduct />
     <AdminFooter />
@@ -32,7 +32,7 @@ const Admin = () => (
 );
 
 const Messages = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminShowMessagesList />
     <AdminFooter />
@@ -88,7 +88,7 @@ const contactus = () => (
 );
 
 const adminShowUSers = () => (
-  <div>
+  <div className="admin">
     <AdminHeader />
     <AdminShowUSers />
     <AdminFooter />
@@ -98,7 +98,6 @@ const adminShowUSers = () => (
 const index = () => (
   <div>
     <Sidebar />
-
     <Slider />
     <HomePageProduct />
     <ExtraFooter />
@@ -127,6 +126,17 @@ const product = ({ match }) => (
   </div>
 );
 
+const notFoundPage = () => (
+  <div>
+    <Sidebar />
+    <Slider />
+    <NotFoundPage />
+    <ExtraFooter />
+    <Footer />
+    <BackToTop />
+  </div>
+)
+
 const AppRouter = () => (
   <BrowserRouter>
     <div>
@@ -144,7 +154,7 @@ const AppRouter = () => (
         <ProtectedAdmin path="/admin/messages" component={Messages} />
         <ProtectedAdmin path="/admin/users" component={adminShowUSers} />
         <Route path="/contact" />
-        <Route component={NotFoundPage} />
+        <Route component={notFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>

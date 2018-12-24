@@ -29,8 +29,8 @@ class HomePageProduct extends Component {
         if (key % 3 === 0) {
           availableGrids.push(key);
         }
+        return availableGrids;
       });
-
       this.setState({ availableGrids });
     }
   };

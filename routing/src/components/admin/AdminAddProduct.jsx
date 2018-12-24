@@ -185,6 +185,7 @@ export default class AdminAddProduct extends Component {
         });
     }
 
+    //print product category for option 
     ProductCategory = () => {
         let option = [];
         for (let i = 0; i < Category.length; i++) {
@@ -198,6 +199,7 @@ export default class AdminAddProduct extends Component {
         return option;
     };
 
+    //print product color for option 
     ProductColor = () => {
         let color = [];
         for (let i = 0; i < Color.length; i++) {
@@ -211,6 +213,7 @@ export default class AdminAddProduct extends Component {
         return color;
     };
 
+    //print product material for option 
     ProductMaterial = () => {
         let material = [];
         for (let i = 0; i < Material.length; i++) {
@@ -223,15 +226,15 @@ export default class AdminAddProduct extends Component {
         }
         return material;
     };
-
+    //get Category name
     PrintCategory = (categoryID) => {
         return Category[categoryID - 1].name
     };
-
+    //get color name
     PrintColor = (colorID) => {
         return Color[colorID - 1].name
     };
-
+    //get material name
     PrintMaterial = (materialID) => {
         return Material[materialID - 1].name
     };
