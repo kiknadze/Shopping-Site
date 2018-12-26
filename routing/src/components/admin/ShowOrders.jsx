@@ -8,7 +8,7 @@ const ShowOrders = (props) => (
             </tr>
         </thead>
         <tbody>
-            {props.orders.map((order, index) => (
+            {props.orders && props.orders.map((order, index) => (
                 <tr key={index}>
                     <th scope="row">{index+1}</th>
                     <td><img src={order.url} alt="NOIMAGE" /></td>

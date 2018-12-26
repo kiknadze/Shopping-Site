@@ -5,7 +5,7 @@ export default function Search(props) {
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
         <div className="input-group">
-            <input type="text" className="form-control" aria-label="Search" name="Search" onChange={props.onSearch} />
+            <input type="text" className="form-control" aria-label="Search" name="Search" placeholder="Search Product" onChange={props.onSearch} />
             <div className="input-group-append">
                 <span className="input-group-text" role="img" aria-label="Search"><i className="fas fa-search"></i></span>
             </div>
