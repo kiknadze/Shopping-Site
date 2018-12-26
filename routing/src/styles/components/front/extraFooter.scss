@@ -2,10 +2,11 @@
   display: flex;
   width: 100%;
   background-color: $gray;
-  // height: 250px;
+  height: 250px;
   flex-direction: row;
   justify-content: space-around;
-  margin: 2% auto;
+  align-items: center;
+  
 
   .extrafooter--part {
     width: 300px;

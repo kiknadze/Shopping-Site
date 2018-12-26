@@ -31,8 +31,8 @@ module.exports = function(app) {
     
             //write the renewed information in the USERS' database
             fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
-              if (err) res.json(json);
-              res.json({message: 'Product Successfully Added'});
+              if (err) res.json({user: json[index], message: 'Product Not Added'});
+              res.json({user: json[index], message: 'Product Successfully Added'});
             });
           });
         });
@@ -77,26 +77,37 @@ module.exports = function(app) {
         const { user } = req.body;
         fs.readFile(usersfileDB, function (err, data) {
             let json = JSON.parse(data);
-            let findUser = json.find(users => users.id == user.id);
             let index = json.findIndex(users => users.id == user.id);
             for(let i=0; i < user.cart.length; i++) {
-                for(let j=0; j < findUser.orders.length; j++) {
-                    if(user.cart[i].id == findUser.orders[j].id) {
-                        findUser.orders[j].quantity++;
+                for(let j=0; j < json[index].orders.length; j++) {
+                    if(user.cart[i].id == json[index].orders[j].id) {
+                        json[index].orders[j].quantity += user.cart[i].quantity;
                         break;
-                    } else {
-                        findUser.orders.push(user.cart[i])
-                        break;
+                    } else if(j === json[index].orders.length - 1) {
+                        json[index].orders.push(user.cart[i])
                     };
                 };
             };
-            findUser.cart = [];
-            findUser.address = user.address;
-            findUser.balance = "" + user.balance;
-            json[index] = findUser;
+            user.orders = json[index].orders;
+            user.cart = [];
+            json[index] = user;
             fs.writeFile(usersfileDB, JSON.stringify(json), function (err) {
-                if (err) res.json(json)
-                res.json(json);
+                if (err) res.json(json[index])
+                res.json(json[index]);
+            });        
+        })
+    });
+
+    //renew user cart
+    app.post('/renewcart', (req, res) => {
+        const { user } = req.body;
+        fs.readFile(usersfileDB, function (err, data) {
+            let json = JSON.parse(data);
+            let index = json.findIndex(users => users.id == user.id);
+            json[index] = user;
+            fs.writeFile(usersfileDB, JSON.stringify(json), function (err) {
+                if (err) res.json(json[index])
+                res.json(json[index]);
             });        
         })
     });
