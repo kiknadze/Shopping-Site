@@ -3,6 +3,7 @@ module.exports = function(app) {
 
   const messages = "../routing/src/db/messages.json";
 
+  //get data from database
   app.get("/db/messages", (req, res) => {
     fs.readFile(messages, function(err, data) {
       let json = JSON.parse(data);
@@ -10,8 +11,9 @@ module.exports = function(app) {
     });
   });
 
-  //delete message
-
+  //read the ID received from post
+  //delete message with the given ID
+  //update the messages.json file
   app.post("/admin/messages/delete", (req, res) => {
     const { id } = req.body;
     fs.readFile(messages, function(err, data) {
