@@ -1,13 +1,16 @@
+//component that shows all the details of a product except image
 import React from "react";
 
 export default function ProductProduct(props) {
   return (
-    <div className="product--details" >
+    <div className="product--details">
       <div className="product--details--wrapper">
         <div className="product--details--line" />
         <div className="product--details__price">₾{props.product.price}</div>
         <div className="product--details__title">{props.product.name}</div>
-        <div className="product--details__description">{props.product.desc}</div>
+        <div className="product--details__description">
+          {props.product.desc}
+        </div>
 
         {/* //qty */}
         <div className="product--details__quantity">
@@ -29,11 +32,7 @@ export default function ProductProduct(props) {
           <button
             disabled={!props.isEnabled}
             onClick={() => {
-              props.addToCart(
-                props.userID,
-                props.product.id,
-                props.quantity
-              );
+              props.addToCart(props.userID, props.product.id, props.quantity);
             }}
           >
             <span>Add to Cart</span>
