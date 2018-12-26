@@ -3,8 +3,7 @@ import ProductProduct from "./ProductProduct";
 import Review from "./Review";
 import Navigation from "./Navigation";
 import ProductImage from "./ProductImage";
-import { confirmAlert } from "react-confirm-alert";
-import { Redirect } from "react-router-dom";
+import { MyContext } from './MyContext';
 
 let productsURL = "http://localhost:5000/db/products";
 let categoryURL = "http://localhost:5000/db/category";
@@ -21,7 +20,7 @@ export default class Product extends Component {
       category: "",
       productName: "",
       productID: props.match.params.id,
-      addToCartPr: 3
+      redirect: false
     };
     // console.log(this.state);
   }
@@ -80,48 +79,6 @@ export default class Product extends Component {
         .catch(err => console.log(err.message));
   };
 
-  addToCart = (userID, productID, quantity) => {
-    fetch("http://localhost:5000/user/addproduct", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ userID, productID, quantity })
-    })
-      .then(res => res.json())
-      .then(result => {
-        confirmAlert({
-          customUI: ({ onClose }) => {
-            return (
-              <div className="custom-ui">
-                <h1>{this.state.quantity + " " + result.message}</h1>
-                <button
-                  className="btn btn-success editUser__input"
-                  onClick={() => {
-                    this.setState({ addToCartPr: 2 });
-                    onClose();
-                  }}
-                >
-                  Go To Checkout
-                </button>
-                <button
-                  className="btn btn-success editUser__input"
-                  onClick={() => {
-                    this.setState({ addToCartPr: 1 });
-                    onClose();
-                  }}
-                >
-                  Continiue Shopping
-                </button>
-              </div>
-            );
-          }
-        });
-      })
-      .catch(err => console.log(err));
-  };
-
   increaseQuantity = () => {
     this.setState({
       quantity: this.state.quantity + 1
@@ -140,11 +97,6 @@ export default class Product extends Component {
     const { userID } = this.state;
     const isEnabled = userID !== null;
 
-    if (this.state.addToCartPr === 1) {
-      return <Redirect to={`/shop`} />;
-    } else if (this.state.addToCartPr === 2) {
-      return <Redirect to={`/checkout`} />;
-    }
     return (
       <>
         <div className="product--container">
@@ -157,17 +109,22 @@ export default class Product extends Component {
             <ProductImage product={this.state.product} />
 
             {this.state.product && (
-              <ProductProduct
-                product={this.state.product}
-                quantity={this.state.quantity}
-                increaseQuantity={this.increaseQuantity}
-                decreaseQuantity={this.decreaseQuantity}
-                addToCart={this.addToCart}
-                userID={this.state.userID}
-                product0id={this.state.product}
-                isEnabled={isEnabled}
-                message={this.state.message}
-              />
+              <MyContext.Consumer>
+                {(context) =>
+                    (<ProductProduct
+                        product={this.state.product}
+                        quantity={this.state.quantity}
+                        increaseQuantity={this.increaseQuantity}
+                        decreaseQuantity={this.decreaseQuantity}
+                        addToCart={context.addToCart}
+                        userID={this.state.userID}
+                        product0id={this.state.product}
+                        isEnabled={isEnabled}
+                        message={this.state.message}
+                    />
+                    )
+                }
+              </MyContext.Consumer>
             )}
           </div>
 

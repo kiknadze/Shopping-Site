@@ -33,7 +33,7 @@ export default function ProductProduct(props) {
                 props.userID,
                 props.product.id,
                 props.quantity
-              );
+              )
             }}
           >
             <span>Add to Cart</span>
