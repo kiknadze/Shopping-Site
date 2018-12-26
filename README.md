@@ -50,13 +50,13 @@ The quicker you answer a customer’s question, the quicker they move forward wi
   - c. can see user’s bought products
 - 4. Contact page messages list
 
-## Installation
+## Installation on local
 ```
 cd routing
 npm i
 npm start
-cd ../
-npm i
+
+open second terminal
 cd back
 npm start
 ```
