@@ -1,3 +1,6 @@
+//simple component, for informative and decorational purposes only.
+//added some animations in css
+
 import React from "react";
 
 export default function ExtraFooterD() {
