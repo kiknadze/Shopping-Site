@@ -7,7 +7,7 @@ import { MyContext } from './MyContext';
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
 });
-const usersUrl = "http://localhost:5000/db/users";
+const usersUrl = "http://localhost:5000/db/users"; //userDB
 //get user id from localstorage
 const userID = localStorage.getItem("User")
   ? JSON.parse(localStorage.getItem("User")).id
@@ -42,7 +42,7 @@ class Sidebar extends Component {
   componentDidMount() {
     this.GetUser();
   }
-
+  //get user from database
   GetUser = () => {
     userID &&
       fetch(usersUrl)
@@ -58,7 +58,7 @@ class Sidebar extends Component {
         })
         .catch(err => console.log(err));
   };
-
+  //edit profile 
   ShowProfile = () => {
     this.name = React.createRef();
     this.lastname = React.createRef();
@@ -76,10 +76,10 @@ class Sidebar extends Component {
       balance: this.state.user.balance
     });
   };
-
+  //update profile
   editProfile = (e) => {
     e.preventDefault();
-    this.EditUser(
+    this.editUser(
       this.state.user.id,
       this.state.name,
       this.state.lastname,
@@ -90,7 +90,7 @@ class Sidebar extends Component {
     );
   };
 
-  EditUser = (id, name, lastname, password, address, birthdate, balance) => {
+  editUser = (id, name, lastname, password, address, birthdate, balance) => {
     fetch("http://localhost:5000/editUser", {
       method: "POST",
       headers: {
@@ -121,7 +121,7 @@ class Sidebar extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  Logout = () => {
+  logout = () => {
     localStorage.removeItem("User");
     this.setState({ user: {} });
     window.location.reload();
@@ -194,7 +194,7 @@ class Sidebar extends Component {
                   >
                     ORDERS
                     </button>
-                  <button className="menu__logout" onClick={this.Logout}>
+                  <button className="menu__logout" onClick={this.logout}>
                     LOGOUT
                   </button>
                 </div>

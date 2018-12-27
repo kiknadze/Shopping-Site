@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import Users from '../db/users.json'; //get users DB
 
-const reviewsUrl = "http://localhost:5000/db/review";
+const reviewsUrl = "http://localhost:5000/db/review"; //reviews database
 
 export default class Review extends Component {
   constructor(props) {
