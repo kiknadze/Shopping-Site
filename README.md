@@ -58,6 +58,7 @@ npm start
 
 open second terminal
 cd back
+npm i
 npm start
 ```
 
