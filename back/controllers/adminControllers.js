@@ -10,7 +10,7 @@ module.exports = function (app) {
             res.json(json);
         })
     });
-
+      
     //add products
     app.post('/admin/product/add', (req, res) => {
         let { id, name, category, url, desc, color, material, price } = req.body;

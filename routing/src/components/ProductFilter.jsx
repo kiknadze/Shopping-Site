@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import SearchProduct from "./SearchProduct"
 import GetCategory from "./GetCategory"
-import { Link } from 'react-router-dom';
+import Pagenation from './Pagenation';
 const userURL = "http://localhost:5000/db/products";
 
+//Mariami
+//Filters and Searches Product
 class ProductFilter extends Component {
     constructor(props) {
         super(props)
@@ -17,24 +19,25 @@ class ProductFilter extends Component {
             color: "",
             products: [],
             matchProduct: [],
+          
         }
     }
     componentDidMount() {
         this.GetProduct();
 
-    }
+    }//get category from user
     handleClick = (e) => {
         this.setState({ category: e.target.id })
         this.setState({ colorChoose: false })
         this.setState({ categoryChoose: true })
 
-    }
+    }//get choosen color from user
     colorClick = (e) => {
         this.setState({ color: e.target.id })
         this.setState({ colorChoose: true })
 
 
-    }
+    }//get choosen material from user
     handleChange = (e) => {
 
         let materialArray = this.state.material
@@ -53,7 +56,7 @@ class ProductFilter extends Component {
             this.setState({ materialChoose: false })
         }
 
-    }
+    }//get whole existing product and save them in state
     GetProduct = () => {
         fetch(userURL)
             .then(products => products.json())
@@ -64,7 +67,7 @@ class ProductFilter extends Component {
             .catch(err => console.log(err));
 
 
-    }
+    }//searching product by name and description
     onSearch = (e) => {
         let matchProduct = [];
         let search = new RegExp(e.target.value, 'gi');
@@ -85,6 +88,7 @@ class ProductFilter extends Component {
     }
 
     render() {
+      
         return (
             <div className="proFilter">
                 <div className="proFilter--details">
@@ -136,7 +140,7 @@ class ProductFilter extends Component {
                         <div className="searchProduct">
                             <div><SearchProduct onSearch={this.onSearch} /> </div>
                         </div>
-                        {!this.state.matchProduct.length ? <GetCategory matchProduct={this.state.matchProduct}
+                        {!this.state.matchProduct.length ? <GetCategory matchProduct={this.state.matchProduct}//displays the filtered product
                             color={this.state.color}
                             material={this.state.material}
                             category={this.state.category}
@@ -147,22 +151,17 @@ class ProductFilter extends Component {
                             handleClick={this.handleClick}
                             colorClick={this.colorClick}
                             handleChange={this.handleChange}
+                           
+                           
 
                         /> :
-                        <div className="container--product--container">
-                        <div className="container--product">
-                            {
-                                this.state.matchProduct.map((product, index) =>
-                                    <div key={index} className="container--product--wrapper">
-                                        <Link to={`/products/${product.id}`} key={index} ><div className="image"><img alt="NO" src={product.url} ></img></div></Link>
-                                        <div className="line"></div>
-                                        <div className="proPrice">{product.price}ლ</div>
-                                        <div className="proName">{product.name}</div>
-                                    </div>
-                                )
-                            }
-                        </div>
-                        </div>}
+                            <div className="container--product--container">
+                                <div className="container--product">
+                                    {
+                                     <Pagenation arr={this.state.matchProduct}/>//numbers the pages 
+                                    }
+                                </div>
+                            </div>}
                     </div>
                 </div>
             </div>
