@@ -99,4 +99,35 @@
         "color": "2",
         "material": "2"
     }
+    ,
+    {
+        "id": "2",
+        "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "1",
+        "material": "2"
+    },
+    {
+        "id": "2",
+        "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "1",
+        "material": "2"
+    },
+    {
+        "id": "2",
+        "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "name": "Double Bed",
+        "category": "4",
+        "desc": "Double bed, suitable for two persons",
+        "price": "1180",
+        "color": "1",
+        "material": "2"
+    }
 ]

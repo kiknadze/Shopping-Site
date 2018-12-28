@@ -4,7 +4,8 @@ import ShowOrders from './ShowOrders';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const userURL = "http://localhost:5000/db/users";
-
+//Mariami
+//Displays the existing users in admin panel
 export default class User extends Component {
     constructor(props) {
         super(props)
@@ -21,12 +22,12 @@ export default class User extends Component {
     componentDidMount() {
         this.getUsers();
     }
-
+    //shows the cart of user
     OnShowCart = (id) => {
         let orders = this.state.userData[id].cart;
         this.setState({ orders })
     }
-
+    //show the orders of user
     OnShowOrders = (id) => {
         let orders = this.state.userData[id].orders;
         this.setState({ orders })
@@ -44,7 +45,7 @@ export default class User extends Component {
             })
             .catch(err => console.log(err));
     }
-
+    //changes the username and sets the new one
     handleClickEdit = (id) => {
         let newUsername = this.state.input;
         fetch(`http://localhost:5000/admin/user/edit`, {
