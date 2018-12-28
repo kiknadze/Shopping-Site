@@ -15,7 +15,7 @@ export default function GetCategory(props) {
 
                 props.products
                     .filter(product => product.category === props.category && !props.colorChoose && !props.materialChoose && props.matchProduct.length === 0)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
 
@@ -25,28 +25,28 @@ export default function GetCategory(props) {
             {
                 props.products
                     .filter(product => product.color === props.color && product.category === props.category && !props.materialChoose)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
 
             {
                 props.products
                     .filter(product => product.color === props.color && !props.categoryChoose && props.colorChoose && !props.materialChoose)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
 
             {
                 props.products
                     .filter(product => props.material.includes(product.material) && product.category === props.category && props.categoryChoose && !props.colorChoose)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
 
             {
                 props.products
                     .filter(product => props.material.includes(product.material) && !props.categoryChoose && props.materialChoose)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
 
@@ -54,7 +54,7 @@ export default function GetCategory(props) {
                 props.products
                     .filter(product => props.material.includes(product.material) && product.category === props.category && props.categoryChoose && props.materialChoose
                         && product.color === props.color && props.colorChoose)
-                    .map((product, index) => { arr.push(product) }
+                    .map((product, index) => <div className='Pagenation--hidden'>{arr.push(product)}</div>
                     )
             }
             <Pagenation arr={arr} />

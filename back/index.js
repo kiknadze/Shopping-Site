@@ -13,7 +13,7 @@ const secret = "demo__system"; //encrypt
 const PORT = 5000; //PORT
 
 const usersfileDB = "../routing/src/db/users.json";
-let userID = 3;
+let userID = 5;
 
 const messagesFileDB = "../routing/src/db/messages.json";
 let messageID = 3;

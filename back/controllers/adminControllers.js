@@ -1,6 +1,6 @@
 module.exports = function (app) {
     const fs = require('fs');
-    let productID = 4;
+    let productID = 23;
     let productDB = "../routing/src/db/products.json";
 
     //get products from db
