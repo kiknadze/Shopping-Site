@@ -13,7 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "nodemon index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install ../routing && npm run build ../routing"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../routing && npm run build --prefix ../routing"
   },
   "author": "Temo Kiknadze, Dea Samniashvili, Mariam Shamatava, Salome Babukhadze",
   "license": "ISC"
