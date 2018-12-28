@@ -7,11 +7,11 @@ class Slider extends Component {
       <div className="main__slider">
         <Carousel effect="scrollx" autoplay>
           <div className="single-slide">
-            <div className="info">description</div>
+            <div className="info">All People Look Charming When They're Thinking</div>
             <div className="image">
               <img
-                src="https://images.pexels.com/photos/1248583/pexels-photo-1248583.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                alt="#"
+                src="imgs/members/temoforslider.jpg"
+                alt="NO TEMO"
               />
             </div>
           </div>
@@ -20,7 +20,7 @@ class Slider extends Component {
             <div className="image">
               <img
                 src="imgs/members/homesalome.png"
-                alt="#"
+                alt="NO SALOME"
               />
             </div>
           </div>
