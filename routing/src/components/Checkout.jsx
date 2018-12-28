@@ -15,6 +15,7 @@ export default class Checkout extends Component {
         }
     }
 
+    //redirect to main page after checkout completed
     redirect = () => {
         this.setState({ redirect: true})
     }
@@ -108,7 +109,7 @@ export default class Checkout extends Component {
                                     disabled={context.state.user.balance < context.state.totalPrice} 
                                     onClick={context.onCheckout}
                                 >Buy</button>
-
+                                {/* modal for showing orders */}
                                 <Modal isOpen={context.state.modalOrderComplite}>
                                     <ModalHeader className="modalheader">Order Status</ModalHeader>
                                     <ModalBody>Your Order Has Completed!</ModalBody>
@@ -120,7 +121,7 @@ export default class Checkout extends Component {
                                         </Button>
                                     </ModalFooter>
                                 </Modal>
-
+                                {/* modal for add balance */}
                                 <Modal isOpen={context.state.balanceModal}>
                                     <ModalHeader className="modalheader">Add Balance</ModalHeader>
                                     <ModalBody>
@@ -145,7 +146,7 @@ export default class Checkout extends Component {
                                         </Button>
                                     </ModalFooter>
                                 </Modal>
-
+                                {/* modal for edit shipping address */}
                                 <Modal isOpen={context.state.addressModal}>
                                     <ModalHeader className="modalheader">Edit Address</ModalHeader>
                                     <ModalBody>

@@ -2,14 +2,15 @@ module.exports = function (app) {
     const fs = require('fs');
 
     const Users = "../routing/src/db/users.json";
-
+    //get user from db
     app.get("/db/users",(req,res) => {
         fs.readFile(Users, function (err, data) {
             let json = JSON.parse(data);
                 res.json(json);
             })
 
-     })
+     });
+     //edit username of users
      app.post('/admin/user/edit/', (req, res) => {
         const { id , newUsername} = req.body;
         console.log(id)

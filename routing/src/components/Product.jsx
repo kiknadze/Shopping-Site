@@ -22,8 +22,8 @@ export default class Product extends Component {
       productID: props.match.params.id,
       redirect: false
     };
-    // console.log(this.state);
-  }
+  };
+  
   componentDidMount() {
     this.getProducts();
     this.setUser();

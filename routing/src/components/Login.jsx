@@ -9,7 +9,7 @@ export default class Login extends Component {
             message: '',
         }
 
-        this.OnSubmitHandler = this.OnSubmitHandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this);
         this.logemail = React.createRef();
         this.logpassword = React.createRef();
         this.name = React.createRef();
@@ -22,7 +22,7 @@ export default class Login extends Component {
         this.balance = React.createRef();
     }
 
-    OnSubmitHandler(event) {
+    onSubmitHandler(event) {
         event.preventDefault();
         this.login(this.logemail.current.value, this.logpassword.current.value);
     }
@@ -50,9 +50,9 @@ export default class Login extends Component {
             .catch(err => console.log(err))
     }
 
-    RegisterSubmit = e => {
+    registerSubmit = e => {
         e.preventDefault();
-        this.Adduser(
+        this.addUser(
             this.name.current.value,
             this.lastname.current.value,
             this.username.current.value,
@@ -65,7 +65,7 @@ export default class Login extends Component {
     };
 
     //Adding user
-    Adduser = (name, lastname, username, password, email, address, birthdate, balance) => {
+    addUser = (name, lastname, username, password, email, address, birthdate, balance) => {
     fetch("http://localhost:5000/register", {
         method: "POST",
         headers: {
@@ -98,6 +98,7 @@ export default class Login extends Component {
 
 
     render() {
+        //if user loggin person is admin redirect to admin page or user is logged in redirect to main page
         if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '0') {
             return <Redirect to={`/admin`} />
         } else if (localStorage.getItem('User') && JSON.parse(localStorage.getItem('User')).level === '1') {
@@ -123,7 +124,7 @@ export default class Login extends Component {
                             </li>
                         </ul>
                         <div className="tab-content" id="myTabContent">
-                            <form className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" onSubmit={this.OnSubmitHandler}>
+                            <form className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" onSubmit={this.onSubmitHandler}>
                                 <h3 className="register-heading">Login</h3>
                                 <div className="row register-form">
                                     <div className="col-md-6">
@@ -147,7 +148,7 @@ export default class Login extends Component {
                                     </div>
                                 </div>
                             </form>
-                            <form className="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.RegisterSubmit}>
+                            <form className="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" onSubmit={this.registerSubmit}>
                                 <h3 className="register-heading">Register</h3>
                                 <div className="row register-form">
                                     <div className="col-md-6">

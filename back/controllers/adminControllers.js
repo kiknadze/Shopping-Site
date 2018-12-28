@@ -3,6 +3,7 @@ module.exports = function (app) {
     let productID = 4;
     let productDB = "../routing/src/db/products.json";
 
+    //get products from db
     app.get('/db/products', (req, res) => {
         fs.readFile(productDB, function (err, data) {
             let json = JSON.parse(data);
