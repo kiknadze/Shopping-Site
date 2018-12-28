@@ -12,49 +12,49 @@
     {
         "id": "2",
         "url": "https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
+        "name": "Sofa-Bed",
         "category": "4",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
+        "desc": "Low sofa, also can use as bed",
+        "price": "3200",
         "color": "2",
-        "material": "2"
+        "material": "1"
     },
     {
         "id": "3",
         "url": "https://images.pexels.com/photos/1029799/pexels-photo-1029799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "name": "Double chairs",
-        "category": "2",
-        "desc": "Double bed, suitable for two persons",
-        "price": "114",
-        "color": "1",
-        "material": "3"
+        "name": "Vase",
+        "category": "3",
+        "desc": "Beautiful medium size vase",
+        "price": "170",
+        "color": "2",
+        "material": "4"
     },
     {
         "id": "4",
         "url": "https://images.pexels.com/photos/916339/pexels-photo-916339.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "3",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "2",
-        "material": "3"
+        "name": "Bed",
+        "category": "4",
+        "desc": "Comfortable low bed",
+        "price": "2700",
+        "color": "3",
+        "material": "1"
     },
     {
         "id": "5",
         "url": "https://images.pexels.com/photos/905198/pexels-photo-905198.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
+        "name": "Mirror, Mirror",
         "category": "3",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "1",
+        "desc": "Oval mirror, medium size",
+        "price": "280",
+        "color": "4",
         "material": "4"
     },
     {
         "id": "6",
         "url": "https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "4",
-        "desc": "Double bed, suitable for two persons",
+        "name": "Pastel Photo Collage",
+        "category": "3",
+        "desc": "Photo collage in pastel with five different images",
         "price": "1180",
         "color": "2",
         "material": "2"
@@ -62,41 +62,41 @@
     {
         "id": "7",
         "url": "https://images.pexels.com/photos/1166644/pexels-photo-1166644.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "4",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
+        "name": "Pot",
+        "category": "3",
+        "desc": "Small pot for  flowers",
+        "price": "210",
         "color": "2",
-        "material": "2"
+        "material": "4"
     },
     {
         "id": "8",
         "url": "https://images.pexels.com/photos/509922/pexels-photo-509922.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "4",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
+        "name": "Chair",
+        "category": "2",
+        "desc": "Comfortable chair for kitchen or dining room",
+        "price": "210",
         "color": "2",
-        "material": "2"
+        "material": "3"
     },
     {
         "id": "9",
         "url": "https://images.pexels.com/photos/879821/pexels-photo-879821.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "4",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "2",
-        "material": "2"
+        "name": "Dresser",
+        "category": "3",
+        "desc": "Brown wooden dresser with three drawers",
+        "price": "2100",
+        "color": "3",
+        "material": "1"
     },
     {
         "id": "10",
         "url": "https://images.pexels.com/photos/707579/pexels-photo-707579.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-        "name": "Double Bed",
-        "category": "4",
-        "desc": "Double bed, suitable for two persons",
-        "price": "1180",
-        "color": "2",
-        "material": "2"
+        "name": "Table",
+        "category": "1",
+        "desc": "Small table for bedroom",
+        "price": "1300",
+        "color": "3",
+        "material": "1"
     }
 ]

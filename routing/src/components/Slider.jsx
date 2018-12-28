@@ -16,10 +16,19 @@ class Slider extends Component {
             </div>
           </div>
           <div className="single-slide">
-            <div className="info">description</div>
+            <div className="info">Very cozy and comfortable outdoor furniture</div>
             <div className="image">
               <img
-                src="https://images.pexels.com/photos/931887/pexels-photo-931887.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                src="imgs/members/homesalome.png"
+                alt="#"
+              />
+            </div>
+          </div>
+          <div className="single-slide">
+            <div className="info">d</div>
+            <div className="image">
+              <img
+                src="https://images.pexels.com/photos/1248583/pexels-photo-1248583.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                 alt="#"
               />
             </div>
