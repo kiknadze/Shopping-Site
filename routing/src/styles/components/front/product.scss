@@ -158,7 +158,16 @@
     font-size: $mm-size;
   }
 }
+.pagination li div{
+  color:$darkgray;
+  &:hover {
+    color: $yellow;
+  }
+  
 
+
+ 
+}
 @media only screen and (min-width: 481px) and (max-width: 850px) {
   .sidebar {
     width: 90%;
@@ -204,6 +213,7 @@
     }
   }
 }
+
 
 @media only screen and (max-width: 480px) {
   .wrapper--all {
