@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import data from "../db/products.json";
 
 class HomePageProduct extends Component {
@@ -25,7 +25,6 @@ class HomePageProduct extends Component {
       });
       let availableGrids = [];
       lastNine.map((val, key) => {
-        
         if (key % 3 === 0) {
           availableGrids.push(key);
         }
@@ -52,12 +51,12 @@ class HomePageProduct extends Component {
               {this.retreiveItems(value).map((item, iItem) => (
                 <div key={iItem} className="single-item">
                   <div className="gray-bg">
-                    <Link to={`/products/${item.id}`} >
+                    <Link to={`/products/${item.id}`}>
                       <div className="ProductImage">
                         <img src={item.url} alt="" />
                       </div>
                       <div className="ProductInfo">
-                        <p>price: {item.price}</p>
+                        <p>price: {item.price} ₾</p>
                         <h3>{item.name}</h3>
                       </div>
                     </Link>

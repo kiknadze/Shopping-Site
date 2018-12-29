@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "antd";
 import ShowOrders from "./admin/ShowOrders";
-import { MyContext } from './MyContext';
+import { MyContext } from "./MyContext";
 
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
@@ -58,7 +58,7 @@ class Sidebar extends Component {
         })
         .catch(err => console.log(err));
   };
-  //edit profile 
+  //edit profile
   ShowProfile = () => {
     this.name = React.createRef();
     this.lastname = React.createRef();
@@ -77,7 +77,7 @@ class Sidebar extends Component {
     });
   };
   //update profile
-  editProfile = (e) => {
+  editProfile = e => {
     e.preventDefault();
     this.editUser(
       this.state.user.id,
@@ -130,8 +130,8 @@ class Sidebar extends Component {
   render() {
     return (
       <MyContext.Consumer>
-        {(context) =>
-          (<>
+        {context => (
+          <>
             <div className="sidebar">
               <div className="logo">
                 <Link to="/">
@@ -150,7 +150,7 @@ class Sidebar extends Component {
                     <Link to="/aboutus">About Us</Link>
                   </div>
                   <div>
-                    <Link to="/shop">Product</Link>
+                    <Link to="/shop">Products</Link>
                   </div>
                   <div>
                     <Link to="/contactus">Contact Us</Link>
@@ -159,7 +159,9 @@ class Sidebar extends Component {
               </div>
               {localStorage.getItem("User") ? (
                 <div className="sidebar-btn-group">
-                  <button className="menu__hi">Hi {this.state.user.name}</button>
+                  <button className="menu__hi">
+                    Hi {this.state.user.name}
+                  </button>
                   <button
                     className="menu__profile"
                     data-toggle="modal"
@@ -169,22 +171,22 @@ class Sidebar extends Component {
                     PROFILE
                   </button>
 
-                  {context.state.cart > 0 ?
-                    (<Link to="/checkout">
+                  {context.state.cart > 0 ? (
+                    <Link to="/checkout">
                       <button
                         className="menu__cart"
-                        style={{ "animation": "pulse 1s infinite", "color": "red" }}
-                      >CART<sup>{context.state.cart}</sup>
+                        style={{ animation: "pulse 1s infinite", color: "red" }}
+                      >
+                        CART<sup>{context.state.cart}</sup>
                       </button>
-                    </Link>)
-                    :
-                    (<Link to="/checkout">
-                      <button
-                        className="menu__cart"
-                      >CART<sup>{context.state.cart}</sup>
+                    </Link>
+                  ) : (
+                    <Link to="/checkout">
+                      <button className="menu__cart">
+                        CART<sup>{context.state.cart}</sup>
                       </button>
-                    </Link>)
-                  }
+                    </Link>
+                  )}
 
                   <button
                     className="menu__orders"
@@ -193,22 +195,21 @@ class Sidebar extends Component {
                     style={context.state.updateStyle}
                   >
                     ORDERS
-                    </button>
+                  </button>
                   <button className="menu__logout" onClick={this.logout}>
                     LOGOUT
                   </button>
                 </div>
-
               ) : (
-                  <div className="sidebar-btn-group">
-                    <Link to="/login">
-                      <button className="menu__login">LOGIN</button>
-                    </Link>
-                    <Link to="/login#profile">
-                      <button className="menu__register">REGISTRATION</button>
-                    </Link>
-                  </div>
-                )}
+                <div className="sidebar-btn-group">
+                  <Link to="/login">
+                    <button className="menu__login">LOGIN</button>
+                  </Link>
+                  <Link to="/login#profile">
+                    <button className="menu__register">REGISTRATION</button>
+                  </Link>
+                </div>
+              )}
               <div className="icons-list">
                 <Icon className="social" type="instagram" />
                 <Icon className="social" type="linkedin" />
@@ -306,22 +307,25 @@ class Sidebar extends Component {
                         >
                           PROFILE
                         </button>
-                        {context.state.cart > 0 ?
-                          (<Link to="/checkout">
+                        {context.state.cart > 0 ? (
+                          <Link to="/checkout">
                             <button
                               className="menu__cart"
-                              style={{ "animation": "pulse 1s infinite", "color": "red" }}
-                            >CART<sup>{context.state.cart}</sup>
+                              style={{
+                                animation: "pulse 1s infinite",
+                                color: "red"
+                              }}
+                            >
+                              CART<sup>{context.state.cart}</sup>
                             </button>
-                          </Link>)
-                          :
-                          (<Link to="/checkout">
-                            <button
-                              className="menu__cart"
-                            >CART<sup>{context.state.cart}</sup>
+                          </Link>
+                        ) : (
+                          <Link to="/checkout">
+                            <button className="menu__cart">
+                              CART<sup>{context.state.cart}</sup>
                             </button>
-                          </Link>)
-                        }
+                          </Link>
+                        )}
 
                         <button
                           className="menu__orders"
@@ -336,15 +340,17 @@ class Sidebar extends Component {
                         </button>
                       </div>
                     ) : (
-                        <div className="sidebar-btn-group">
-                          <Link to="/login">
-                            <button className="menu__login">LOGIN</button>
-                          </Link>
-                          <Link to="/login#profile">
-                            <button className="menu__register">REGISTRATION</button>
-                          </Link>
-                        </div>
-                      )}
+                      <div className="sidebar-btn-group">
+                        <Link to="/login">
+                          <button className="menu__login">LOGIN</button>
+                        </Link>
+                        <Link to="/login#profile">
+                          <button className="menu__register">
+                            REGISTRATION
+                          </button>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -409,7 +415,7 @@ class Sidebar extends Component {
                   <div className="modal-header profile--modal">
                     <h5 className="modal-title" id="exampleModalLabel">
                       PROFILE
-                </h5>
+                    </h5>
                     <button
                       type="button"
                       className="close"
@@ -536,16 +542,16 @@ class Sidebar extends Component {
                       data-dismiss="modal"
                     >
                       Close
-                </button>
+                    </button>
                     <button type="submit" className="btn btn-success">
                       Save changes
-                </button>
+                    </button>
                   </div>
                 </form>
               </div>
             </div>
-          </>)
-        }
+          </>
+        )}
       </MyContext.Consumer>
     );
   }
