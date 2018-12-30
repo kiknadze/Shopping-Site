@@ -39,18 +39,18 @@
   justify-content: space-around;
   align-items: flex-start;
   .contact--info {
-    a {
+    div {
       text-decoration: none;
       color: $gray;
+      &:hover {
+        color: $yellow;
+        cursor: grab;
+        transform: scale(1.05);
+        transition: 1s;
+      }
     }
     display: flex;
     justify-content: space-between;
-    &:hover {
-      a {
-        color: $yellow;
-        cursor: grab;
-      }
-    }
   }
   i {
     font-size: 20pt;

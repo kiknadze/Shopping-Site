@@ -129,7 +129,6 @@ const product = ({ match }) => (
 const notFoundPage = () => (
   <div>
     <Sidebar />
-    <Slider />
     <NotFoundPage />
     <ExtraFooter />
     <Footer />
