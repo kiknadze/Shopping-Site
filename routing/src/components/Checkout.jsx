@@ -21,6 +21,7 @@ export default class Checkout extends Component {
     }
 
     render() {
+        window.scrollTo(0, 0);
         //if order completed or user not logged in redirect main route
         if (this.state.redirect || userID === 0) {
             return <Redirect to="/" />

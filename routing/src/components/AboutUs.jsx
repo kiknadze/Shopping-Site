@@ -6,6 +6,7 @@ import PerMember from "./PerMember";
 
 class AboutUs extends Component {
   render() {
+    window.scrollTo(0, 0);
     return (
       <div className="aboutus--container--wrapper">
         <div className="aboutus--heading">

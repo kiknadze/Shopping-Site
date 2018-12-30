@@ -24,6 +24,7 @@ class ProductFilter extends Component {
     }
     componentDidMount() {
         this.GetProduct();
+        window.scrollTo(0, 0);
 
     }//get category from user
     handleClick = (e) => {
