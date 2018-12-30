@@ -78,16 +78,20 @@ module.exports = function(app) {
         fs.readFile(usersfileDB, function (err, data) {
             let json = JSON.parse(data);
             let index = json.findIndex(users => users.id == user.id);
-            for(let i=0; i < user.cart.length; i++) {
-                for(let j=0; j < json[index].orders.length; j++) {
-                    if(user.cart[i].id == json[index].orders[j].id) {
-                        json[index].orders[j].quantity += user.cart[i].quantity;
-                        break;
-                    } else if(j === json[index].orders.length - 1) {
-                        json[index].orders.push(user.cart[i])
+            if(json[index].orders.length === 0) {
+                json[index].orders = user.cart;
+            } else {
+                for(let i=0; i < user.cart.length; i++) {
+                    for(let j=0; j < json[index].orders.length; j++) {
+                        if(user.cart[i].id == json[index].orders[j].id) {
+                            json[index].orders[j].quantity += user.cart[i].quantity;
+                            break;
+                        } else if(j === json[index].orders.length - 1) {
+                            json[index].orders.push(user.cart[i])
+                        };
                     };
                 };
-            };
+            }
             user.orders = json[index].orders;
             user.cart = [];
             json[index] = user;

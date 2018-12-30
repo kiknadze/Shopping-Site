@@ -44,7 +44,7 @@
     "url": "https://images.pexels.com/photos/237393/pexels-photo-237393.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     "name": "Bed",
     "category": "4",
-    "desc": "Comfortable low bed",
+    "desc": "Comfortable low bed for evryon",
     "price": "2700",
     "color": "3",
     "material": "1"
@@ -158,16 +158,6 @@
     "price": "2700",
     "color": "3",
     "material": "1"
-  },
-  {
-    "id": "17",
-    "url": "https://images.pexels.com/photos/905198/pexels-photo-905198.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-    "name": "Mirror, Mirror",
-    "category": "3",
-    "desc": "Oval mirror, medium size",
-    "price": "280",
-    "color": "4",
-    "material": "4"
   },
   {
     "id": "18",

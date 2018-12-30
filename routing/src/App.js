@@ -221,6 +221,7 @@ class App extends Component {
             cart += Number(result.user.cart[i].quantity);
         }
         this.setState({user: result.user, cart})
+        this.totalPrice();
         confirmAlert({
           customUI: ({ onClose }) => {
             return (

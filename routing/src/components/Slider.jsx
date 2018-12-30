@@ -38,11 +38,11 @@ class Slider extends Component {
           </div>
           <div className="single-slide">
             <div className="info">
-              <span>description</span>
+              <span>Softness makes you happy</span>
             </div>
             <div className="image">
               <img
-                src="https://images.pexels.com/photos/280471/pexels-photo-280471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                src="imgs/members/homemariam.jpeg"
                 alt="#"
               />
             </div>

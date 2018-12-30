@@ -1,16 +1,1 @@
-[
-    {
-        "id": "1",
-        "productID": "1",
-        "userID": "1",
-        "username": "admin",
-        "message": "Very comfortable. Good price"
-    },
-    {
-        "id": "2",
-        "productID": "2",
-        "userID": "2",
-        "username": "temi",
-        "message": "nice"
-    }
-]
+[{"id":"1","productID":"1","userID":"1","username":"admin","message":"Very comfortable. Good price"},{"id":"2","productID":"2","userID":"2","username":"temi","message":"nice"},{"id":"3","productID":"17","userID":"5","username":"salome","message":"something"}]

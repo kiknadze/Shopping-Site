@@ -124,7 +124,6 @@ class Sidebar extends Component {
   logout = () => {
     localStorage.removeItem("User");
     this.setState({ user: {} });
-    window.location.reload();
   };
 
   render() {
