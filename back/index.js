@@ -36,7 +36,7 @@ const encrypt = data => {
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static("routing/build"));
- 
+
 //   app.get("*", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, "routing", "build", "index.html"));
 //   });
@@ -73,13 +73,16 @@ app.post("/register", (req, res) => {
 
   fs.readFile(usersfileDB, function(err, data) {
     let json = JSON.parse(data);
-    if(json.filter(user => user.email == email || user.username == username).length) {
-        res.json({reg: false, message: 'Email or Username Exist!'})
+    if (
+      json.filter(user => user.email == email || user.username == username)
+        .length
+    ) {
+      res.json({ reg: false, message: "Email or Username Exist!" });
     } else {
       json.push(user);
       fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
         if (err) res.json(json);
-        res.json({reg: true, message: 'You Successfully Register!'});
+        res.json({ reg: true, message: "You Successfully Register!" });
       });
       userID++;
     }
@@ -152,15 +155,7 @@ app.get("/db/category", (req, res) => {
 
 //edit user
 app.post("/editUser", (req, res) => {
-  let {
-    id,
-    name,
-    lastname,
-    password,
-    birthdate,
-    address,
-    balance
-  } = req.body;
+  let { id, name, lastname, password, birthdate, address, balance } = req.body;
 
   fs.readFile(usersfileDB, function(err, data) {
     let json = JSON.parse(data);
@@ -170,7 +165,7 @@ app.post("/editUser", (req, res) => {
     json[index].birthdate = birthdate;
     json[index].address = address;
     json[index].balance = balance;
-    if(password != '') {
+    if (password != "") {
       json[index].password = encrypt(password);
     }
     fs.writeFile(usersfileDB, JSON.stringify(json), function(err) {
