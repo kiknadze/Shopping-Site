@@ -64,4 +64,3 @@ npm start
 
 ## Example
 > http://localhost:3000
-# shopping-site
