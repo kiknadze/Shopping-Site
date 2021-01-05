@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.11.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jsonfile": "^5.0.0",
     "mdbreact": "^4.8.5-patch.1",
     "node-sass": "^4.11.0",
