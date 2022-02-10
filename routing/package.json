@@ -7,7 +7,7 @@
     "axios": "^0.18.0",
     "jsonfile": "^5.0.0",
     "mdbreact": "^4.8.5-patch.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
